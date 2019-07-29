@@ -1,7 +1,6 @@
 import React from 'react';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Header, Home, About, Delivery } from './components'
+import { Header, Home, About, Delivery, Error,Gallery } from './components'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
@@ -10,9 +9,11 @@ function App() {
             <div className="App">
                 <Header/>
                 <Switch>
-                    <Route path="/about" component={About}/>
-                    <Route path="/delivery" component={Delivery}/>
-                    <Route path="/" component={Home}/>
+                    <Route exact path="/about" component={About}/>
+                    <Route exact path="/delivery" component={Delivery}/>
+                    <Route exact path="/gallery" component={Gallery}/>
+                    <Route exact path="/" component={Home}/>
+                    <Route component={Error}/>
                 </Switch>
             </div>
         </Router>

@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import { Cards } from './Cards'
+import Cards from './Cards'
+import Jumbo from './Jumbo'
 
 class Delivery extends Component {
     render() {
         return (
-            <Cards/>
+            <React.Fragment>
+                <Jumbo/>
+                <Cards/>
+            </React.Fragment>
         );
     }
 }

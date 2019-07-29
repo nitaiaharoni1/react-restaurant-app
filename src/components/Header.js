@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, FormControl, Button, Form, NavDropdown } from 'react-bootstrap'
+import icon from '../assets/mama-icon.jpg'
 
 class Header extends Component {
     render() {
         return (
-            <Navbar collapseOnSelect expand="lg" bg="light" variant="light" sticky="top" className='py-3'>
-                <Navbar.Brand href="/">Mama's Restaurant</Navbar.Brand>
+            <Navbar collapseOnSelect expand="lg" className='py-3' bg="light" variant="light" sticky="top">
+                <Navbar.Brand href="/">
+                    <img
+                        src={icon}
+                        width="30"
+                        height="30"
+                        className="d-inline-block align-top mr-2"
+                        alt="Mama Icon"
+                    />
+                    {'Mama\'s Restaurant'}
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">

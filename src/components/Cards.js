@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { CardDeck, Card, Container, Row, Col } from 'react-bootstrap'
-import { Grid } from '@material-ui/core';
 
-import hamburger from '../assets/hamburger.jpg'
+//import hamburger from '../assets/hamburger.jpg'
 
 const defaultProps =
     [{
@@ -116,7 +115,7 @@ const defaultProps =
         about: 'Found in New Guinea, it is unsure how many of these birds there are.'
     }];
 
-export class Cards extends Component {
+export default class Cards extends Component {
 
     render() {
         const arr = defaultProps.slice(3);
@@ -125,7 +124,7 @@ export class Cards extends Component {
                 <Row>
                     <Col>
                         <Card className='md'>
-                            <Card.Img variant="top" src={hamburger}/>
+                            <Card.Img variant="top" src=''/>
                             <Card.Body>
                                 <Card.Title>Card title</Card.Title>
                                 <Card.Text>
@@ -140,7 +139,7 @@ export class Cards extends Component {
                     </Col>
                     <Col>
                         <Card className='md'>
-                            <Card.Img variant="top" src={hamburger}/>
+                            <Card.Img variant="top" src=''/>
                             <Card.Body>
                                 <Card.Title>Card title</Card.Title>
                                 <Card.Text>
@@ -155,7 +154,7 @@ export class Cards extends Component {
                     </Col>
                     <Col>
                         <Card className='md'>
-                            <Card.Img variant="top" src={hamburger}/>
+                            <Card.Img variant="top" src=''/>
                             <Card.Body>
                                 <Card.Title>Card title</Card.Title>
                                 <Card.Text>
