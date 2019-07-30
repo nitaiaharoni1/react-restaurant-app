@@ -4,8 +4,8 @@ import pic from '../assets/about_img.jpg'
 
 const Style = {
     backgroundImage: `url(${pic})`,
-};
-
+    height: '400px',
+}
 
 class Jumbo extends Component {
     render() {

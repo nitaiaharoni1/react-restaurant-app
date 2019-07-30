@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, FormControl, Button, Form, NavDropdown } from 'react-bootstrap'
-import icon from '../assets/mama-icon.jpg'
+import icon from '../assets/mama-icon.png'
 
 class Header extends Component {
+    state = {
+        color: true,
+    };
+
+    componentDidMount() {
+        document.addEventListener('scroll', () => {
+            const color = window.scrollY < 400;
+            if (color !== this.state.color) {
+                this.setState({'color': color})
+            }
+        });
+    }
+
     render() {
         return (
-            <Navbar collapseOnSelect expand="lg" className='py-3' bg="light" variant="light" sticky="top">
+            <Navbar collapseOnSelect className='navbar navbar-expand-lg fixed-top navbar-light py-2'
+                    bg={this.state.color ? 'transparent' : 'light'}>
                 <Navbar.Brand href="/">
                     <img
                         src={icon}
-                        width="30"
-                        height="30"
-                        className="d-inline-block align-top mr-2"
+                        width="40"
+                        height="40"
                         alt="Mama Icon"
                     />
                     {'Mama\'s Restaurant'}
