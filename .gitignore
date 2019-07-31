@@ -12,7 +12,7 @@
 /build
 
 .idea
-.iml
+*.iml
 
 # misc
 .DS_Store

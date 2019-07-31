@@ -8,15 +8,10 @@ class Header extends Component {
 
     render() {
         return (
-            <Navbar collapseOnSelect className='navbar navbar-expand-lg navbar-light py-2 text-capitalize' bg='light'
+            <Navbar collapseOnSelect className='navbar navbar-expand-lg navbar-light py-2 text-capitalize' bg='white'
                     variant='light' sticky='top'>
-                <Navbar.Brand href="/" className='ml-5'>
-                    <img
-                        src={icon}
-                        width="40"
-                        height="40"
-                        alt="Mama Icon"
-                    />
+                <Navbar.Brand c href="/" style={{paddingLeft: 200}} className='ml-5 font-weight-bold'>
+                    {/*<img src={icon} width="40" height="40" alt="Mama Icon" className='mr-1'/>*/}
                     {'Mama\'s Restaurant'}
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
