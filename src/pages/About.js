@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Jumbo from './Jumbo';
+import ParallaxCustom from '../components/ParallaxCustom';
 import pic from '../assets/about_img.jpg'
 import Container from "react-bootstrap/Container";
 
@@ -17,7 +17,7 @@ class About extends Component {
     render() {
         return (
             <React.Fragment>
-                <Jumbo/>
+                <ParallaxCustom/>
                 <Container>
                     <p>{text}</p>
                 </Container>

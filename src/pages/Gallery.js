@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Jumbo from './Jumbo'
+import ParallaxCustom from '../components/ParallaxCustom'
 
 class Gallery extends Component {
     render() {
         return (
-            <Jumbo>
-                
-            </Jumbo>
+            <ParallaxCustom>
+
+            </ParallaxCustom>
         );
     }
 }

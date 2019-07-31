@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Cards from './Cards'
-import Jumbo from './Jumbo'
+import Cards from '../components/Cards'
+import ParallaxCustom from '../components/ParallaxCustom'
 
 class Delivery extends Component {
     render() {
         return (
             <React.Fragment>
-                <Jumbo/>
+                <ParallaxCustom/>
                 <Cards/>
             </React.Fragment>
         );
