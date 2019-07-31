@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ParallaxCustom from '../components/ParallaxCustom';
-import pic from '../assets/about_img.jpg'
+import pic from '../assets/top_home.jpg'
 import Container from "react-bootstrap/Container";
 
 const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At in tellus integer feugiat scelerisque varius. Magna fermentum iaculis eu non diam phasellus vestibulum lorem. Habitasse platea dictumst vestibulum rhoncus est pellentesque. Arcu cursus vitae congue mauris rhoncus aenean vel. Etiam erat velit scelerisque in. Semper quis lectus nulla at volutpat diam ut. Nibh sed pulvinar proin gravida hendrerit lectus. Nisl nisi scelerisque eu ultrices. Sit amet justo donec enim diam vulputate ut pharetra. Congue eu consequat ac felis donec et odio pellentesque.\n" +

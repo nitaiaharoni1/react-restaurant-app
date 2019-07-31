@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import { Container } from "react-bootstrap";
+import { Container, CardDeck, Card, Row, Col } from "react-bootstrap";
 import ParallaxCustom from '../components/ParallaxCustom'
-import pic from '../assets/about_img.jpg'
-import CardDeck from "react-bootstrap/CardDeck";
-import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import top_home from '../assets/top_home.jpg'
+import sitting_home from '../assets/sitting_home.jpg'
+import kitchen_home from '../assets/kitchen_home.jpg'
+import card_home_1 from '../assets/card_home_1.jpg'
+import card_home_2 from '../assets/card_home_2.jpg'
+import card_home_3 from '../assets/card_home_3.jpg'
 
 class Home extends Component {
     render() {
         return (
             <div className='text-center my-auto justify-content-center'>
                 <ParallaxCustom title='Title' text='This is a modified jumbotron that occupies the entire horizontal space of
-                    its parent.' img={pic} height={800}/>
+                    its parent.' img={top_home} height={800}/>
 
                 <Container style={{height: 400}}>
                     <Row className='h-100'>
@@ -29,20 +30,20 @@ class Home extends Component {
                 </Container>
 
                 <ParallaxCustom title='Title' text='This is a modified jumbotron that occupies the entire horizontal space of
-                    its parent.' img={pic} buttonText='Button' height={600}/>
+                    its parent.' img={sitting_home} buttonText='Button' height={600}/>
 
                 <Container className='pt-5' style={{height: 600}}>
                     <Row className='h-50'>
                         <Col className="col-md-12 my-auto">
                             <CardDeck>
                                 <Card>
-                                    <Card.Img variant="top" src="holder.js/100px160"/>
+                                    <Card.Img variant="top" src={card_home_1}/>
                                 </Card>
                                 <Card>
-                                    <Card.Img variant="top" src="holder.js/100px160"/>
+                                    <Card.Img variant="top" src={card_home_2}/>
                                 </Card>
                                 <Card>
-                                    <Card.Img variant="top" src="holder.js/100px160"/>
+                                    <Card.Img variant="top" src={card_home_3}/>
                                 </Card>
                             </CardDeck>
                         </Col>
