@@ -6,7 +6,7 @@ class Home extends Component {
     render() {
         return (
             <React.Fragment>
-                <Jumbo title={} text={} img={}/>
+                <Jumbo title='Title' text={1} img={1}/>
                 <Container className='text-center my-auto justify-content-center'
                            style={{'height': 700, minHeight: 700}}>
                     <h2 className=''>A DESTINATION</h2>
@@ -16,7 +16,7 @@ class Home extends Component {
                         leo. Aenean lacinia bibendum nulla sed consectetur.
                     </p>
                 </Container>
-                <Jumbo title={} text={} img={} button={}/>
+                <Jumbo title='Fluid jumbotron' text={1} img={1} button={1}/>
 
             </React.Fragment>
 
