@@ -16,10 +16,10 @@ class ParallaxCustom extends Component {
                 <div style={{height: this.props.height}}>
                     <Row className='h-100'>
                         <Col className="col-md-12 my-auto">
-                            <h1 className='display-3 font-weight-bold'>
+                            <h1 className='display-3 font-weight-bold text-uppercase'>
                                 {this.props.title}
                             </h1>
-                            <p className='h2'>
+                            <p className='font-italic' style={{fontSize: 20}}>
                                 {this.props.text}
                             </p>
                             {displayBtn}

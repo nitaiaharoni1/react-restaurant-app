@@ -12,49 +12,69 @@ class Home extends Component {
     render() {
         return (
             <div className='text-center my-auto justify-content-center'>
-                <ParallaxCustom title='Title' text='This is a modified jumbotron that occupies the entire horizontal space of
-                    its parent.' img={top_home} height={800}/>
+                <ParallaxCustom title='home cuisine' text="Voted IDC's Best Thai Restaurant" img={top_home}
+                                height={800}/>
 
                 <Container style={{height: 400}}>
                     <Row className='h-100'>
-                        <Col className="col-md-12 my-auto">
-                            <h2>A DESTINATION</h2>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-                                lacus vel
-                                augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare
-                                vel eu
-                                leo. Aenean lacinia bibendum nulla sed consectetur.
+                        <Col className="m-auto">
+                            <h2 className='text-uppercase'>a destination</h2>
+                            <p className='m-auto' style={{fontSize: 20, maxWidth: 500}}>Praesent commodo
+                                cursus magna, vel scelerisque
+                                nisl consectetur et. Vivamus sagittis
+                                lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis
+                                ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur.
                             </p>
                         </Col>
                     </Row>
                 </Container>
 
-                <ParallaxCustom title='Title' text='This is a modified jumbotron that occupies the entire horizontal space of
-                    its parent.' img={sitting_home} buttonText='Button' height={600}/>
+                <ParallaxCustom title='eat together'
+                                text='Every plate achieves that elusive, cuisine-defining balance of sweet, salty, and sour — even dessert.'
+                                img={sitting_home} buttonText='Button' height={600}/>
 
                 <Container className='pt-5' style={{height: 600}}>
                     <Row className='h-50'>
-                        <Col className="col-md-12 my-auto">
+                        <Col className="m-auto">
                             <CardDeck>
                                 <Card>
-                                    <Card.Img variant="top" src={card_home_1}/>
+                                    <Card.Img src={card_home_1}/>
                                 </Card>
                                 <Card>
-                                    <Card.Img variant="top" src={card_home_2}/>
+                                    <Card.Img src={card_home_2}/>
                                 </Card>
                                 <Card>
-                                    <Card.Img variant="top" src={card_home_3}/>
+                                    <Card.Img src={card_home_3}/>
                                 </Card>
                             </CardDeck>
                         </Col>
                     </Row>
 
                     <h2>A DESTINATION</h2>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-                        lacus vel
-                        augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu
-                        leo. Aenean lacinia bibendum nulla sed consectetur.
-                    </p>
+                    <Row className='text-left m-auto' style={{fontSize: 15, maxWidth: 1000, color: 'grey'}}>
+                        <Col>
+                            <p>Praesent commodo cursus magna,
+                                Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at
+                                lobortis. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere
+                                consectetur est at lobortis. Maecenas faucibus mollis interdum. Nulla vitae elit libero,
+                                a pharetra augue. Cras justo odio, dapibus ac facilisis.
+                                Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo
+                                cursus magna, vel scelerisque nisl consectetur et. Aenean lacinia bibendum nulla sed
+                                consectetur.
+                            </p>
+                        </Col>
+
+                        <Col>
+                            <p>Praesent commodo cursus magna,
+                                Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis
+                                euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+                                fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum.
+                                Nulla vitae elit libero, a pharetra augue. Maecenas sed diam eget risus varius blandit
+                                sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Integer posuere
+                                erat a ante venenatis dapibus posuere velit luctus sem adipiscing elit.
+                            </p>
+                        </Col>
+                    </Row>
                 </Container>
             </div>
         );
