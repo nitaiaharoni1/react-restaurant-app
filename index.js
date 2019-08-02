@@ -3,7 +3,7 @@ const express = require('express'),
     bodyParser = require('body-parser');
 
 const app = express();
-const port = process.env.Port || 3000;
+const port = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use(bodyParser.json());
@@ -13,8 +13,8 @@ app.get('/hello', (req, res) => {
     res.send({express: 'Hello World!'})
 });
 
-app.get('*', (req, res) => {
-    res.sendfile(path.join(__dirname = 'client/build/index.html'));
-});
+// app.get('*', (req, res) => {
+//     res.sendfile(path.join(__dirname = 'client/build/index.html'));
+// });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
