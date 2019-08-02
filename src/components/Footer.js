@@ -8,7 +8,7 @@ class Footer extends Component {
             <Jumbotron className='m-auto text-left text-light h-100 bg-dark' style={{height: 150, fontSize: 20}}>
                 <Row className='pl-5 text-uppercase'>
                     <Col xs={1}/>
-                    <Col xs={8}>
+                    <Col xs={8} className='border-right'>
                         <p>LOCATIONS</p>
                     </Col>
                     <Col>
@@ -37,7 +37,12 @@ class Footer extends Component {
                             New York, NY — 10003
                             (917) 555-1234</p>
                     </Col>
-                    <Col xs={2}/>
+                    <Col xs={2} className='border-right'>
+                        <p className='w-75'>New Place
+                            14 New Street
+                            New Jersy, WD — 20587
+                            (923) 666-1234</p>
+                    </Col>
 
                     <Col xs={3}>
                         <p>Monday — Thursday
