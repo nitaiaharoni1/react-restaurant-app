@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Button from "react-bootstrap/Button";
-import { Parallax } from 'react-parallax';
+import {Parallax} from 'react-parallax';
 import Row from "react-bootstrap/Row";
-import { Container } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 
 class ParallaxCustom extends Component {
 
@@ -11,21 +11,22 @@ class ParallaxCustom extends Component {
         const displayBtn = this.props.buttonText && (
             <Button className='mt-5' size="lg" variant="outline-light">{this.props.buttonText}</Button>);
 
+
         return (
-            <Parallax className='jumbotron text-light text-center' bgImage={this.props.img} strength={400}>
-                <div style={{height: this.props.height}}>
+            <Parallax className='jumbotron text-light text-center bg-dark' bgImage={this.props.img} strength={400}>
+                <Container style={{height: this.props.height}}>
                     <Row className='h-100'>
-                        <Col className="col-md-12 my-auto">
+                        <Col className="m-auto">
                             <h1 className='display-3 font-weight-bold text-uppercase'>
                                 {this.props.title}
                             </h1>
-                            <p className='font-italic' style={{fontSize: 20}}>
+                            <p className='m-auto w-50' style={{fontSize: 20}}>
                                 {this.props.text}
                             </p>
                             {displayBtn}
                         </Col>
                     </Row>
-                </div>
+                </Container>
             </Parallax>
         );
     }

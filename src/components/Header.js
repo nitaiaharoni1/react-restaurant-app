@@ -8,25 +8,24 @@ class Header extends Component {
 
     render() {
         return (
-            <Navbar collapseOnSelect className='navbar navbar-expand-lg navbar-light py-2 text-capitalize' bg='white'
+            <Navbar collapseOnSelect className='navbar navbar-expand-lg navbar-light my-auto py-2 text-uppercase' bg='white'
                     variant='light' sticky='top'>
-                <Navbar.Brand c href="/" style={{paddingLeft: 200}} className='ml-5 font-weight-bold'>
+                <Navbar.Brand c href="/" style={{paddingLeft: 200}} className='font-weight-bold'>
                     {/*<img src={icon} width="40" height="40" alt="Mama Icon" className='mr-1'/>*/}
                     {'Mama\'s Restaurant'}
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-                <Navbar.Collapse className="h6" id="responsive-navbar-nav">
-                    <Nav className='ml-auto mr-5'>
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className='h6 ml-auto mr-5 my-auto'>
                         <Nav.Link href="delivery">delivery</Nav.Link>
                         <NavDropdown title="Menu" id="collasible-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">morning</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">lunch</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">evening</NavDropdown.Item>
                             <NavDropdown.Divider/>
-                            <NavDropdown.Item href="#action/3.4">separated link</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.2">lunch</NavDropdown.Item>
+                            <NavDropdown.Divider/>
+                            <NavDropdown.Item href="#action/3.3">evening</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link href="gallery">gallery</Nav.Link>
-                        <Nav.Link href="about">about us</Nav.Link>
                         <Nav.Link className='' style={{color: 'inherit'}} href="cart">
                             <Badge pill className='' variant="primary">{1} </Badge>
                             cart
