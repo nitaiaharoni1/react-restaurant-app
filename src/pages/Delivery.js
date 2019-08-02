@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Cards from '../components/Cards'
-import ParallaxCustom from '../components/ParallaxCustom'
+import CustomParallax from '../components/CustomParallax'
 
 class Delivery extends Component {
     render() {
         return (
             <React.Fragment>
-                <ParallaxCustom/>
+                <CustomParallax/>
                 <Cards/>
             </React.Fragment>
         );

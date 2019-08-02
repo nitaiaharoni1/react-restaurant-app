@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
-class ParallaxCustom extends Component {
+class CustomParallax extends Component {
 
     render() {
         const displayBtn = this.props.buttonText && (
@@ -13,7 +13,7 @@ class ParallaxCustom extends Component {
 
 
         return (
-            <Parallax className='jumbotron text-light text-center bg-dark' bgImage={this.props.img} strength={400}>
+            <Parallax className='jumbotron text-white shadow text-center bg-dark' bgImage={this.props.img} strength={400}>
                 <Container style={{height: this.props.height}}>
                     <Row className='h-100'>
                         <Col className="m-auto">
@@ -32,4 +32,4 @@ class ParallaxCustom extends Component {
     }
 }
 
-export default ParallaxCustom;
+export default CustomParallax;
