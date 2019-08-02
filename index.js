@@ -13,8 +13,8 @@ app.get('/hello', (req, res) => {
     res.send({express: 'Hello World!'})
 });
 
-// app.get('*', (req, res) => {
-//     res.sendfile(path.join(__dirname = 'client/build/index.html'));
-// });
+app.get('*', (req, res) => {
+    res.sendfile(path.join(__dirname = 'client/build/index.html'));
+});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
