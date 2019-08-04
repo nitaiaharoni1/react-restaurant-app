@@ -11,8 +11,7 @@ class ColumnsContainer extends Component {
                     </Col>
                 </Row>
                 <Row className='mt-3 text-left h-auto mb-4' style={{fontSize: '1.1em'}}>
-                    <Col className='d-none d-md-block' xs={1}/>
-                    <Col xs={5}>
+                    <Col className='mx-auto' md={5}>
                         <p>Praesent commodo cursus magna,
                             Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at
                             lobortis. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere
@@ -23,9 +22,8 @@ class ColumnsContainer extends Component {
                             consectetur.
                         </p>
                     </Col>
-                    <Col xs={1}/>
 
-                    <Col>
+                    <Col className='mx-auto' md={5}>
                         <p>Praesent commodo cursus magna,
                             Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis
                             euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
