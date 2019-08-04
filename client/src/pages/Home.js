@@ -6,6 +6,7 @@ import home_kitchen from '../assets/home_kitchen.jpg'
 import KitchenNames from "../components/KitchenNames";
 import HomeCards from "../components/HomeCards";
 import CustomContainer from "../components/CustomContainer";
+import ColumnsContainer from "../components/ColumnsContainer";
 
 class Home extends Component {
     render() {
@@ -17,6 +18,7 @@ class Home extends Component {
                                 text='Every plate achieves that elusive, cuisine-defining balance of sweet, salty, and sour — even dessert.'
                                 img={home_sitting} buttonText='Button' height='30em'/>
                 <HomeCards/>
+                <ColumnsContainer/>
                 <CustomParallax title='the kitchen' img={home_kitchen} height='40em'/>
                 <KitchenNames/>
             </React.Fragment>

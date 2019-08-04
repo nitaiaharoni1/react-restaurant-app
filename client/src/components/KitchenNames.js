@@ -4,9 +4,9 @@ import {Col, Container, Row} from "react-bootstrap";
 class KitchenNames extends Component {
     render() {
         return (
-            <Container className='text-left text-dark text-uppercase h-100'>
-                <Row className='pt-5' style={{height: '21em', maxWidth: 2000, fontSize: 18}}>
-                    <Col className='mb-auto'>
+            <Container className='text-left text-dark text-uppercase'>
+                <Row className='mt-5 h-auto mb-auto pb-5' style={{fontSize: '1.1em'}}>
+                    <Col>
                         <h2>LIZ GRISAITIS</h2>
                         <h5 className='text-secondary'>EXECUTIVE CHEF</h5>
                         <p className='text-lowercase'>Nullam quis risus eget urna mollis ornare vel eu leo.
@@ -18,7 +18,7 @@ class KitchenNames extends Component {
                         </p>
                     </Col>
 
-                    <Col className='mb-auto'>
+                    <Col>
                         <h2 >MATTEO CAPON
                         </h2>
                         <h5 className='text-secondary'>CHEF DE CUISINE </h5>
@@ -31,7 +31,7 @@ class KitchenNames extends Component {
                         </p>
                     </Col>
 
-                    <Col className='mb-auto'>
+                    <Col>
                         <h2 >ANGIE WALSH </h2>
                         <h5 className='text-secondary'>PASTRY CHEF </h5>
                         <p className='text-lowercase'>Cras justo odio, dapibus ac facilisis in, egestas eget
