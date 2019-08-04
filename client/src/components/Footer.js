@@ -6,8 +6,8 @@ class Footer extends Component {
     render() {
         return (
             <Jumbotron className='m-auto text-left text-light bg-dark h-auto'>
-                <Row className='pl-5 text-uppercase'>
-                    <Col xs={1}/>
+                <Row className='px-sm-5 text-uppercase'>
+                    <Col lg={1}/>
                     <Col xs={8} className='border-right'>
                         <p>LOCATIONS</p>
                     </Col>
@@ -15,8 +15,8 @@ class Footer extends Component {
                         <p>Hours</p>
                     </Col>
                 </Row>
-                <Row className='pl-5 text-capitalize'>
-                    <Col xs={1}/>
+                <Row className='px-sm-5 text-capitalize'>
+                    <Col lg={1}/>
 
                     <Col xs={2}>
                         <p className='w-50'>Brooklyn
@@ -44,7 +44,7 @@ class Footer extends Component {
                             (923) 666-1234</p>
                     </Col>
 
-                    <Col xs={3}>
+                    <Col>
                         <p>Monday — Thursday
                             <p>8am — 11pm </p>
                         </p>
