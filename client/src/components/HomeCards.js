@@ -7,7 +7,7 @@ import card_home_3 from "../assets/card_home_3.jpg";
 class HomeCards extends Component {
     render() {
         return (
-            <Container className="text-center m-auto" style={{height: 650}}>
+            <Container className="text-center m-auto">
                 <Row className="pt-2">
                     <Col>
                         <CardDeck>
@@ -28,8 +28,8 @@ class HomeCards extends Component {
                         <h2>A DESTINATION</h2>
                     </Col>
                 </Row>
-                <Row className='mt-3 text-left' style={{fontSize: 17}}>
-                    <Col xs={1}/>
+                <Row className='mt-3 text-left' style={{fontSize: '1em', height: '16em'}}>
+                    <Col className='d-none d-md-block' xs={1}/>
                     <Col xs={5}>
                         <p>Praesent commodo cursus magna,
                             Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at
@@ -43,7 +43,7 @@ class HomeCards extends Component {
                     </Col>
                     <Col xs={1}/>
 
-                    <Col xs={5}>
+                    <Col>
                         <p>Praesent commodo cursus magna,
                             Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis
                             euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut

@@ -5,7 +5,7 @@ class KitchenNames extends Component {
     render() {
         return (
             <Container className='text-left text-dark text-uppercase h-100'>
-                <Row className='pt-5' style={{height: 420, maxWidth: 2000, fontSize: 18}}>
+                <Row className='pt-5' style={{height: '21em', maxWidth: 2000, fontSize: 18}}>
                     <Col className='mb-auto'>
                         <h2>LIZ GRISAITIS</h2>
                         <h5 className='text-secondary'>EXECUTIVE CHEF</h5>
