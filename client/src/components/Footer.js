@@ -6,9 +6,9 @@ import Container from "react-bootstrap/Container";
 class Footer extends Component {
     render() {
         return (
-            <Jumbotron className='m-auto text-left text-light bg-dark h-auto'>
+            <Jumbotron className='text-left text-light bg-dark h-auto'>
                 <Container>
-                    <Row className='px-md-5'>
+                    <Row className='px-md-3'>
                         <Col xs={6} md={7} lg={9} className='border-right'>
                             <p className='text-uppercase'>LOCATIONS</p>
                             <Row className='text-capitalize'>
@@ -41,8 +41,8 @@ class Footer extends Component {
 
                         </Col>
                         <Col>
-                            <p className='text-uppercase'>Hours</p>
                             <Col>
+                                <p className='text-uppercase'>Hours</p>
                                 <p>Monday — Thursday
                                     <p>8am — 11pm </p>
                                 </p>

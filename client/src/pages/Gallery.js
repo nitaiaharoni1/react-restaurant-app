@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import CustomParallax from '../components/CustomParallax'
 import home_top from "../assets/home_top.jpg";
 import GridList from "@material-ui/core/GridList";
@@ -26,6 +26,16 @@ const tileData = [
 ];
 
 class Gallery extends Component {
+    updateD
+
+    constructor(props) {
+        super(props);
+        this.state = {};
+        window.addEventListener("resize", () => {
+            this.setState({width: window.innerWidth / 3});
+        });
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -35,8 +45,8 @@ class Gallery extends Component {
                     flexWrap: 'wrap',
                     justifyContent: 'space-around',
                     overflow: 'hidden',
-                }} >
-                    <GridList className='m-5 p-5' cellHeight={350} cols={6}>
+                }}>
+                    <GridList className='m-md-5 p-md-5 m-sm-2 p-sm-2 m-2 p-2' cellHeight={this.state.width} cols={6}>
                         {tileData.map(tile => (
                             <GridListTile key={tile.img} cols={tile.cols || 1}>
                                 <img src={tile.img} alt={tile.title}/>
