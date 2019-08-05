@@ -7,13 +7,13 @@ class Header extends Component {
     render() {
         return (
             <Navbar inline collapseOnSelect className='my-auto py-2 text-uppercase shadow' expand="lg" bg="white" sticky='top'>
-                <Navbar.Brand c href="/" className='pl-sm-5 font-weight-bold'>
+                <Navbar.Brand c href="/" className='ml-sm-5 pl-sm-5 font-weight-bold'>
                     Mama's Restaurant
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="h6 ml-auto mr-5">
-                        <Nav.Link className='my-auto' href="delivery">delivery</Nav.Link>
+                        <Nav.Link className='my-auto' href="delivery">Deliveries</Nav.Link>
                         <NavDropdown className='my-auto' title="Menu" id="collasible-nav-dropdown">
                             <NavDropdown.Item href="menu.lunch">lunch</NavDropdown.Item>
                             <NavDropdown.Divider/>

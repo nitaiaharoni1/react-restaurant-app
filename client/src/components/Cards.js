@@ -120,8 +120,8 @@ export default class Cards extends Component {
     render() {
         const arr = defaultProps.slice(3);
         return (
-            <Container>
-                <Row>
+            <Container className='m-auto'>
+                <Row className='m-lg-5 p-lg-3 m-sm-2 p-sm-2 m-2 p-2'>
                     <Col>
                         <Card className='md'>
                             <Card.Img variant="top" src=''/>

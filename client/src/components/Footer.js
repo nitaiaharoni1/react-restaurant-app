@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 class Footer extends Component {
     render() {
         return (
-            <Jumbotron className='text-left text-light bg-dark h-auto my-auto py-4'>
+            <Jumbotron className='text-left text-light bg-dark h-auto my-auto py-4 sticky-bottom'>
                 <Container>
                     <Row className='px-md-3'>
                         <Col xs={7} sm={8} className='border-right'>
