@@ -5,51 +5,39 @@ import GridList from "@material-ui/core/GridList";
 import img from '../assets/card_home_1.jpg'
 import GridListTile from "@material-ui/core/GridListTile";
 
-const tileData = [
-    {
-        img: img,
-        cols: 1,
-    }, {
-        img: img,
-        cols: 3,
-    }, {
-        img: img,
-        cols: 2,
-    }, {
-        img: img,
-        cols: 2,
-    }, {
-        img: img,
-        cols: 3,
-    }
-
-];
-
 class Gallery extends Component {
-    updateD
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            imgs: [],
+            width: window.innerWidth
+        };
         window.addEventListener("resize", () => {
-            this.setState({width: window.innerWidth / 3});
+            this.setState({width: window.innerWidth});
         });
     }
 
+    async componentDidMount() {
+        const res = await fetch('/api/gallery');
+        const images = (await res.json()).images;
+        images.forEach((obj) => {
+            obj.img = 'data:image/jpeg;base64,' + obj.img;
+            this.setState({imgs: [...this.state.imgs, obj]})
+        })
+    }
+
     render() {
+        const col = this.state.width > 700 ? 3 : 2;
+
         return (
             <React.Fragment>
                 <CustomParallax title='Gallery' img={home_top} height={300}/>
-                <div className={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    justifyContent: 'space-around',
-                    overflow: 'hidden',
-                }}>
-                    <GridList className='m-md-5 p-md-5 m-sm-2 p-sm-2 m-2 p-2' cellHeight={this.state.width} cols={6}>
-                        {tileData.map(tile => (
-                            <GridListTile key={tile.img} cols={tile.cols || 1}>
-                                <img src={tile.img} alt={tile.title}/>
+                <div className={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', overflow: 'hidden'}}>
+                    <GridList className='m-lg-5 p-lg-3 m-sm-2 p-sm-2 m-2 p-2' cellHeight={Math.floor(this.state.width / col)} cols={col}>
+                        {this.state.imgs.map(img => (
+                            <GridListTile key={img.key} cols={img.cols || 1}>
+                                <img src={img.img}/>
                             </GridListTile>
                         ))}
                     </GridList>

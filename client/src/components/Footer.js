@@ -6,10 +6,10 @@ import Container from "react-bootstrap/Container";
 class Footer extends Component {
     render() {
         return (
-            <Jumbotron className='text-left text-light bg-dark h-auto'>
+            <Jumbotron className='text-left text-light bg-dark h-auto my-auto py-4'>
                 <Container>
                     <Row className='px-md-3'>
-                        <Col xs={6} md={7} lg={9} className='border-right'>
+                        <Col xs={7} sm={8} className='border-right'>
                             <p className='text-uppercase'>LOCATIONS</p>
                             <Row className='text-capitalize'>
                                 <Col lg={3}>
@@ -30,12 +30,6 @@ class Footer extends Component {
                                         25 Fake Street
                                         New York, NY — 10003
                                         (917) 555-1234</p>
-                                </Col>
-                                <Col lg={3}>
-                                    <p>New Place
-                                        14 New Street
-                                        New Jersy, WD — 20587
-                                        (923) 666-1234</p>
                                 </Col>
                             </Row>
 

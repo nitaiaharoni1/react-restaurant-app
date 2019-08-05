@@ -2,7 +2,7 @@
   "name": "mamas_restaurant",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000/",
+    "proxy": "http://localhost:3005/",
   "dependencies": {
     "@material-ui/core": "^4.2.1",
     "bootstrap": "^4.3.1",
