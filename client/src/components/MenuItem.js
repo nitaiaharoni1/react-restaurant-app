@@ -14,7 +14,6 @@ class MenuItem extends Component {
     }
 
     render() {
-
         const className = (this.state.width > 992 ? 'border-right' : 'border-bottom') + ' px-md-5 px-4';
         return (
             <Col key={this.props.title} lg={4} className={className}>
