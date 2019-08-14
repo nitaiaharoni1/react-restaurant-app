@@ -26,7 +26,7 @@ class DeliveryMenu extends Component {
                 <Row/>
 
                 <h1 className='text-center text-uppercase pt-5'>deserts</h1>
-                <Row className='pb-3'>
+                <Row className='pb-5'>
                     {this.props.menuItems.deserts.map(item => (
                         <DeliveryCard img={item.img} title={item.title} price={item.price} description={item.description}/>
                     ))}
