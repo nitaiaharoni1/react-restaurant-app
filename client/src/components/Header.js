@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, FormControl, Button, Form, NavDropdown } from 'react-bootstrap'
-import Badge from "react-bootstrap/Badge";
-import { FaShoppingCart } from "react-icons/fa";
+import HoverPopup from './HoverPopup';
 
 class Header extends Component {
-
     render() {
         return (
             <Navbar inline collapseOnSelect className='my-auto py-2 text-uppercase shadow' expand="lg" bg="white" sticky='top'>
@@ -24,11 +22,7 @@ class Header extends Component {
                     </Nav>
                     <Nav className="ml-auto mr-sm-5 pr-sm-5">
                         <Nav.Link className='my-auto text-dark' href="cart">
-                            <Button variant="dark" style={{position: 'relative'}}>
-                                Cart
-                                <FaShoppingCart className='ml-2' size='1.5em'/>
-                                <Badge style={{position: 'absolute', top: -8, right: -8}} pill variant="warning">{1} </Badge>
-                            </Button>
+                            <HoverPopup/>
                         </Nav.Link>
                         <Form className='my-auto ml-lg-2 mr-lg-4' inline>
                             <FormControl style={{maxWidth: '14em'}} type="text" placeholder="Search"/>
