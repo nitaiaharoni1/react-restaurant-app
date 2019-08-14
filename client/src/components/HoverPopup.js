@@ -17,27 +17,17 @@ class HoverPopup extends Component {
         }
     }
 
-    delayHide = () => {
-        this.interval = setTimeout(this._toggle, 300);
-    };
-
-    componentWillUnmount = () => {
-        clearTimeout(this.interval);
-    };
-
     _toggle = () => {
-        clearTimeout(this.interval);
         this.setState({show: !this.state.show});
     };
 
     _show = () => {
-        clearTimeout(this.interval);
         this.setState({show: true});
     };
 
     render() {
         const popup =
-            <Popover style={{width: 300}} className='text-dark' onMouseOver={this._show} onMouseLeave={this._toggle}
+            <Popover style={{width: 300}} className='text-dark' onMouseOver={this._show} onMouseOut={this._toggle}
                      title="Some title text">
                 <Popover.Content>
                     <ScrollArea speed={0.3} className="area" style={{maxHeight: 400}} contentClassName="content" horizontal={false}>
@@ -61,7 +51,7 @@ class HoverPopup extends Component {
 
         return (
             <div>
-                <Button variant="dark" style={{position: 'relative'}} ref="target" onMouseOver={this._toggle} onMouseOut={this.delayHide}>
+                <Button variant="dark" style={{position: 'relative'}} ref="target" onMouseOver={this._toggle} onMouseOut={this._toggle}>
                     My Cart
                     <FaShoppingCart className='ml-2' size='1.5em'/>
                     <Badge style={{position: 'absolute', top: -8, right: -8}} pill variant="warning">{1} </Badge>
