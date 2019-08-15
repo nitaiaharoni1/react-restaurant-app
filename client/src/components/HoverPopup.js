@@ -8,6 +8,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { Form } from "react-bootstrap";
 import ScrollArea from "react-scrollbar";
 import HoverPopupItem from './HoverPopupItem'
+import { Link } from "react-router-dom";
 
 class HoverPopup extends Component {
     constructor(props) {
@@ -36,7 +37,9 @@ class HoverPopup extends Component {
                 </Popover.Content>
                 <Popover.Title as="h2">
                     <Form className='mx-4 d-flex justify-content-between'>
-                        <Button variant='dark'>Show Cart</Button>
+                        <Link to='/cart'>
+                            <Button variant='dark'>Show Cart</Button>
+                        </Link>
                         <Button variant='dark'>Pay</Button>
                     </Form>
                 </Popover.Title>
@@ -51,11 +54,13 @@ class HoverPopup extends Component {
 
         return (
             <div>
-                <Button variant="dark" style={{position: 'relative'}} ref="target" onMouseOver={this._toggle} onMouseOut={this._toggle}>
-                    My Cart
-                    <FaShoppingCart className='ml-2' size='1.5em'/>
-                    <Badge style={{position: 'absolute', top: -8, right: -8}} pill variant="warning">{1} </Badge>
-                </Button>
+                <Link to='/cart'>
+                    <Button variant="dark" style={{position: 'relative'}} ref="target" onMouseOver={this._toggle} onMouseOut={this._toggle}>
+                        My Cart
+                        <FaShoppingCart className='ml-2' size='1.5em'/>
+                        <Badge style={{position: 'absolute', top: -8, right: -8}} pill variant="warning">{1} </Badge>
+                    </Button>
+                </Link>
                 <Overlay {...sharedProps} placement="bottom">{popup}</Overlay>
             </div>
         );

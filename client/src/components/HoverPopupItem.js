@@ -3,8 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import { IoMdClose } from "react-icons/io";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import Button from "react-bootstrap/Button";
+import CustomButtonGroup from "./CustomButtonGroup";
 
 class HoverPopupItem extends Component {
     render() {
@@ -34,11 +33,7 @@ class HoverPopupItem extends Component {
                     </Row>
 
                     <Row className='mt-1 ml-0'>
-                        <ButtonGroup variant="outline-dark">
-                            <Button variant="outline-dark" onClick={this.handleClickMinus}> - </Button>
-                            <Button className='disabled' variant="outline-dark">2</Button>
-                            <Button className='py-2' variant="outline-dark" onClick={this.handleClickPlus}> + </Button>
-                        </ButtonGroup>
+                        <CustomButtonGroup/>
                     </Row>
                 </Col>
             </Row>

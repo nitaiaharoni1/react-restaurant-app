@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import CustomParallax from "../../components/CustomParallax";
 import menu_top from "../../assets/menu_top.jpg";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-import MenuItem from "../../components/MenuItem";
 import Menu from "../../components/Menu";
 
 const eveningMenuItems = {

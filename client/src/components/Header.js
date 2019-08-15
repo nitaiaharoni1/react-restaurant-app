@@ -21,7 +21,7 @@ class Header extends Component {
                         <Nav.Link className='my-auto' href="gallery">gallery</Nav.Link>
                     </Nav>
                     <Nav className="ml-auto mr-sm-5 pr-sm-5">
-                        <Nav.Link className='my-auto text-dark' href="cart">
+                        <Nav.Link className='my-auto text-dark'>
                             <HoverPopup/>
                         </Nav.Link>
                         <Form className='my-auto ml-lg-2 mr-lg-4' inline>
