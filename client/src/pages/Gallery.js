@@ -22,7 +22,6 @@ class Gallery extends Component {
         const res = await fetch('/api/gallery', {
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
             }
         });
         const images = (await res.json()).images;
