@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import CustomParallax from '../components/CustomParallax'
 import home_top from "../assets/home_top.jpg";
 import GridList from "@material-ui/core/GridList";
@@ -19,7 +19,12 @@ class Gallery extends Component {
     }
 
     async componentDidMount() {
-        const res = await fetch('/api/gallery');
+        const res = await fetch('/api/gallery', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        });
         const images = (await res.json()).images;
         images.forEach((obj) => {
             obj.img = 'data:image/jpeg;base64,' + obj.img;
