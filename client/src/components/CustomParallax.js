@@ -20,7 +20,7 @@ class CustomParallax extends Component {
                             <h1 className='display-4 font-weight-bold text-uppercase'>
                                 {this.props.title}
                             </h1>
-                            <p className='m-auto w-50' style={{fontSize: '1.2em'}}>
+                            <p className='m-auto w-75' style={{fontSize: '1.2em'}}>
                                 {this.props.text}
                             </p>
                             {displayBtn}

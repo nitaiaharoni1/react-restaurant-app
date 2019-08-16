@@ -7,13 +7,13 @@ import CustomButtonGroup from "./CustomButtonGroup";
 export default class DeliveryCard extends Component {
 
     render() {
-        const height = window.innerHeight < 1200 ? '13em' : '18em';
+        const height = window.innerHeight < 1200 ? (window.innerHeight < 400 ? '10em': '13em'): '18em';
 
         return (
-            <Col xs={12} sm={6} md={4} lg={3} className='mt-4'>
-                <Card className='h-100'>
-                    <Card.Body>
-                        <Card.Title>
+            <Col xs={10} sm={6} md={4} lg={3} className='mx-auto mx-sm-0 mt-4'>
+                <Card className='h-100' border="dark">
+                    <Card.Body className='py-3'>
+                        <Card.Title >
                             <Row>
                                 <Col xs={7} className='text-capitalize'>{this.props.title}</Col>
                                 <Col className='text-right px-0'>
@@ -27,8 +27,8 @@ export default class DeliveryCard extends Component {
                             {this.props.description}
                         </Card.Text>
                     </Card.Body>
-                    <CustomButtonGroup/>
                     <Card.Img variant="top" style={{objectFit: 'cover', height: height}} src={this.props.img}/>
+                    <CustomButtonGroup/>
 
                 </Card>
             </Col>
