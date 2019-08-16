@@ -10,10 +10,6 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('*', (req, res) => {
-    res.sendfile(path.join(__dirname = 'client/build/index.html'));
-});
-
 app.get('/api/gallery', async (req, res) => {
     console.log('get /api/gallery');
     let images = await fs.readdir('./server_assets');
@@ -23,5 +19,10 @@ app.get('/api/gallery', async (req, res) => {
     }
     res.send({images: images});
 });
+
+app.get('*', (req, res) => {
+    res.sendfile(path.join(__dirname = 'client/build/index.html'));
+});
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
