@@ -1,41 +1,50 @@
 import React, { Component } from 'react';
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
+import { connect } from "react-redux";
 
 class CustomButtonGroup extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            num: 0
-        }
-    }
-
-    handleClickPlus = () => {
-        this.setState({num: ++this.state.num});
-    };
-
-    handleClickMinus = () => {
-        this.setState((state) => {
-            if (state.num > 0) {
-                return {num: --this.state.num}
-            }
-        });
-    };
-
     render() {
         const addCartElement =
-            <Button className='py-2' variant="outline-dark" onClick={this.handleClickPlus}>
+            <Button className='py-2' variant="outline-dark" onClick={() => this.props.Add(1, this.props.title)}>
                 Add to Cart
             </Button>;
         const plusMinusElement =
             <ButtonGroup variant="outline-dark">
-                <Button variant="outline-dark" onClick={this.handleClickMinus}> - </Button>
-                <Button className='disabled' variant="outline-dark">{this.state.num}</Button>
-                <Button className='py-2' variant="outline-dark" onClick={this.handleClickPlus}> + </Button>
+                <Button variant="outline-dark" onClick={() => this.props.Sub(1, this.props.title)}> - </Button>
+                <Button className='disabled'
+                        variant="outline-dark">{this.props.cart[this.props.title] ? this.props.cart[this.props.title] : 0}</Button>
+                <Button className='py-2' variant="outline-dark" onClick={() => this.props.Add(1, this.props.title)}> + </Button>
             </ButtonGroup>;
-        return (this.state.num === 0) ? addCartElement : plusMinusElement;
+        const item = this.props.cart[this.props.title];
+        return (item === 0 || !item) ? addCartElement : plusMinusElement;
     }
 }
 
-export default CustomButtonGroup;
+const mapStateToProps = (state) => {
+    return {
+        cart: state.cart.items
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        Add: (num, title) => {
+            dispatch({
+                type: "ADD",
+                num: num,
+                title: title
+            })
+        },
+        Sub: (num, title) => {
+            dispatch({
+                type: "SUB",
+                num: num,
+                title: title
+            })
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CustomButtonGroup)
+

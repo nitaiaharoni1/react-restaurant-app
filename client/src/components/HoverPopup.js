@@ -9,6 +9,9 @@ import { Form } from "react-bootstrap";
 import ScrollArea from "react-scrollbar";
 import HoverPopupItem from './HoverPopupItem'
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import DeliveryCard from "./DeliveryCard";
+import Row from "react-bootstrap/Row";
 
 class HoverPopup extends Component {
     constructor(props) {
@@ -33,6 +36,11 @@ class HoverPopup extends Component {
                 <Popover.Content>
                     <ScrollArea speed={0.3} className="area" style={{maxHeight: 400}} contentClassName="content" horizontal={false}>
                         <HoverPopupItem/>
+
+                        {this.props.cart.map(item => (
+                            <HoverPopupItem/>
+                        ))}
+
                     </ScrollArea>
                 </Popover.Content>
                 <Popover.Title as="h2">
@@ -67,4 +75,10 @@ class HoverPopup extends Component {
     }
 }
 
-export default HoverPopup;
+const mapStateToProps = (state) => {
+    return {
+        cart: state.cart.items
+    }
+};
+
+export default connect(mapStateToProps)(HoverPopup)

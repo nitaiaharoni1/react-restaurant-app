@@ -1,9 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import CustomParallax from '../components/CustomParallax'
 import home_top from "../assets/home_top.jpg";
 import GridList from "@material-ui/core/GridList";
 import img from '../assets/card_home_1.jpg'
 import GridListTile from "@material-ui/core/GridListTile";
+import Spinner from "react-bootstrap/Spinner";
+import Container from "react-bootstrap/Container";
 
 class Gallery extends Component {
 
@@ -11,6 +13,7 @@ class Gallery extends Component {
         super(props);
         this.state = {
             imgs: [],
+            loading: true,
             width: window.innerWidth
         };
         window.addEventListener("resize", () => {
@@ -19,11 +22,7 @@ class Gallery extends Component {
     }
 
     async componentDidMount() {
-        const res = await fetch('/api/gallery', {
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        });
+        const res = await fetch('/api/gallery');
         const images = (await res.json()).images;
         images.forEach((obj) => {
             obj.img = 'data:image/jpeg;base64,' + obj.img;
@@ -33,19 +32,26 @@ class Gallery extends Component {
 
     render() {
         const col = this.state.width > 700 ? 3 : 2;
+        const gallery = this.state.loading ?
+            <Container style={{height: 400}} className='text-center align-middle my-5 py-5'>
+                <Spinner animation="border" role="status"/>
+            </Container>
+            :
+            <div className={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', overflow: 'hidden'}}>
+                <GridList className='m-lg-5 p-lg-3 m-sm-2 p-sm-2 m-2 p-2' cellHeight={Math.floor(this.state.width / col)} cols={col}>
+                    {this.state.imgs.map(img => (
+                        <GridListTile key={img.key} cols={img.cols || 1}>
+                            <img src={img.img}/>
+                        </GridListTile>
+                    ))}
+                </GridList>
+            </div>
+        ;
 
         return (
             <React.Fragment>
                 <CustomParallax title='Gallery' img={home_top} height={300}/>
-                <div className={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', overflow: 'hidden'}}>
-                    <GridList className='m-lg-5 p-lg-3 m-sm-2 p-sm-2 m-2 p-2' cellHeight={Math.floor(this.state.width / col)} cols={col}>
-                        {this.state.imgs.map(img => (
-                            <GridListTile key={img.key} cols={img.cols || 1}>
-                                <img src={img.img}/>
-                            </GridListTile>
-                        ))}
-                    </GridList>
-                </div>
+                {gallery}
             </React.Fragment>
         );
     }
