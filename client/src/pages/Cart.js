@@ -21,19 +21,12 @@ class Cart extends Component {
                 <CustomParallax title='Cart' img={home_top} height={300}/>
                 <Container className='my-auto py-5'>
                     <Row>
-                        <Col className='d-flex' xs={8}>
-                            <h4 className='text-uppercase mr-2 my-auto'>My Cart</h4>
-                            <p className='my-auto' style={{fontSize: '1.05em'}}>({this.props.total} Products)</p>
-                        </Col>
-                        <Col xs={1}/>
-                        <Col xs={3}>
-                            <h4 className='text-uppercase my-auto'>Total</h4>
-                        </Col>
-                    </Row>
-
-                    <Row className='pb-5 mb-5 mt-3'>
-                        <Col xs={8}>
-                            <Table responsive>
+                        <Col xs={12} lg={8}>
+                            <div className='d-flex'>
+                                <h4 className='text-uppercase mr-2 my-auto'>My Cart</h4>
+                                <p className='my-auto' style={{fontSize: '1.05em'}}>({this.props.total} Products)</p>
+                            </div>
+                            <Table className='mt-3' responsive>
                                 <thead>
                                 <tr>
                                     <th></th>
@@ -51,9 +44,10 @@ class Cart extends Component {
                                 </tbody>
                             </Table>
                         </Col>
-                        <Col xs={1}/>
-                        <Col>
-                            <Table responsive>
+
+                        <Col className='ml-lg-3 mt-4 mt-lg-0' xs={12} lg={3}>
+                            <h4 className='text-uppercase my-auto'>Total</h4>
+                            <Table className='mt-3'>
                                 <tbody>
 
                                 <tr>
