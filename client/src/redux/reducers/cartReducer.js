@@ -12,7 +12,6 @@ const initialState = {
         },
         'Gai Of Nuur Satay': {
             num: 0,
-
             img: 'https://www.kuechengoetter.de/uploads/media/960x960/07/47607-satay-spiesschen-mit-erdnusssauce-gai-satay-sai-salad-daeng-gwa.jpg?v=1-0',
             title: 'Gai Of Nuur Satay',
             price: '4.95',
@@ -119,7 +118,7 @@ export default (state = initialState, action) => {
             state = {
                 ...state,
                 total: state.total + action.num,
-                totalPrice: Math.round((state.totalPrice + (state.items[action.title].price * action.num)) * 100) / 100,
+                totalPrice: state.totalPrice + (state.items[action.title].price * action.num),
                 items: {
                     ...state.items,
                     [action.title]: {
@@ -133,7 +132,7 @@ export default (state = initialState, action) => {
             state = {
                 ...state,
                 total: state.total - action.num,
-                totalPrice: Math.round((state.totalPrice - (state.items[action.title].price * action.num)) * 100) / 100,
+                totalPrice: state.totalPrice - (state.items[action.title].price * action.num),
                 items: {
                     ...state.items,
                     [action.title]: {
@@ -147,7 +146,7 @@ export default (state = initialState, action) => {
             state = {
                 ...state,
                 total: state.total - state.items[action.title].num,
-                totalPrice: Math.round((state.totalPrice - (state.items[action.title].num * state.items[action.title].price)) * 100) / 100,
+                totalPrice: state.totalPrice - (state.items[action.title].num * state.items[action.title].price),
                 items: {
                     ...state.items,
                     [action.title]: {

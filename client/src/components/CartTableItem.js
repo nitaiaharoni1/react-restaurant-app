@@ -12,13 +12,13 @@ class CartTableItem extends Component {
                     <FiTrash2 className='mr-2 shadow-sm' size='1.2em' onClick={() => this.props.Zero(this.props.title)}/>
                 </td>
                 <td className='align-middle'>
-                    <Image style={{height: 50, width: 50}}
+                    <Image style={{height: 110, width: 110}}
                            src={this.props.img} rounded/>
                 </td>
                 <td className='align-middle'>{this.props.title}</td>
                 <td className='align-middle'>${this.props.price}</td>
                 <td className='align-middle'><CustomButtonGroup title={this.props.title} num={this.props.num}/></td>
-                <td className='align-middle'>${Math.round((this.props.price * this.props.num) * 100) / 100}</td>
+                <td className='align-middle'>${this.props.round(this.props.price * this.props.num)}</td>
             </tr>
         );
     }

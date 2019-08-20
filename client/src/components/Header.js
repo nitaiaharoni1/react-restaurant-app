@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { Navbar, Nav, FormControl, Button, Form, NavDropdown } from 'react-bootstrap'
+import React, {Component} from 'react';
+import {Navbar, Nav, FormControl, Button, Form, NavDropdown} from 'react-bootstrap'
 import HoverPopup from './HoverPopup';
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import {connect} from "react-redux";
+import {Link} from "react-router-dom";
 
 class Header extends Component {
     render() {
         return (
             <Navbar inline collapseOnSelect className='my-auto py-2 text-uppercase shadow' expand="lg" bg="white" sticky='top'>
-                <Navbar.Brand className='nav-link ml-sm-5 pl-sm-5 font-weight-bold'>
+                <Navbar.Brand className='nav-link pl-0 ml-sm-5 pl-sm-5 font-weight-bold'>
                     <Link to='' className='text-dark'>
                         Mama's Restaurant
                     </Link>
@@ -21,18 +21,18 @@ class Header extends Component {
                                 Deliveries
                             </Link>
                         </Nav.Link>
-                        <NavDropdown className='my-auto' title="Menu" id="collasible-nav-dropdown">
-                            <Link to='menu.lunch' className='text-secondary ml-3'>
-                                lunch
-                            </Link>
+                            <NavDropdown className='my-auto text-dark' title='MENU' id="collasible-nav-dropdown">
+                                <Link to='menu.lunch' className='text-secondary ml-3'>
+                                    lunch
+                                </Link>
 
-                            <NavDropdown.Divider/>
+                                <NavDropdown.Divider/>
 
-                            <Link to='menu.evening' className='text-secondary ml-3'>
-                                evening
-                            </Link>
+                                <Link to='menu.evening' className='text-secondary ml-3'>
+                                    evening
+                                </Link>
 
-                        </NavDropdown>
+                            </NavDropdown>
                         <Nav.Link className='my-auto'>
                             <Link to='gallery' className='text-secondary'>
                                 gallery
