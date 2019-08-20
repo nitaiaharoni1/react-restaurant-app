@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, FormControl, Button, Form, NavDropdown } from 'react-bootstrap'
 import HoverPopup from './HoverPopup';
+import { connect } from "react-redux";
 
 class Header extends Component {
     render() {

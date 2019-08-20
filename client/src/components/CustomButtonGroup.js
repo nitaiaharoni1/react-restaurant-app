@@ -6,45 +6,39 @@ import { connect } from "react-redux";
 class CustomButtonGroup extends Component {
     render() {
         const addCartElement =
-            <Button className='py-2' variant="outline-dark" onClick={() => this.props.Add(1, this.props.title)}>
+            <Button className='py-2' variant="outline-dark" onClick={() => this.props.Add(this.props.title, 1)}>
                 Add to Cart
             </Button>;
         const plusMinusElement =
             <ButtonGroup variant="outline-dark">
-                <Button variant="outline-dark" onClick={() => this.props.Sub(1, this.props.title)}> - </Button>
+                <Button variant="outline-dark" onClick={() => this.props.Sub(this.props.title, 1)}> - </Button>
                 <Button className='disabled'
-                        variant="outline-dark">{this.props.cart[this.props.title] ? this.props.cart[this.props.title] : 0}</Button>
-                <Button className='py-2' variant="outline-dark" onClick={() => this.props.Add(1, this.props.title)}> + </Button>
+                        variant="outline-dark">{this.props.num ? this.props.num : 0}</Button>
+                <Button className='py-2' variant="outline-dark" onClick={() => this.props.Add(this.props.title, 1)}> + </Button>
             </ButtonGroup>;
-        const item = this.props.cart[this.props.title];
-        return (item === 0 || !item) ? addCartElement : plusMinusElement;
+        const num = this.props.num;
+        return (!num || num === 0) ? addCartElement : plusMinusElement;
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        cart: state.cart.items
-    }
-};
-
 const mapDispatchToProps = (dispatch) => {
     return {
-        Add: (num, title) => {
+        Add: (title, num) => {
             dispatch({
                 type: "ADD",
-                num: num,
-                title: title
+                title: title,
+                num: num
             })
         },
-        Sub: (num, title) => {
+        Sub: (title, num) => {
             dispatch({
                 type: "SUB",
-                num: num,
-                title: title
+                title: title,
+                num: num
             })
         }
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CustomButtonGroup)
+export default connect(null, mapDispatchToProps)(CustomButtonGroup);
 

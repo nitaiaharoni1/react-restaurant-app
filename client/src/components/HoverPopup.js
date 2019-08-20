@@ -29,20 +29,27 @@ class HoverPopup extends Component {
         this.setState({show: true});
     };
 
+    HoverPopupItemRender = (title) => <HoverPopupItem img={this.props.items[title].img} title={this.props.items[title].title}
+                                                      price={this.props.items[title].price} num={this.props.items[title].num}/>;
+
+
     render() {
+
         const popup =
-            <Popover style={{width: 300}} className='text-dark' onMouseOver={this._show} onMouseOut={this._toggle}
+            <Popover className='text-dark' style={{width: 300}} onMouseOver={this._show} onMouseOut={this._toggle}
                      title="Some title text">
                 <Popover.Content>
                     <ScrollArea speed={0.3} className="area" style={{maxHeight: 400}} contentClassName="content" horizontal={false}>
-                        <HoverPopupItem/>
-
-                        {this.props.cart.map(item => (
-                            <HoverPopupItem/>
-                        ))}
-
+                        {Object.keys(this.props.items).map(title =>
+                            (this.props.items[title].num > 0) ? this.HoverPopupItemRender(title) : null
+                        )}
                     </ScrollArea>
                 </Popover.Content>
+                <Popover.Title className='text-center' as="h2">
+                    Total: ${this.props.totalPrice}
+
+                </Popover.Title>
+
                 <Popover.Title as="h2">
                     <Form className='mx-4 d-flex justify-content-between'>
                         <Link to='/cart'>
@@ -52,7 +59,6 @@ class HoverPopup extends Component {
                     </Form>
                 </Popover.Title>
             </Popover>
-        ;
 
         const sharedProps = {
             show: this.state.show,
@@ -61,23 +67,25 @@ class HoverPopup extends Component {
         };
 
         return (
-            <div>
+            <React.Fragment>
                 <Link to='/cart'>
                     <Button variant="dark" style={{position: 'relative'}} ref="target" onMouseOver={this._toggle} onMouseOut={this._toggle}>
                         My Cart
                         <FaShoppingCart className='ml-2' size='1.5em'/>
-                        <Badge style={{position: 'absolute', top: -8, right: -8}} pill variant="warning">{1} </Badge>
+                        <Badge style={{position: 'absolute', top: -8, right: -8}} pill variant="warning">{this.props.total} </Badge>
                     </Button>
                 </Link>
                 <Overlay {...sharedProps} placement="bottom">{popup}</Overlay>
-            </div>
+            </React.Fragment>
         );
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        cart: state.cart.items
+        items: state.cart.items,
+        total: state.cart.total,
+        totalPrice: state.cart.totalPrice
     }
 };
 

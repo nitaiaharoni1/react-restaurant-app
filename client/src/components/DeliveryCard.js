@@ -28,7 +28,7 @@ export default class DeliveryCard extends Component {
                         </Card.Text>
                     </Card.Body>
                     <Card.Img variant="top" style={{objectFit: 'cover', height: height}} src={this.props.img}/>
-                    <CustomButtonGroup title={this.props.title}/>
+                    <CustomButtonGroup title={this.props.title} num={this.props.num}/>
 
                 </Card>
             </Col>
