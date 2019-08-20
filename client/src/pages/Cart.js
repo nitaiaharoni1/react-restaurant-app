@@ -5,11 +5,16 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
-import { IoMdClose } from "react-icons/io";
-import Image from "react-bootstrap/Image";
+import CartTableItem from "../components/CartTableItem";
 import CustomButtonGroup from "../components/CustomButtonGroup";
+import { connect } from "react-redux";
+import ScrollArea from "react-scrollbar";
+import HoverPopupItem from "../components/HoverPopupItem";
 
 class Cart extends Component {
+    cartTableItemRender = (title) => <CartTableItem img={this.props.items[title].img} title={this.props.items[title].title}
+                                                    price={this.props.items[title].price} num={this.props.items[title].num}/>;
+
     render() {
         return (
             <React.Fragment>
@@ -18,7 +23,7 @@ class Cart extends Component {
                     <Row>
                         <Col className='d-flex' xs={8}>
                             <h4 className='text-uppercase mr-2 my-auto'>My Cart</h4>
-                            <p className='my-auto' style={{fontSize: '1.05em'}}>({0} Products)</p>
+                            <p className='my-auto' style={{fontSize: '1.05em'}}>({this.props.total} Products)</p>
                         </Col>
                         <Col xs={1}/>
                         <Col xs={3}>
@@ -40,17 +45,9 @@ class Cart extends Component {
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td className='align-middle'><IoMdClose className='my-auto mr-1 pr-1' size='1.5em'/></td>
-                                    <td className='align-middle'>
-                                        <Image style={{height: 50}}
-                                               src="https://rasamalaysia.com/wp-content/uploads/2015/03/fried_spring_rolls_thumb.jpg" rounded/>
-                                    </td>
-                                    <td className='align-middle'>Fried Spring Rolls</td>
-                                    <td className='align-middle'>$2.95</td>
-                                    <td className='align-middle'><CustomButtonGroup/></td>
-                                    <td className='align-middle'>$2.95</td>
-                                </tr>
+                                {Object.keys(this.props.items).map(title =>
+                                    (this.props.items[title].num > 0) ? this.cartTableItemRender(title) : null
+                                )}
                                 </tbody>
                             </Table>
                         </Col>
@@ -61,18 +58,18 @@ class Cart extends Component {
 
                                 <tr>
                                     <td>
-                                        Current Price
+                                        Products Price
                                     </td>
-                                    <td>
-                                        $2.95
+                                    <td className='text-left'>
+                                        ${this.props.totalPrice}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         Delivery
                                     </td>
-                                    <td>
-                                        $3.50
+                                    <td className='text-left'>
+                                        ${3.50}
                                     </td>
                                 </tr>
 
@@ -80,8 +77,8 @@ class Cart extends Component {
                                     <th>
                                         Total
                                     </th>
-                                    <th>
-                                        $6.45
+                                    <th className='text-left'>
+                                        ${this.props.totalPrice + 3.50}
                                     </th>
                                 </tr>
                                 </tbody>
@@ -94,4 +91,12 @@ class Cart extends Component {
     }
 }
 
-export default Cart;
+const mapStateToProps = (state) => {
+    return {
+        items: state.cart.items,
+        total: state.cart.total,
+        totalPrice: state.cart.totalPrice
+    }
+};
+
+export default connect(mapStateToProps)(Cart)

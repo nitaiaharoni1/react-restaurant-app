@@ -147,6 +147,7 @@ export default (state = initialState, action) => {
             state = {
                 ...state,
                 total: state.total - state.items[action.title].num,
+                totalPrice: Math.round((state.totalPrice - (state.items[action.title].num * state.items[action.title].price)) * 100) / 100,
                 items: {
                     ...state.items,
                     [action.title]: {
