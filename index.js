@@ -5,7 +5,6 @@ const express = require('express'),
 
 const app = express();
 const port = process.env.PORT || 3005;
-app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -20,9 +19,16 @@ app.get('/api/gallery', async (req, res) => {
     res.send({images: images});
 });
 
-app.get('*', (req, res) => {
-    res.sendfile(path.join(__dirname = 'client/build/index.html'));
-});
+if (process.env.MODE === 'production') {
+    app.use(express.static(path.join(__dirname, 'client/build')));
 
+    app.get('*', (req, res) => {
+        res.sendfile(path.join(__dirname = 'client/build/index.html'));
+    });
+} else {
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname + '/client/public/index.html'));
+    });
+}
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
