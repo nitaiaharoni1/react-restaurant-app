@@ -54,49 +54,60 @@ class Signup extends Component {
                     <h2 className='text-uppercase text-center font-weight-bold'>Signup</h2>
                     <Form className='my-4'>
                         <Form.Row>
-                            <Form.Group as={Col} controlId="formGridEmail">
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control type="email" placeholder="Enter email"/>
+                            <Form.Group as={Col} controlId="formGridFirstName">
+                                <Form.Label>First Name</Form.Label>
+                                <Form.Control placeholder="First Name"/>
                             </Form.Group>
 
-                            <Form.Group as={Col} controlId="formGridPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password"/>
+                            <Form.Group as={Col} controlId="formGridlastName">
+                                <Form.Label>Last Name</Form.Label>
+                                <Form.Control placeholder="Last Name"/>
                             </Form.Group>
                         </Form.Row>
 
-                        <Form.Group controlId="formGridAddress1">
+                        <Form.Group controlId="formGridEmail">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control type='email' placeholder="Email"/>
+                        </Form.Group>
+
+                        <Form.Group controlId="formGridAddress">
                             <Form.Label>Address</Form.Label>
                             <Form.Control placeholder="1234 Main St"/>
                         </Form.Group>
 
-                        <Form.Group controlId="formGridAddress2">
-                            <Form.Label>Address 2</Form.Label>
-                            <Form.Control placeholder="Apartment, studio, or floor"/>
-                        </Form.Group>
 
                         <Form.Row>
-                            <Form.Group as={Col} controlId="formGridCity">
-                                <Form.Label>City</Form.Label>
-                                <Form.Control/>
-                            </Form.Group>
-
-                            <Form.Group as={Col} controlId="formGridState">
-                                <Form.Label>State</Form.Label>
+                            <Form.Group as={Col} controlId="formGridCountry">
+                                <Form.Label>Country</Form.Label>
                                 <Form.Control as="select">
                                     <option>Choose...</option>
-                                    <option>...</option>
+                                    <option>Israel</option>
+                                    <option>United States</option>
+                                    <option>United Kingdom</option>
                                 </Form.Control>
+                            </Form.Group>
+
+                            <Form.Group as={Col} controlId="formGridCity">
+                                <Form.Label>City</Form.Label>
+                                <Form.Control placeholder="City"/>
+                            </Form.Group>
+
+                            <Form.Group as={Col} controlId="formGridHouseNum">
+                                <Form.Label>House Number</Form.Label>
+                                <Form.Control placeholder="House Number"/>
                             </Form.Group>
 
                             <Form.Group as={Col} controlId="formGridZip">
                                 <Form.Label>Zip</Form.Label>
-                                <Form.Control/>
+                                <Form.Control placeholder="Zip"/>
                             </Form.Group>
                         </Form.Row>
 
-                        <Form.Group id="formGridCheckbox">
-                            <Form.Check type="checkbox" label="Check me out"/>
+                        <Form.Group className='d-flex justify-content-center' id="formGridCheckbox">
+                            <Form.Check type="checkbox"/>
+                            <label>I agree to
+                                <Link to='terms'> terms of service</Link>
+                            </label>
                         </Form.Group>
 
                         <Button block variant="warning" type="submit">

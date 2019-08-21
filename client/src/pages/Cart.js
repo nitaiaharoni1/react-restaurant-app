@@ -74,11 +74,13 @@ class Cart extends Component {
             (
                 <div className='text-center'>
                     <h2>
-                        Your cart is currently empty.
+                        Your cart is currently empty...
                     </h2>
-                    <Button className='mt-3'>
-                        Back to deliveries
+                    <Link to='delivery'>
+                        <Button variant='warning' className='mt-4'>
+                            Back to Deliveries
                     </Button>
+                    </Link>
                 </div>
             )
 

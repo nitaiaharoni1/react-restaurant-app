@@ -8,8 +8,9 @@ import MenuLunch from '../pages/menus/Lunch'
 import Cart from '../pages/Cart'
 import Login from '../pages/Login'
 import Signup from '../pages/Signup'
+import Terms from '../pages/Terms'
 import Checkout from '../pages/Checkout'
 
 export {
-    Home, Header, Delivery, Error, Gallery, MenuEvening, MenuLunch, Cart, Login, Signup, Checkout
+    Home, Header, Delivery, Error, Gallery, MenuEvening, MenuLunch, Cart, Login, Signup, Checkout, Terms
 }
