@@ -39,7 +39,7 @@ class Cart extends Component {
                         <Col xs={12} lg={8}>
                             <div className='d-flex'>
                                 <h4 className='text-uppercase mr-2 my-auto'>My Cart</h4>
-                                <p className='my-auto' style={{fontSize: '1.05em'}}>({this.props.total} Products)</p>
+                                <p className='my-auto'>({this.props.total} Products)</p>
                             </div>
                             <Table className='mt-3' responsive>
                                 <thead>

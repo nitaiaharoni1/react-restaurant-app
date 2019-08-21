@@ -1,11 +1,30 @@
-import React, {Component} from 'react';
-import {Navbar, Nav, FormControl, Button, Form, NavDropdown} from 'react-bootstrap'
+import React, { Component } from 'react';
+import { Navbar, Nav, FormControl, Button, Form, NavDropdown } from 'react-bootstrap'
 import HoverPopup from './HoverPopup';
-import {connect} from "react-redux";
-import {Link} from "react-router-dom";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 
 class Header extends Component {
+    state = {
+        loggedIn: false
+    }
+
     render() {
+        const login = (this.state.loggedIn === false) ?
+            (<Navbar.Text className='my-auto py-0'>
+                <Link to='login' className='mr-md-3'>
+                    Login/Register
+                </Link>
+            </Navbar.Text>)
+            :
+            (<Navbar.Text className='my-auto py-0 text-muted my-auto mr-md-3 text-capitalize'>
+                Hey, Nitai Aharoni
+                <Link to='logout' className='ml-2 ml-md-5 py-0'>
+                    Logout
+                </Link>
+            </Navbar.Text>);
+
         return (
             <Navbar inline collapseOnSelect className='my-auto py-2 text-uppercase shadow' expand="lg" bg="white" sticky='top'>
                 <Navbar.Brand className='nav-link pl-0 ml-sm-5 pl-sm-5 font-weight-bold'>
@@ -21,18 +40,18 @@ class Header extends Component {
                                 Deliveries
                             </Link>
                         </Nav.Link>
-                            <NavDropdown className='my-auto text-dark' title='MENU' id="collasible-nav-dropdown">
-                                <Link to='menu.lunch' className='text-secondary ml-3'>
-                                    lunch
-                                </Link>
+                        <NavDropdown className='my-auto text-dark' title='MENU' id="collasible-nav-dropdown">
+                            <Link to='menu.lunch' className='text-secondary ml-3'>
+                                lunch
+                            </Link>
 
-                                <NavDropdown.Divider/>
+                            <NavDropdown.Divider/>
 
-                                <Link to='menu.evening' className='text-secondary ml-3'>
-                                    evening
-                                </Link>
+                            <Link to='menu.evening' className='text-secondary ml-3'>
+                                evening
+                            </Link>
 
-                            </NavDropdown>
+                        </NavDropdown>
                         <Nav.Link className='my-auto'>
                             <Link to='gallery' className='text-secondary'>
                                 gallery
@@ -40,12 +59,15 @@ class Header extends Component {
                         </Nav.Link>
                     </Nav>
                     <Nav className="ml-auto mr-sm-5 pr-sm-5">
+                        {login}
                         <Nav.Link className='my-auto text-dark'>
                             <HoverPopup/>
                         </Nav.Link>
                         <Form className='my-auto ml-lg-2 mr-lg-4' inline>
-                            <FormControl style={{maxWidth: '14em'}} type="text" placeholder="Search"/>
-                            <Button variant="outline-dark">Search</Button>
+                            <FormControl style={{maxWidth: '10em'}} type="text" placeholder='Search'/>
+                            <Button variant="outline-dark">
+                                <FaSearch/>
+                            </Button>
                         </Form>
                     </Nav>
                 </Navbar.Collapse>

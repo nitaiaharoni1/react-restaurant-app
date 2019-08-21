@@ -11,18 +11,18 @@ class Menu extends Component {
 
     render() {
         return (
-            <Container className='my-5'>
-                <h1 className='text-center text-uppercase'>Appetizers</h1>
-                <Row className='mt-4 pb-4'>
+            <Container className='my-5 pb-4' style={{background: 'dark'}}>
+                <h1 className=''>Appetizers</h1>
+                <Row className='my-4'>
                     {Object.keys(this.props.items).map(title =>
-                        (this.props.items[title].meal == 'appetizers') ? this.menuItemRender(title) : null
+                        (this.props.items[title].meal == 'appetizer') ? this.menuItemRender(title) : null
                     )}
                 </Row>
 
                 <Row/>
 
-                <h1 className='text-center text-uppercase mt-4'>Main Course</h1>
-                <Row className='mt-4 pb-4'>
+                <h1 className='mt-4'>Main Course</h1>
+                <Row className='my-4'>
                     {Object.keys(this.props.items).map(title =>
                         (this.props.items[title].meal == 'main') ? this.menuItemRender(title) : null
                     )}
@@ -30,8 +30,8 @@ class Menu extends Component {
 
                 <Row/>
 
-                <h1 className='text-center text-uppercase'>deserts</h1>
-                <Row className='mt-4 pb-4'>
+                <h1 className=''>deserts</h1>
+                <Row className='my-4'>
                     {Object.keys(this.props.items).map(title =>
                         (this.props.items[title].meal == 'desert') ? this.menuItemRender(title) : null
                     )}

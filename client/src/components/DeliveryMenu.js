@@ -12,7 +12,7 @@ class DeliveryMenu extends Component {
     render() {
         return (
             <Container>
-                <h1 className='text-center text-uppercase pt-4'>Appetizers</h1>
+                <h1 className='pt-4'>Appetizers</h1>
                 <Row className='pb-3'>
                     {Object.keys(this.props.items).map(title =>
                         (this.props.items[title].meal == 'appetizer') ? this.cardRender(title) : null
@@ -21,7 +21,7 @@ class DeliveryMenu extends Component {
 
                 <Row/>
 
-                <h1 className='text-center text-uppercase pt-5'>Main Course</h1>
+                <h1 className='pt-5'>Main Course</h1>
                 <Row className='pb-3'>
                     {Object.keys(this.props.items).map(title =>
                         (this.props.items[title].meal == 'main') ? this.cardRender(title) : null
@@ -30,7 +30,7 @@ class DeliveryMenu extends Component {
 
                 <Row/>
 
-                <h1 className='text-center text-uppercase pt-5'>deserts</h1>
+                <h1 className='pt-5'>deserts</h1>
                 <Row className='pb-5'>
                     {Object.keys(this.props.items).map(title =>
                         (this.props.items[title].meal == 'desert') ? this.cardRender(title) : null

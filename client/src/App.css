@@ -1,0 +1,24 @@
+@media screen and (min-width: 1024px) {
+    p {
+        font-size: 1.1em;
+    }
+
+    .font-footer {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    p {
+        font-size: 0.9em;
+    }
+
+    .font-footer {
+        font-size: 0.5em;
+    }
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+}

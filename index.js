@@ -12,7 +12,6 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 //Simulates database access
 app.get('/api/gallery', async (req, res) => {
-    console.log('get /api/gallery');
     let images = await fs.readdir('./server_assets');
     for (i in images) {
         let buffer = await fs.readFile('./server_assets/' + images[i], {encoding: 'base64'});

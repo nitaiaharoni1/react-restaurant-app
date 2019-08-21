@@ -10,7 +10,7 @@ class ColumnsContainer extends Component {
                         <h2>A DESTINATION</h2>
                     </Col>
                 </Row>
-                <Row className='mt-3 text-left h-auto mb-4' style={{fontSize: '1.1em'}}>
+                <Row className='mt-3 text-left h-auto mb-4'>
                     <Col className='mx-auto' md={5}>
                         <p>Praesent commodo cursus magna,
                             Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at

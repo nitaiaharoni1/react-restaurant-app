@@ -6,9 +6,9 @@ import Container from "react-bootstrap/Container";
 class Footer extends Component {
     render() {
         return (
-            <Jumbotron className='text-left text-light bg-dark h-auto my-auto py-4 sticky-bottom'>
+            <Jumbotron className='text-left text-light bg-dark mb-0 mt-5 font-footer p-4'>
                 <Container>
-                    <Row className='px-md-3'>
+                    <Row>
                         <Col xs={7} sm={8} className='border-right'>
                             <p className='text-uppercase'>LOCATIONS</p>
                             <Row className='text-capitalize'>
