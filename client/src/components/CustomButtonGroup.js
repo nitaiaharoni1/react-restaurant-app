@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 import { connect } from "react-redux";
+import { Add, Sub } from "../redux/actions/cartActions";
 
 class CustomButtonGroup extends Component {
     render() {
@@ -24,18 +25,10 @@ class CustomButtonGroup extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         Add: (title, num) => {
-            dispatch({
-                type: "ADD",
-                title: title,
-                num: num
-            })
+            dispatch(Add(title, num))
         },
         Sub: (title, num) => {
-            dispatch({
-                type: "SUB",
-                title: title,
-                num: num
-            })
+            dispatch(Sub(title, num))
         }
     }
 };

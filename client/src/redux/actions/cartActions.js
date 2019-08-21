@@ -1,16 +1,23 @@
-/*
-export function Add(num, item) {
+export function Add(title, num) {
     return {
         type: "ADD",
-        num: num,
-        item: item
+        title: title,
+        num: num
     }
 }
 
-export function Sub(num, item) {
+export function Sub(title, num) {
     return {
         type: "SUB",
-        num: num,
-        item: item
+        title: title,
+        num: num
     }
-}*/
+}
+
+export function Zero(title) {
+    return {
+        type: "ZERO",
+        title: title,
+        num: 0
+    }
+}

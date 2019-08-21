@@ -5,6 +5,7 @@ import Image from "react-bootstrap/Image";
 import {FiTrash2} from "react-icons/fi";
 import CustomButtonGroup from "./CustomButtonGroup";
 import {connect} from "react-redux";
+import { Zero } from "../redux/actions/cartActions";
 
 class HoverPopupItem extends Component {
     render() {
@@ -45,11 +46,7 @@ class HoverPopupItem extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         Zero: (title) => {
-            dispatch({
-                type: "ZERO",
-                title: title,
-                num: 0
-            })
+            dispatch(Zero(title))
         }
     }
 };
