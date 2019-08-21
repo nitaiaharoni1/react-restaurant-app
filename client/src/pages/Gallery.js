@@ -24,10 +24,12 @@ class Gallery extends Component {
     async componentDidMount() {
         const res = await fetch('/api/gallery');
         const images = (await res.json()).images;
-        images.forEach((obj) => {
+        await images.forEach((obj) => {
             obj.img = 'data:image/jpeg;base64,' + obj.img;
             this.setState({imgs: [...this.state.imgs, obj]})
-        })
+        });
+        this.setState({loading: false})
+
     }
 
     render() {
