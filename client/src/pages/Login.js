@@ -6,31 +6,39 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Form from "react-bootstrap/Form";
+import { userLogin } from "../redux/actions/userActions";
+import { connect } from "react-redux";
 
 class Login extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            email: "",
-            password: ""
-        };
-    }
+    state = {
+        email: '',
+        password: '',
+        remember: false,
+    };
 
     validateForm() {
         return this.state.email.length > 0 && this.state.password.length > 0;
     }
 
-    handleChange = event => {
+    handleChange = e => {
         this.setState({
-            [event.target.id]: event.target.value
+            [e.target.id]: e.target.value
+        });
+    }
+
+    handleCheckbox = e => {
+        this.setState({
+            remember: e.target.checked
         });
     }
 
     handleSubmit = event => {
         event.preventDefault();
+        this.props.userLogin(this.state.email, this.state.password, this.state.remember);
+        this.props.history.push('');
+
     }
 
     render() {
@@ -43,7 +51,7 @@ class Login extends Component {
                                 Login
                             </h3>
                             <Form onSubmit={this.handleSubmit} className='mt-4'>
-                                <Form.Group controlId="formBasicEmail">
+                                <Form.Group controlId="email">
                                     <Form.Label>Email address</Form.Label>
                                     <Form.Control type="email" placeholder="Enter email" autoFocus value={this.state.email}
                                                   onChange={this.handleChange}/>
@@ -52,12 +60,13 @@ class Login extends Component {
                                     </Form.Text>
                                 </Form.Group>
 
-                                <Form.Group controlId="formBasicPassword">
+                                <Form.Group controlId="password">
                                     <Form.Label>Password</Form.Label>
-                                    <Form.Control type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}/>
+                                    <Form.Control type="password" placeholder="Enter Password" value={this.state.password}
+                                                  onChange={this.handleChange}/>
                                 </Form.Group>
-                                <Form.Group controlId="formBasicCheckbox">
-                                    <Form.Check type="checkbox" label="Remember me"/>
+                                <Form.Group controlId="remember">
+                                    <Form.Check type="checkbox" label="Remember me" onChange={this.handleCheckbox}/>
                                 </Form.Group>
                                 <Button block variant="dark" type="submit" disabled={!this.validateForm()}>
                                     Login
@@ -84,4 +93,12 @@ class Login extends Component {
     }
 }
 
-export default Login;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        userLogin: (email, password, remember) => {
+            dispatch(userLogin(email, password, remember))
+        }
+    }
+};
+
+export default connect(null, mapDispatchToProps)(Login);

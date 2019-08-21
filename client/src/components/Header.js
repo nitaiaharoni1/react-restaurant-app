@@ -6,12 +6,9 @@ import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
 class Header extends Component {
-    state = {
-        loggedIn: false
-    }
 
     render() {
-        const login = (this.state.loggedIn === false) ?
+        const login = (this.props.loggedIn === false) ?
             (<Navbar.Text className='my-auto py-0'>
                 <Link to='login' className='mr-md-3'>
                     Login/Register
@@ -19,7 +16,7 @@ class Header extends Component {
             </Navbar.Text>)
             :
             (<Navbar.Text className='my-auto py-0 text-muted my-auto mr-md-3 text-capitalize'>
-                Hey, Nitai Aharoni
+                Hey, {this.props.firstName} {this.props.lastName}
                 <Link to='logout' className='ml-2 ml-md-5 py-0'>
                     Logout
                 </Link>
@@ -76,4 +73,12 @@ class Header extends Component {
     }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+    return {
+        loggedIn: state.user.loggedIn,
+        firstName: state.user.firstName,
+        lastName: state.user.lastName,
+    }
+};
+
+export default connect(mapStateToProps)(Header)

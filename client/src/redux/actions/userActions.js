@@ -1,8 +1,9 @@
-export function Login(title, num) {
+export function userLogin(email, password, remember) {
     return {
         type: "LOGIN",
-        title: title,
-        num: num
+        email: email,
+        password: password,
+        remember: remember
     }
 }
 

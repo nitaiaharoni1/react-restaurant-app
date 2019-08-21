@@ -1,13 +1,13 @@
 const initialState = {
-    firstName: '',
-    lastName: '',
+    firstName: 'aaa',
+    lastName: 'bbb',
     address: '',
     city: '',
     country: '',
     houseNum: '',
     email: '',
     password: '',
-    rememberMe: false,
+    remember: false,
     loggedIn: false
 };
 
@@ -30,6 +30,8 @@ export default (state = initialState, action) => {
         case 'LOGIN':
             state = {
                 ...state,
+                loggedIn: true,
+                remember: true
             };
             break;
         case 'LOGOUT':
