@@ -33,10 +33,9 @@ class HoverPopup extends Component {
         this.setState({show: false});
     };
 
-    HoverPopupItemRender = (title) => <HoverPopupItem round={this._round} img={this.props.items[title].img} title={this.props.items[title].title}
-                                                      price={this.props.items[title].price} num={this.props.items[title].num}/>;
+    HoverPopupItemRender = (item) => <HoverPopupItem round={this._round} img={item.img} title={item.title} price={item.price} num={item.num}/>;
 
-    _round = (num) =>{
+    _round = (num) => {
         return Math.round(num * 100) / 100
     }
 
@@ -59,8 +58,8 @@ class HoverPopup extends Component {
                     </Popover.Title>
                     <Popover.Content>
                         <ScrollArea speed={0.3} className="area" style={{maxHeight: 400}} contentClassName="content" horizontal={false}>
-                            {Object.keys(this.props.items).map(title =>
-                                (this.props.items[title].num > 0) ? this.HoverPopupItemRender(title) : null
+                            {Object.values(this.props.items).map(item =>
+                                (item.num > 0) ? this.HoverPopupItemRender(item) : null
                             )}
                         </ScrollArea>
                     </Popover.Content>

@@ -21,3 +21,10 @@ export function Zero(title) {
         num: 0
     }
 }
+
+export function itemsLoad(items) {
+    return {
+        type: "ITEMS_LOAD",
+        items: items,
+    }
+}

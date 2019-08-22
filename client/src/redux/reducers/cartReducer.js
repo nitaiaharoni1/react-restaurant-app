@@ -156,6 +156,22 @@ export default (state = initialState, action) => {
                 }
             };
             break;
+        case 'ITEMS_LOAD':
+            let itemsUpdate = {};
+            Object.keys(action.items).forEach((item) => {
+                    itemsUpdate[item] = {
+                        ...state.items[item], num: action.items[item].num
+                    }
+                }
+            );
+            state = {
+                ...state,
+                items: {
+                    ...state.items,
+                    ...itemsUpdate
+                }
+            };
+            break;
     }
     return state;
 }

@@ -1,0 +1,32 @@
+{
+  "admin@admin.com": {
+    "loggedIn": false,
+    "remember": false,
+    "firstName": "",
+    "lastName": "",
+    "address": "",
+    "city": "",
+    "country": "",
+    "houseNum": "",
+    "email": "",
+    "password": "",
+    "currentItems": {
+      "Fried Spring Rolls": {
+        "num": 1
+      },
+      "Gai Of Nuur Satay": {
+        "num": 2
+      }
+    },
+    "orders": {
+      "1": {
+        "date": "",
+        "items": {
+          "Fried Spring Rolls": {
+            "num": 0
+          }
+        }
+      }
+    }
+  }
+}

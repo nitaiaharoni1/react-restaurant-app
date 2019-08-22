@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import DeliveryCard from "./DeliveryCard";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 
 class DeliveryMenu extends Component {
-    cardRender = (title) => <DeliveryCard img={this.props.items[title].img} title={this.props.items[title].title}
-                                          price={this.props.items[title].price} description={this.props.items[title].description}
-                                          num={this.props.items[title].num}/>;
+    cardRender = (item) => <DeliveryCard img={item.img} title={item.title} price={item.price} description={item.description} num={item.num}/>;
 
     render() {
         return (
             <Container>
                 <h1 className='pt-4'>Appetizers</h1>
                 <Row className='pb-3'>
-                    {Object.keys(this.props.items).map(title =>
-                        (this.props.items[title].meal == 'appetizer') ? this.cardRender(title) : null
+                    {Object.values(this.props.items).map(item =>
+                        (item.meal == 'appetizer') ? this.cardRender(item) : null
                     )}
                 </Row>
 
@@ -23,8 +21,8 @@ class DeliveryMenu extends Component {
 
                 <h1 className='pt-5'>Main Course</h1>
                 <Row className='pb-3'>
-                    {Object.keys(this.props.items).map(title =>
-                        (this.props.items[title].meal == 'main') ? this.cardRender(title) : null
+                    {Object.values(this.props.items).map(item =>
+                        (item.meal == 'main') ? this.cardRender(item) : null
                     )}
                 </Row>
 
@@ -32,8 +30,8 @@ class DeliveryMenu extends Component {
 
                 <h1 className='pt-5'>deserts</h1>
                 <Row className='pb-5'>
-                    {Object.keys(this.props.items).map(title =>
-                        (this.props.items[title].meal == 'desert') ? this.cardRender(title) : null
+                    {Object.values(this.props.items).map(item =>
+                        (item.meal == 'desert') ? this.cardRender(item) : null
                     )}
                 </Row>
             </Container>

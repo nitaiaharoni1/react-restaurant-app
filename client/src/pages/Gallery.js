@@ -29,7 +29,6 @@ class Gallery extends Component {
             this.setState({imgs: [...this.state.imgs, obj]})
         });
         this.setState({loading: false})
-
     }
 
     render() {

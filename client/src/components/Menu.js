@@ -6,16 +6,16 @@ import {connect} from "react-redux";
 import DeliveryCard from "./DeliveryCard";
 
 class Menu extends Component {
-    menuItemRender = (title) => <MenuItem title={this.props.items[title].title}
-                                          price={this.props.items[title].price} description={this.props.items[title].description}/>
+    menuItemRender = (item) => <MenuItem title={item.title}
+                                          price={item.price} description={item.description}/>
 
     render() {
         return (
             <Container className='my-5 pb-4' style={{background: 'dark'}}>
                 <h1 className=''>Appetizers</h1>
                 <Row className='my-4'>
-                    {Object.keys(this.props.items).map(title =>
-                        (this.props.items[title].meal == 'appetizer') ? this.menuItemRender(title) : null
+                    {Object.values(this.props.items).map(item =>
+                        (item.meal == 'appetizer') ? this.menuItemRender(item) : null
                     )}
                 </Row>
 
@@ -23,8 +23,8 @@ class Menu extends Component {
 
                 <h1 className='mt-4'>Main Course</h1>
                 <Row className='my-4'>
-                    {Object.keys(this.props.items).map(title =>
-                        (this.props.items[title].meal == 'main') ? this.menuItemRender(title) : null
+                    {Object.values(this.props.items).map(item =>
+                        (item.meal == 'main') ? this.menuItemRender(item) : null
                     )}
                 </Row>
 
@@ -32,8 +32,8 @@ class Menu extends Component {
 
                 <h1 className=''>deserts</h1>
                 <Row className='my-4'>
-                    {Object.keys(this.props.items).map(title =>
-                        (this.props.items[title].meal == 'desert') ? this.menuItemRender(title) : null
+                    {Object.values(this.props.items).map(item =>
+                        (item.meal == 'desert') ? this.menuItemRender(item) : null
                     )}
                 </Row>
             </Container>

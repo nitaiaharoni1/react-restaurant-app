@@ -20,6 +20,12 @@ app.get('/api/gallery', async (req, res) => {
     res.send({images: images});
 });
 
+//Simulates database access
+app.get('/api/items/:user', async (req, res) => {
+    let data = require('./data');
+    res.send({items: data[req.params.user].currentItems});
+});
+
 //Serves react client static files
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname = 'client/build/index.html'));
