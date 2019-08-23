@@ -1,9 +1,7 @@
-export function userLogin(email, password, remember) {
+export function userLogin(data) {
     return {
         type: "LOGIN",
-        email: email,
-        password: password,
-        remember: remember
+        data: data,
     }
 }
 
@@ -15,10 +13,8 @@ export function Signup(title, num) {
     }
 }
 
-export function Logout(title, num) {
+export function userLogout() {
     return {
         type: "LOGOUT",
-        title: title,
-        num: num
     }
 }

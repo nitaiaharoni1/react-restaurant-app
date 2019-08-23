@@ -128,6 +128,20 @@ export default (state = initialState, action) => {
                 }
             };
             break;
+        case 'SET':
+            state = {
+                ...state,
+                total: state.total + action.num,
+                totalPrice: state.totalPrice + (state.items[action.title].price * action.num),
+                items: {
+                    ...state.items,
+                    [action.title]: {
+                        ...state.items[action.title],
+                        num: action.num
+                    }
+                }
+            };
+            break;
         case 'SUB':
             state = {
                 ...state,
@@ -156,22 +170,24 @@ export default (state = initialState, action) => {
                 }
             };
             break;
-        case 'ITEMS_LOAD':
-            let itemsUpdate = {};
-            Object.keys(action.items).forEach((item) => {
-                    itemsUpdate[item] = {
-                        ...state.items[item], num: action.items[item].num
-                    }
-                }
-            );
-            state = {
-                ...state,
-                items: {
-                    ...state.items,
-                    ...itemsUpdate
-                }
-            };
-            break;
+        // case 'LOAD_ITEMS':
+        //     debugger;
+        //     let itemsUpdate = {};
+        //     Object.keys(action.items).forEach((item) => {
+        //
+        //             itemsUpdate[item] = {
+        //                 ...state.items[item], num: action.items[item].num
+        //             }
+        //         }
+        //     );
+        //     state = {
+        //         ...state,
+        //         items: {
+        //             ...state.items,
+        //             ...itemsUpdate
+        //         }
+        //     };
+        //     break;
     }
     return state;
 }

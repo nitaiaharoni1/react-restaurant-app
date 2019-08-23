@@ -1,12 +1,11 @@
 const initialState = {
-    firstName: 'aaa',
-    lastName: 'bbb',
+    firstName: '',
+    lastName: '',
     address: '',
     city: '',
     country: '',
     houseNum: '',
     email: '',
-    password: '',
     remember: false,
     loggedIn: false
 };
@@ -30,13 +29,13 @@ export default (state = initialState, action) => {
         case 'LOGIN':
             state = {
                 ...state,
-                loggedIn: true,
-                remember: true
+                ...action.data,
+                loggedIn: true
             };
             break;
         case 'LOGOUT':
             state = {
-                ...state,
+                ...initialState,
             };
             break;
     }

@@ -6,6 +6,14 @@ export function Add(title, num) {
     }
 }
 
+export function Set(title, num) {
+    return {
+        type: "SET",
+        title: title,
+        num: num
+    }
+}
+
 export function Sub(title, num) {
     return {
         type: "SUB",
@@ -22,9 +30,9 @@ export function Zero(title) {
     }
 }
 
-export function itemsLoad(items) {
+export function loadItems(items) {
     return {
-        type: "ITEMS_LOAD",
+        type: "LOAD_ITEMS",
         items: items,
     }
 }

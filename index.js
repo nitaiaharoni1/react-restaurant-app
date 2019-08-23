@@ -21,9 +21,18 @@ app.get('/api/gallery', async (req, res) => {
 });
 
 //Simulates database access
-app.get('/api/items/:user', async (req, res) => {
+app.get('/api/items/:email', async (req, res) => {
     let data = require('./data');
-    res.send({items: data[req.params.user].currentItems});
+    res.send({items: data[req.params.email].currentItems});
+});
+
+app.get('/api/user/login/:email/:password', async (req, res) => {
+    let data = require('./data');
+    if (data[req.params.email] && data[req.params.email].password === req.params.password) {
+        res.send({msg: 'Login successful', data: data[req.params.email]});
+    } else {
+        res.send({msg: 'Login failed... Either email or password are incorrect'});
+    }
 });
 
 //Serves react client static files

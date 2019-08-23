@@ -1,22 +1,24 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Header, Home, Delivery, Error, Gallery, MenuLunch, MenuEvening, Cart, Login, Signup, Checkout, Terms } from './utils'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {Header, Home, Delivery, Error, Gallery, MenuLunch, MenuEvening, Cart, Login, Signup, Checkout, Terms} from './utils'
 import Footer from "./components/Footer";
 import './App.css';
 import {connect} from "react-redux";
-import { itemsLoad } from "./redux/actions/cartActions";
+import {Add} from "./redux/actions/cartActions";
+import {fetchUserData} from "./utils/api";
 
 
 class App extends Component {
-    async componentWillMount() {
-        const res = await fetch(`/api/items/${this.props.email}`);
-        const images = (await res.json()).items;
-        await images.forEach((obj) => {
-            obj.img = 'data:image/jpeg;base64,' + obj.img;
-            this.setState({imgs: [...this.state.imgs, obj]})
-        });
-        this.setState({loading: false})
+
+    async componentDidMount() {
+        if (this.props.loggedIn) {
+            const items = fetchUserData(this.props.email);
+            Object.keys(items).forEach((item) => {
+                    this.props.Add(item, items[item].num)
+                }
+            );
+        }
     }
 
     render() {
@@ -43,18 +45,20 @@ class App extends Component {
         );
     }
 }
+
 const mapStateToProps = (state) => {
     return {
-        email: state.user.email
+        email: state.user.email,
+        loggedIn: state.user.loggedIn,
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        itemsLoad: (items) => {
-            dispatch(itemsLoad(items))
+        Add: (title, num) => {
+            dispatch(Add(title, num))
         }
     }
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)

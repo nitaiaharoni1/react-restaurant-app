@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import CustomParallax from "../components/CustomParallax";
-import home_top from "../assets/home_top.jpg";
-import { FormControl, FormGroup, FormLabel } from "react-bootstrap";
+import React, {Component} from 'react';
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Link, Redirect } from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import Form from "react-bootstrap/Form";
-import { userLogin } from "../redux/actions/userActions";
-import { connect } from "react-redux";
+import {userLogin} from "../redux/actions/userActions";
+import {fetchLogin, fetchUserData} from "../utils/api";
+import {connect} from "react-redux";
+import {Set} from "../redux/actions/cartActions";
 
 class Login extends Component {
     state = {
@@ -34,12 +33,22 @@ class Login extends Component {
         });
     }
 
-    handleSubmit = event => {
-        event.preventDefault();
-        this.props.userLogin(this.state.email, this.state.password, this.state.remember);
-        this.props.history.push('');
+    handleSubmit = async (e) => {
+        e.preventDefault();
+        let res = await fetchLogin(this.state.email, this.state.password);
+        if (res.data) {
+            this.props.userLogin(res.data.user);
+            this.props.history.push('');
+            const items = res.data.currentItems;
+            Object.keys(items).forEach((item) => {
+                    this.props.Set(item, items[item].num)
+                }
+            );
+        } else {
+            alert(res.msg)
+        }
+    };
 
-    }
 
     render() {
         return (
@@ -97,6 +106,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         userLogin: (email, password, remember) => {
             dispatch(userLogin(email, password, remember))
+        },
+        Set: (title, num) => {
+            dispatch(Set(title, num))
         }
     }
 };

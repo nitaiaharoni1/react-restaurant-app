@@ -11,7 +11,11 @@ import {connect} from "react-redux";
 import CartTableItem from "../components/CartTableItem";
 
 class Checkout extends Component {
-    cartTableItemRender = (title) => <CartTableItem img={this.props.items[title].img} title={this.props.items[title].title}
+    _round = (num) => {
+        return Math.round(num * 100) / 100
+    }
+
+    cartTableItemRender = (title) => <CartTableItem round={this._round} img={this.props.items[title].img} title={this.props.items[title].title}
                                                     price={this.props.items[title].price} num={this.props.items[title].num}/>;
 
     render() {
@@ -25,7 +29,7 @@ class Checkout extends Component {
                         </Col>
 
                         <Col className='ml-lg-5 pl-lg-2 mt-4 mt-lg-0 p-0 m-0' xs={12} lg={3}>
-                            <CartTotals totalPrice={this.props.totalPrice}/>
+                            <CartTotals totalPrice={this._round(this.props.totalPrice)}/>
                         </Col>
                     </Row>
                 </Container>

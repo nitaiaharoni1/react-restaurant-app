@@ -1,15 +1,16 @@
 {
   "admin@admin.com": {
-    "loggedIn": false,
-    "remember": false,
-    "firstName": "",
-    "lastName": "",
-    "address": "",
-    "city": "",
-    "country": "",
-    "houseNum": "",
-    "email": "",
-    "password": "",
+    "user" : {
+      "remember": false,
+      "firstName": "Admin",
+      "lastName": "Admin",
+      "address": "Admin st",
+      "city": "Admin Town",
+      "country": "Adminia",
+      "houseNum": "1",
+      "email": "admin@admin.com"
+    },
+    "password": "admin",
     "currentItems": {
       "Fried Spring Rolls": {
         "num": 1
@@ -20,10 +21,10 @@
     },
     "orders": {
       "1": {
-        "date": "",
+        "date": "1/1/2000",
         "items": {
           "Fried Spring Rolls": {
-            "num": 0
+            "num": 5
           }
         }
       }

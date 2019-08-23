@@ -4,8 +4,14 @@ import HoverPopup from './HoverPopup';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import {userLogout} from "../redux/actions/userActions";
 
 class Header extends Component {
+
+    handleLogout() {
+        debugger;
+        this.props.userLogout();
+    }
 
     render() {
         const login = (this.props.loggedIn === false) ?
@@ -16,8 +22,8 @@ class Header extends Component {
             </Navbar.Text>)
             :
             (<Navbar.Text className='my-auto py-0 text-muted my-auto mr-md-3 text-capitalize'>
-                Hey, {this.props.firstName} {this.props.lastName}
-                <Link to='logout' className='ml-2 ml-md-5 py-0'>
+                Hey, {this.props.firstName}
+                <Link onClick={this.handleLogout} to='logout' className='ml-2 ml-md-5 py-0'>
                     Logout
                 </Link>
             </Navbar.Text>);
@@ -71,14 +77,22 @@ class Header extends Component {
             </Navbar>
         );
     }
+
 }
 
 const mapStateToProps = (state) => {
     return {
         loggedIn: state.user.loggedIn,
         firstName: state.user.firstName,
-        lastName: state.user.lastName,
     }
 };
 
-export default connect(mapStateToProps)(Header)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        userLogout: () => {
+            dispatch(userLogout())
+        }
+    }
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(Header)
