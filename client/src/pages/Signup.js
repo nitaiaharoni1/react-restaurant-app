@@ -1,85 +1,93 @@
-import React, { Component } from 'react';
-import CustomParallax from "../components/CustomParallax";
-import home_top from "../assets/home_top.jpg";
-import { Link } from "react-router-dom";
+import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
+import {userSignup} from "../redux/actions/userActions";
+import {connect} from "react-redux";
+import {fetchLogin, fetchSignup} from "../utils/api";
 
 class Signup extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            user: {
-                firstName: '',
-                lastName: '',
-                username: '',
-                password: ''
-            },
-            submitted: false
+            agree: false,
+            firstName: '',
+            lastName: '',
+            address: '',
+            city: '',
+            country: '',
+            houseNum: '',
+            email: '',
+            password: '',
         };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
-        const {name, value} = event.target;
-        const {user} = this.state;
+    validateForm() {
+        return !(this.state.agree && this.state.firstName.length > 0 && this.state.lastName.length > 0 && this.state.address.length > 0 && this.state.city.length > 0 && this.state.country.length > 0 && this.state.houseNum.length > 0 && this.state.email.length > 0 && this.state.password.length > 0);
+    }
+
+    handleChange = e => {
         this.setState({
-            user: {
-                ...user,
-                [name]: value
-            }
+            [e.target.id]: e.target.value
         });
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
+    handleCheckbox = e => {
+        this.setState({
+            agree: e.target.checked
+        });
+    }
 
-        this.setState({submitted: true});
-        const {user} = this.state;
-        if (user.firstName && user.lastName && user.username && user.password) {
-            this.props.register(user);
-        }
+    handleSubmit = async (event) => {
+        event.preventDefault();
+        debugger;
+        let res = await fetchSignup(this.state);
+            this.props.userSignup(res.data.user);
+            this.props.history.push('');
+
     }
 
     render() {
-        const {user, submitted} = this.state;
         return (
             <React.Fragment>
                 <Container className="my-5 pb-3">
                     <h2 className='text-uppercase text-center font-weight-bold'>Signup</h2>
-                    <Form className='my-4'>
+                    <Form onSubmit={this.handleSubmit} className='my-4'>
                         <Form.Row>
-                            <Form.Group as={Col} controlId="formGridFirstName">
+                            <Form.Group as={Col} controlId="firstName">
                                 <Form.Label>First Name</Form.Label>
-                                <Form.Control placeholder="First Name"/>
+                                <Form.Control onChange={this.handleChange} autoFocus placeholder="First Name" required/>
                             </Form.Group>
 
-                            <Form.Group as={Col} controlId="formGridlastName">
+                            <Form.Group as={Col} controlId="lastName">
                                 <Form.Label>Last Name</Form.Label>
-                                <Form.Control placeholder="Last Name"/>
+                                <Form.Control onChange={this.handleChange} placeholder="Last Name" required/>
                             </Form.Group>
                         </Form.Row>
 
-                        <Form.Group controlId="formGridEmail">
+                        <Form.Group controlId="email">
                             <Form.Label>Email</Form.Label>
-                            <Form.Control type='email' placeholder="Email"/>
+                            <Form.Control onChange={this.handleChange} type='email' placeholder="Email" required/>
                         </Form.Group>
 
-                        <Form.Group controlId="formGridAddress">
+                        <Form.Group controlId="password">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control onChange={this.handleChange} type='password' placeholder="Password" required/>
+                        </Form.Group>
+
+                        <Form.Group controlId="address">
                             <Form.Label>Address</Form.Label>
-                            <Form.Control placeholder="1234 Main St"/>
+                            <Form.Control onChange={this.handleChange} placeholder="1234 Main St" required/>
                         </Form.Group>
 
 
                         <Form.Row>
-                            <Form.Group as={Col} controlId="formGridCountry">
+                            <Form.Group as={Col} controlId="country">
                                 <Form.Label>Country</Form.Label>
-                                <Form.Control as="select">
+                                <Form.Control onChange={this.handleChange} as="select" required>
                                     <option>Choose...</option>
                                     <option>Israel</option>
                                     <option>United States</option>
@@ -87,30 +95,30 @@ class Signup extends Component {
                                 </Form.Control>
                             </Form.Group>
 
-                            <Form.Group as={Col} controlId="formGridCity">
+                            <Form.Group as={Col} controlId="city">
                                 <Form.Label>City</Form.Label>
-                                <Form.Control placeholder="City"/>
+                                <Form.Control onChange={this.handleChange} placeholder="City" required/>
                             </Form.Group>
 
-                            <Form.Group as={Col} controlId="formGridHouseNum">
+                            <Form.Group as={Col} controlId="houseNum">
                                 <Form.Label>House Number</Form.Label>
-                                <Form.Control placeholder="House Number"/>
+                                <Form.Control onChange={this.handleChange} placeholder="House Number" required/>
                             </Form.Group>
 
-                            <Form.Group as={Col} controlId="formGridZip">
+                            <Form.Group as={Col} controlId="zip">
                                 <Form.Label>Zip</Form.Label>
-                                <Form.Control placeholder="Zip"/>
+                                <Form.Control onChange={this.handleChange} placeholder="Zip" required/>
                             </Form.Group>
                         </Form.Row>
 
-                        <Form.Group className='d-flex justify-content-center' id="formGridCheckbox">
-                            <Form.Check type="checkbox"/>
+                        <Form.Group className='d-flex justify-content-center'>
+                            <Form.Check onChange={this.handleCheckbox} id="checkbox" type="checkbox" required/>
                             <label>I agree to
                                 <Link to='terms'> terms of service</Link>
                             </label>
                         </Form.Group>
 
-                        <Button block variant="warning" type="submit">
+                        <Button block variant="warning" type="submit" disabled={this.validateForm()}>
                             Submit
                         </Button>
                     </Form>
@@ -120,4 +128,12 @@ class Signup extends Component {
     }
 }
 
-export default Signup;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        userSignup: (email, password, remember) => {
+            dispatch(userSignup(email, password, remember))
+        }
+    }
+};
+
+export default connect(null, mapDispatchToProps)(Signup);

@@ -35,6 +35,41 @@ app.get('/api/user/login/:email/:password', async (req, res) => {
     }
 });
 
+app.post('/api/user/signup', async (req, res) => {
+    const email = req.body.email,
+        password = req.body.password,
+        address = req.body.address,
+        houseNum = req.body.houseNum,
+        city = req.body.city,
+        firstName = req.body.firstName,
+        lastName = req.body.lastName,
+        country = req.body.country;
+    const data = require('./data');
+    if (!data[email]) {
+        const obj = {
+            [email]: {
+                "user": {
+                    "remember": false,
+                    "firstName": firstName,
+                    "lastName": lastName,
+                    "address": address,
+                    "city": city,
+                    "country": country,
+                    "houseNum": houseNum,
+                    "email": email
+                },
+                "password": password,
+                "currentItems": {},
+                "orders": {}
+            }
+        };
+        await fs.writeFile('./data.json', JSON.stringify(obj));
+        res.status(200).send({msg: 'Login successful'});
+    } else {
+        res.status(500).send({msg: `The user ${email}, is already signed up...`});
+    }
+});
+
 //Serves react client static files
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname = 'client/build/index.html'));

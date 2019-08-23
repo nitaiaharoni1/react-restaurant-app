@@ -18,7 +18,7 @@ class Login extends Component {
     };
 
     validateForm() {
-        return this.state.email.length > 0 && this.state.password.length > 0;
+        return !(this.state.email.length > 0 && this.state.password.length > 0);
     }
 
     handleChange = e => {
@@ -36,17 +36,14 @@ class Login extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
         let res = await fetchLogin(this.state.email, this.state.password);
-        if (res.data) {
-            this.props.userLogin(res.data.user);
-            this.props.history.push('');
-            const items = res.data.currentItems;
-            Object.keys(items).forEach((item) => {
-                    this.props.Set(item, items[item].num)
-                }
-            );
-        } else {
-            alert(res.msg)
-        }
+        this.props.userLogin(res.data.user);
+        this.props.history.push('');
+        const items = res.data.currentItems;
+        Object.keys(items).forEach((item) => {
+                this.props.Set(item, items[item].num)
+            }
+        );
+
     };
 
 
@@ -62,7 +59,7 @@ class Login extends Component {
                             <Form onSubmit={this.handleSubmit} className='mt-4'>
                                 <Form.Group controlId="email">
                                     <Form.Label>Email address</Form.Label>
-                                    <Form.Control type="email" placeholder="Enter email" autoFocus value={this.state.email}
+                                    <Form.Control type="email" placeholder="Enter email" autoFocus required value={this.state.email}
                                                   onChange={this.handleChange}/>
                                     <Form.Text className="text-muted">
                                         We'll never share your email with anyone else.
@@ -72,12 +69,12 @@ class Login extends Component {
                                 <Form.Group controlId="password">
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control type="password" placeholder="Enter Password" value={this.state.password}
-                                                  onChange={this.handleChange}/>
+                                                  onChange={this.handleChange} required/>
                                 </Form.Group>
                                 <Form.Group controlId="remember">
                                     <Form.Check type="checkbox" label="Remember me" onChange={this.handleCheckbox}/>
                                 </Form.Group>
-                                <Button block variant="dark" type="submit" disabled={!this.validateForm()}>
+                                <Button block variant="dark" type="submit" disabled={this.validateForm()}>
                                     Login
                                 </Button>
                             </Form>

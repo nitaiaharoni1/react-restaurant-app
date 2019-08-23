@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import { Navbar, Nav, FormControl, Button, Form, NavDropdown } from 'react-bootstrap'
+import React, {Component} from 'react';
+import {Navbar, Nav, FormControl, Button, Form, NavDropdown} from 'react-bootstrap'
 import HoverPopup from './HoverPopup';
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
+import {connect} from "react-redux";
+import {Link} from "react-router-dom";
+import {FaSearch} from "react-icons/fa";
 import {userLogout} from "../redux/actions/userActions";
 
 class Header extends Component {
 
-    handleLogout() {
-        debugger;
+    handleLogout = () => {
         this.props.userLogout();
     }
 
@@ -23,7 +22,7 @@ class Header extends Component {
             :
             (<Navbar.Text className='my-auto py-0 text-muted my-auto mr-md-3 text-capitalize'>
                 Hey, {this.props.firstName}
-                <Link onClick={this.handleLogout} to='logout' className='ml-2 ml-md-5 py-0'>
+                <Link onClick={this.handleLogout} className='ml-2 ml-md-5 py-0'>
                     Logout
                 </Link>
             </Navbar.Text>);
@@ -95,4 +94,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

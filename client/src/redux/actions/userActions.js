@@ -5,7 +5,7 @@ export function userLogin(data) {
     }
 }
 
-export function Signup(title, num) {
+export function userSignup(title, num) {
     return {
         type: "SIGNUP",
         title: title,
@@ -15,6 +15,6 @@ export function Signup(title, num) {
 
 export function userLogout() {
     return {
-        type: "LOGOUT",
+        type: "LOGOUT"
     }
 }
