@@ -13,7 +13,7 @@ class Header extends Component {
 
     handleLogout = () => {
         this.props.userLogout();
-    }
+    };
 
     render() {
         const login = (this.props.loggedIn === false) ?

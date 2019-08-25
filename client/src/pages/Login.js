@@ -3,10 +3,10 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import {Link, Redirect} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import {userLogin} from "../redux/actions/userActions";
-import {fetchLogin, fetchUserData} from "../utils/api";
+import { fetchLogin } from "../utils/api";
 import {connect} from "react-redux";
 import { Set, Reset } from "../redux/actions/cartActions";
 
@@ -25,13 +25,13 @@ class Login extends Component {
         this.setState({
             [e.target.id]: e.target.value
         });
-    }
+    };
 
     handleCheckbox = e => {
         this.setState({
             remember: e.target.checked
         });
-    }
+    };
 
     handleSubmit = async (e) => {
         e.preventDefault();

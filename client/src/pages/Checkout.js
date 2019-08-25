@@ -4,16 +4,13 @@ import home_top from "../assets/home_top.jpg";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Table from "react-bootstrap/Table";
 import CartTotalsCheckout from "../components/CartTotalsCheckout";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import CartTableItem from "../components/CartTableItem";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import Image from "react-bootstrap/Image";
 import Form from "react-bootstrap/Form";
-import { fetchNewOrder, fetchSignup } from "../utils/api";
+import { fetchNewOrder } from "../utils/api";
 import { Set, Reset } from "../redux/actions/cartActions";
 
 class Checkout extends Component {
@@ -35,20 +32,20 @@ class Checkout extends Component {
 
     _round = (num) => {
         return Math.round(num * 100) / 100
-    }
+    };
 
     handleChange = e => {
         this.setState({
             [e.target.id]: e.target.value
         });
-    }
+    };
 
     handleNewOrder = async (event) => {
         event.preventDefault();
         let res = await fetchNewOrder(this.props.email, this.state, this.props.items, this.props.total, this.props.totalPrice + 3.5);
         this.props.Reset();
         this.props.history.push('');
-    }
+    };
 
     render() {
 
@@ -167,7 +164,7 @@ class Checkout extends Component {
                                     total={this.props.total}
                                     totalPrice={this._round(this.props.totalPrice)}/>
             </Col>
-        </Row>
+        </Row>;
 
         const needToLogin =
             <div className='text-center'>
@@ -179,7 +176,7 @@ class Checkout extends Component {
                         To Login/Signup
                     </Button>
                 </Link>
-            </div>
+            </div>;
 
         return (
             <React.Fragment>

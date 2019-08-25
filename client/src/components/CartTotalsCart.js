@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Table from "react-bootstrap/Table";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 import { Link } from "react-router-dom";

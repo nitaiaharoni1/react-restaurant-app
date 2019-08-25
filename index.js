@@ -41,9 +41,9 @@ app.post('/api/items/:email/:title/:action', async (req, res) => {
             title = req.params.title,
             action = req.params.action;
         let data = require('./data');
-        if (action == 'ADD') {
+        if (action === 'ADD') {
             data[email].currentItems[title]++;
-        } else if (action == 'SUB') {
+        } else if (action === 'SUB') {
             data[email].currentItems[title]--;
         }
         await fs.writeFile('./data.json', JSON.stringify(data));
@@ -96,7 +96,7 @@ app.post('/api/user/signup', async (req, res) => {
                 "password": password,
                 "orders": {},
                 "currentItems": {}
-            }
+            };
             await fs.writeFile('./data.json', JSON.stringify(obj));
             res.status(200).send({msg: 'Login successful'});
         } else {
@@ -149,7 +149,7 @@ app.get('*', (req, res) => {
 function resetItemsNum(data, email) {
     Object.keys(data[email].currentItems).map(item => {
         data[email].currentItems[item] = 0
-    })
+    });
     return data;
 }
 

@@ -5,34 +5,8 @@ import { Header, Home, Delivery, Error, Gallery, MenuLunch, MenuEvening, Cart, L
 import Footer from "./components/Footer";
 import './App.css';
 import { connect } from "react-redux";
-import { Add } from "./redux/actions/cartActions";
-import { fetchUserData, fetchUpdateItems } from "./utils/api";
 
 class App extends Component {
-    constructor(props, context) {
-        super(props, context);
-    }
-
-    async componentDidUpdate(prevProps, prevState) {
-        //if (prevProps.total !== this.props.total) {
-        //    let currentItems = {}
-        //    Object.values(this.props.items).map(item => {
-        //        currentItems[item.title] = item.num
-        //    })
-        //    await fetchUpdateItems(this.props.email, currentItems)
-        //}
-    }
-
-    //async componentDidMount() {
-    //    if (this.props.loggedIn) {
-    //        const items = fetchUserData(this.props.email);
-    //        Object.keys(items).forEach((item) => {
-    //                this.props.Add(item, items[item].num)
-    //            }
-    //        );
-    //    }
-    //}
-
     render() {
         return (
             <Router>
@@ -66,13 +40,5 @@ const mapStateToProps = (state) => {
         total: state.cart.total
     }
 };
-
-//const mapDispatchToProps = (dispatch) => {
-//    return {
-//        Add: (title, num) => {
-//            dispatch(Add(title, num))
-//        }
-//    }
-//};
 
 export default connect(mapStateToProps)(App)

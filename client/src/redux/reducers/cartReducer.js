@@ -1,5 +1,3 @@
-import { fetchUpdateItems } from "../../utils/api";
-
 const initialState = {
     total: 0,
     totalPrice: 0,

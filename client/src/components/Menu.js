@@ -3,11 +3,10 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import MenuItem from "./MenuItem";
 import {connect} from "react-redux";
-import DeliveryCard from "./DeliveryCard";
 
 class Menu extends Component {
     menuItemRender = (item) => <MenuItem title={item.title}
-                                          price={item.price} description={item.description}/>
+                                         price={item.price} description={item.description}/>;
 
     render() {
         return (
@@ -15,7 +14,7 @@ class Menu extends Component {
                 <h1 className=''>Appetizers</h1>
                 <Row className='my-4'>
                     {Object.values(this.props.items).map(item =>
-                        (item.meal == 'appetizer') ? this.menuItemRender(item) : null
+                        (item.meal === 'appetizer') ? this.menuItemRender(item) : null
                     )}
                 </Row>
 
@@ -24,7 +23,7 @@ class Menu extends Component {
                 <h1 className='mt-4'>Main Course</h1>
                 <Row className='my-4'>
                     {Object.values(this.props.items).map(item =>
-                        (item.meal == 'main') ? this.menuItemRender(item) : null
+                        (item.meal === 'main') ? this.menuItemRender(item) : null
                     )}
                 </Row>
 
@@ -33,7 +32,7 @@ class Menu extends Component {
                 <h1 className=''>deserts</h1>
                 <Row className='my-4'>
                     {Object.values(this.props.items).map(item =>
-                        (item.meal == 'desert') ? this.menuItemRender(item) : null
+                        (item.meal === 'desert') ? this.menuItemRender(item) : null
                     )}
                 </Row>
             </Container>

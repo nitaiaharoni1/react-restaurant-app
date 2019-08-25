@@ -6,15 +6,10 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import CartTableItem from "../components/CartTableItem";
-import CustomButtonGroup from "../components/CustomButtonGroup";
 import { connect } from "react-redux";
-import ScrollArea from "react-scrollbar";
-import HoverPopupItem from "../components/HoverPopupItem";
 import Button from "react-bootstrap/Button";
-import Popover from "react-bootstrap/Popover";
 import { Link } from "react-router-dom";
 import CartTotalsCart from "../components/CartTotalsCart";
-import Image from "react-bootstrap/Image";
 
 class Cart extends Component {
     cartTableItemRender = (title) => <CartTableItem round={this._round} img={this.props.items[title].img} title={this.props.items[title].title}
@@ -22,7 +17,7 @@ class Cart extends Component {
 
     _round = (num) => {
         return Math.round(num * 100) / 100
-    }
+    };
 
     render() {
         const cart = (this.props.total > 0) ? (<Row>
@@ -34,7 +29,7 @@ class Cart extends Component {
                     <Table className='mt-3' responsive>
                         <thead>
                         <tr className='text-center'>
-                            <th></th>
+                            <th/>
                             <th>Image</th>
                             <th>Product</th>
                             <th>Unit Price</th>
@@ -64,7 +59,7 @@ class Cart extends Component {
                         Back to Deliveries
                     </Button>
                 </Link>
-            </div>)
+            </div>);
 
         return (
             <React.Fragment>

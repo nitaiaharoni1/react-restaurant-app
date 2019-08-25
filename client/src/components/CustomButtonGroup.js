@@ -25,15 +25,15 @@ class CustomButtonGroup extends Component {
     handleAdd = async () => {
         this.props.Add(this.props.title, 1);
         if (this.props.loggedIn) {
-            fetchUpdateItems(this.props.email, this.props.title, 'ADD')
+            await fetchUpdateItems(this.props.email, this.props.title, 'ADD')
         }
 
-    }
+    };
 
     handleSub = async () => {
         this.props.Sub(this.props.title, 1);
         if (this.props.loggedIn) {
-            fetchUpdateItems(this.props.email, this.props.title, 'SUB')
+            await fetchUpdateItems(this.props.email, this.props.title, 'SUB')
         }
     }
 

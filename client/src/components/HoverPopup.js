@@ -36,20 +36,14 @@ class HoverPopup extends Component {
 
     _round = (num) => {
         return Math.round(num * 100) / 100
-    }
+    };
 
-    updateItems = async () => {
-        let currentItems = {};
-        Object.values(this.props.items).map(item => {
-            currentItems[item.title] = item.num
-        })
-        await fetchUpdateItems(this.props.email, currentItems)
-    }
+
 
     render() {
         const checkout = (this.props.total > 0) ?
             (<Button variant='warning' onClick={this._hide}>Checkout</Button>) :
-            (<Button disabled variant='warning' onClick={this._hide}>Checkout</Button>)
+            (<Button disabled variant='warning' onClick={this._hide}>Checkout</Button>);
 
 
         const popup = (this.props.total > 0) ?
@@ -85,7 +79,7 @@ class HoverPopup extends Component {
                         </Form>
                     </Popover.Title>
                 </Popover>
-            </Overlay>) : null
+            </Overlay>) : null;
 
         return (
             <React.Fragment>

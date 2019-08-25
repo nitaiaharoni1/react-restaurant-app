@@ -13,7 +13,7 @@ class DeliveryMenu extends Component {
                 <h1 className='pt-4'>Appetizers</h1>
                 <Row className='pb-3'>
                     {Object.values(this.props.items).map(item =>
-                        (item.meal == 'appetizer') ? this.cardRender(item) : null
+                        (item.meal === 'appetizer') ? this.cardRender(item) : null
                     )}
                 </Row>
 
@@ -22,7 +22,7 @@ class DeliveryMenu extends Component {
                 <h1 className='pt-5'>Main Course</h1>
                 <Row className='pb-3'>
                     {Object.values(this.props.items).map(item =>
-                        (item.meal == 'main') ? this.cardRender(item) : null
+                        (item.meal === 'main') ? this.cardRender(item) : null
                     )}
                 </Row>
 
@@ -31,7 +31,7 @@ class DeliveryMenu extends Component {
                 <h1 className='pt-5'>deserts</h1>
                 <Row className='pb-5'>
                     {Object.values(this.props.items).map(item =>
-                        (item.meal == 'desert') ? this.cardRender(item) : null
+                        (item.meal === 'desert') ? this.cardRender(item) : null
                     )}
                 </Row>
             </Container>

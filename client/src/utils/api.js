@@ -46,7 +46,7 @@ export async function fetchSignup(data) {
 }
 
 export async function fetchNewOrder(email, payment, items, total, totalPrice) {
-    let payload = {payment, total, totalPrice, items: {}}
+    let payload = {payment, total, totalPrice, items: {}};
     Object.values(items)
         .filter(item => item.num > 0)
         .map(function (item) {

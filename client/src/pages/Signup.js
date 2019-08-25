@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import { userSignup } from "../redux/actions/userActions";
 import { connect } from "react-redux";
-import { fetchLogin, fetchSignup } from "../utils/api";
+import { fetchSignup } from "../utils/api";
 
 class Signup extends Component {
     constructor(props) {
@@ -33,20 +33,20 @@ class Signup extends Component {
         this.setState({
             [e.target.id]: e.target.value
         });
-    }
+    };
 
     handleCheckbox = e => {
         this.setState({
             agree: e.target.checked
         });
-    }
+    };
 
     handleSubmit = async (event) => {
         event.preventDefault();
         let res = await fetchSignup(this.state);
         this.props.userSignup(this.state);
         this.props.history.push('');
-    }
+    };
 
     render() {
         return (
