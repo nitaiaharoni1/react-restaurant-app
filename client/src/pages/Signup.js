@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import {Link} from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
-import {userSignup} from "../redux/actions/userActions";
-import {connect} from "react-redux";
-import {fetchLogin, fetchSignup} from "../utils/api";
+import { userSignup } from "../redux/actions/userActions";
+import { connect } from "react-redux";
+import { fetchLogin, fetchSignup } from "../utils/api";
 
 class Signup extends Component {
     constructor(props) {
@@ -43,11 +43,9 @@ class Signup extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault();
-        debugger;
         let res = await fetchSignup(this.state);
-            this.props.userSignup(res.data.user);
-            this.props.history.push('');
-
+        this.props.userSignup(this.state);
+        this.props.history.push('');
     }
 
     render() {
@@ -130,8 +128,8 @@ class Signup extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        userSignup: (email, password, remember) => {
-            dispatch(userSignup(email, password, remember))
+        userSignup: (data) => {
+            dispatch(userSignup(data))
         }
     }
 };

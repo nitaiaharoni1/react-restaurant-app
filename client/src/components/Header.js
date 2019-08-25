@@ -7,6 +7,9 @@ import {FaSearch} from "react-icons/fa";
 import {userLogout} from "../redux/actions/userActions";
 
 class Header extends Component {
+    constructor(props, context) {
+        super(props, context);
+    }
 
     handleLogout = () => {
         this.props.userLogout();

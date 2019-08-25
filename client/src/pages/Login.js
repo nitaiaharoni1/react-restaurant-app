@@ -8,7 +8,7 @@ import Form from "react-bootstrap/Form";
 import {userLogin} from "../redux/actions/userActions";
 import {fetchLogin, fetchUserData} from "../utils/api";
 import {connect} from "react-redux";
-import {Set} from "../redux/actions/cartActions";
+import { Set, Reset } from "../redux/actions/cartActions";
 
 class Login extends Component {
     state = {
@@ -38,14 +38,16 @@ class Login extends Component {
         let res = await fetchLogin(this.state.email, this.state.password);
         this.props.userLogin(res.data.user);
         this.props.history.push('');
-        const items = res.data.currentItems;
-        Object.keys(items).forEach((item) => {
-                this.props.Set(item, items[item].num)
-            }
-        );
-
+        this.props.Reset();
+        this.setItemsNum(res.data.currentItems);
     };
 
+    setItemsNum(items) {
+        Object.keys(items).forEach((item) => {
+                this.props.Set(item, items[item])
+            }
+        );
+    }
 
     render() {
         return (
@@ -106,6 +108,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         Set: (title, num) => {
             dispatch(Set(title, num))
+        },
+        Reset: () => {
+            dispatch(Reset())
         }
     }
 };

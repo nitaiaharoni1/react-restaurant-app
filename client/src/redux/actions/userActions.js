@@ -5,11 +5,10 @@ export function userLogin(data) {
     }
 }
 
-export function userSignup(title, num) {
+export function userSignup(data) {
     return {
         type: "SIGNUP",
-        title: title,
-        num: num
+        data: data,
     }
 }
 

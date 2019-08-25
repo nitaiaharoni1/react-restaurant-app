@@ -1,3 +1,5 @@
+import { fetchUpdateItems } from "../../utils/api";
+
 const initialState = {
     total: 0,
     totalPrice: 0,
@@ -170,24 +172,11 @@ export default (state = initialState, action) => {
                 }
             };
             break;
-        // case 'LOAD_ITEMS':
-        //     debugger;
-        //     let itemsUpdate = {};
-        //     Object.keys(action.items).forEach((item) => {
-        //
-        //             itemsUpdate[item] = {
-        //                 ...state.items[item], num: action.items[item].num
-        //             }
-        //         }
-        //     );
-        //     state = {
-        //         ...state,
-        //         items: {
-        //             ...state.items,
-        //             ...itemsUpdate
-        //         }
-        //     };
-        //     break;
+        case 'RESET':
+            state = initialState;
+            break;
     }
+
     return state;
 }
+

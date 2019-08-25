@@ -13,7 +13,8 @@ import HoverPopupItem from "../components/HoverPopupItem";
 import Button from "react-bootstrap/Button";
 import Popover from "react-bootstrap/Popover";
 import { Link } from "react-router-dom";
-import CartTotals from "../components/CartTotals";
+import CartTotalsCart from "../components/CartTotalsCart";
+import Image from "react-bootstrap/Image";
 
 class Cart extends Component {
     cartTableItemRender = (title) => <CartTableItem round={this._round} img={this.props.items[title].img} title={this.props.items[title].title}
@@ -24,14 +25,6 @@ class Cart extends Component {
     }
 
     render() {
-        const checkout = (this.props.total > 0) ?
-            (<Button variant='warning' block>
-                Checkout
-            </Button>) :
-            (<Button variant='warning' disabled block>
-                Checkout
-            </Button>)
-
         const cart = (this.props.total > 0) ? (<Row>
                 <Col xs={12} lg={8}>
                     <div className='d-flex'>
@@ -58,31 +51,20 @@ class Cart extends Component {
                 </Col>
 
                 <Col className='ml-lg-5 pl-lg-2 mt-4 mt-lg-0 p-0 m-0' xs={12} lg={3}>
-                    <CartTotals totalPrice={this._round(this.props.totalPrice)}/>
-                    <Link to='checkout'>
-                        {checkout}
-                    </Link>
-                    <h6 className='mt-3'>
-                        WE ACCEPT:
-                    </h6>
-                    <p>
-                        Got a coupon code? Add it in the next step
-                    </p>
+                    <CartTotalsCart disabled={false} buttonText='Checkout' total={this.props.total} totalPrice={this._round(this.props.totalPrice)}/>
                 </Col>
             </Row>)
             :
-            (
-                <div className='text-center'>
-                    <h2>
-                        Your cart is currently empty...
-                    </h2>
-                    <Link to='delivery'>
-                        <Button variant='warning' className='mt-4'>
-                            Back to Deliveries
+            (<div className='text-center'>
+                <h2>
+                    Your cart is currently empty...
+                </h2>
+                <Link to='delivery'>
+                    <Button variant='warning' className='mt-4'>
+                        Back to Deliveries
                     </Button>
-                    </Link>
-                </div>
-            )
+                </Link>
+            </div>)
 
         return (
             <React.Fragment>

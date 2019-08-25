@@ -3,7 +3,7 @@ import Image from "react-bootstrap/Image";
 import CustomButtonGroup from "./CustomButtonGroup";
 import { connect } from "react-redux";
 import { FiTrash2 } from "react-icons/fi";
-import { Add, Sub, Zero } from "../redux/actions/cartActions";
+import { Zero } from "../redux/actions/cartActions";
 
 class CartTableItem extends Component {
     render() {

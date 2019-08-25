@@ -2,6 +2,7 @@ const initialState = {
     firstName: '',
     lastName: '',
     address: '',
+    zip: '',
     city: '',
     country: '',
     houseNum: '',
@@ -15,15 +16,15 @@ export default (state = initialState, action) => {
         case 'SIGNUP':
             state = {
                 ...state,
-                total: state.total + action.num,
-                totalPrice: state.totalPrice + (state.items[action.title].price * action.num),
-                items: {
-                    ...state.items,
-                    [action.title]: {
-                        ...state.items[action.title],
-                        num: state.items[action.title].num + action.num
-                    }
-                }
+                firstName: action.data.firstName,
+                lastName: action.data.lastName,
+                address: action.data.address,
+                zip: action.data.zip,
+                city: action.data.city,
+                country: action.data.country,
+                houseNum: action.data.houseNum,
+                email: action.data.email,
+                loggedIn: true
             };
             break;
         case 'LOGIN':

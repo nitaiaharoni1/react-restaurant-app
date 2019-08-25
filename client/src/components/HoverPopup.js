@@ -10,8 +10,7 @@ import ScrollArea from "react-scrollbar";
 import HoverPopupItem from './HoverPopupItem'
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
-import DeliveryCard from "./DeliveryCard";
-import Row from "react-bootstrap/Row";
+import { fetchUpdateItems } from "../utils/api";
 
 class HoverPopup extends Component {
     constructor(props) {
@@ -37,6 +36,14 @@ class HoverPopup extends Component {
 
     _round = (num) => {
         return Math.round(num * 100) / 100
+    }
+
+    updateItems = async () => {
+        let currentItems = {};
+        Object.values(this.props.items).map(item => {
+            currentItems[item.title] = item.num
+        })
+        await fetchUpdateItems(this.props.email, currentItems)
     }
 
     render() {
@@ -65,7 +72,6 @@ class HoverPopup extends Component {
                     </Popover.Content>
                     <Popover.Title className='text-center text-dark' as="h2">
                         Subtotal: ${this._round(this.props.totalPrice)}
-
                     </Popover.Title>
 
                     <Popover.Title as="h2">

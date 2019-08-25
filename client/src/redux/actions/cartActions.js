@@ -2,7 +2,7 @@ export function Add(title, num) {
     return {
         type: "ADD",
         title: title,
-        num: num
+        num: num,
     }
 }
 
@@ -30,9 +30,8 @@ export function Zero(title) {
     }
 }
 
-export function loadItems(items) {
+export function Reset() {
     return {
-        type: "LOAD_ITEMS",
-        items: items,
+        type: "RESET",
     }
 }
