@@ -6,6 +6,11 @@
     .font-footer {
         font-size: 0.8em;
     }
+
+    .popover {
+        max-width: 23em!important;
+        width: 23em!important;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -16,9 +21,22 @@
     .font-footer {
         font-size: 0.5em;
     }
+
+    .popover {
+        max-width: 20em!important;
+        width: 20em!important;
+    }
 }
 
 h1 {
     text-align: center;
     text-transform: uppercase;
+}
+
+.btn-group {
+    width : 100% !important
+}
+
+.dropdown-menu {
+    min-width: 0!important;
 }

@@ -1,16 +1,24 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Image from "react-bootstrap/Image";
 import CustomButtonGroup from "./CustomButtonGroup";
-import { connect } from "react-redux";
-import { FiTrash2 } from "react-icons/fi";
-import { Zero } from "../redux/actions/cartActions";
+import {connect} from "react-redux";
+import {FiTrash2} from "react-icons/fi";
+import {Zero} from "../redux/actions/cartActions";
+import {fetchUpdateItems} from "../utils/api";
 
 class CartTableItem extends Component {
+    handleZero = async () => {
+        this.props.Zero(this.props.title);
+        if (this.props.loggedIn) {
+            await fetchUpdateItems(this.props.email, this.props.title, 'ZERO')
+        }
+    };
+
     render() {
         return (
             <tr className='text-center'>
                 <td className='align-middle'>
-                    <FiTrash2 className='mr-2 shadow-sm' size='1.2em' onClick={() => this.props.Zero(this.props.title)}/>
+                    <FiTrash2 className='mr-2 shadow-sm' size='1.2em' onClick={this.handleZero}/>
                 </td>
                 <td className='align-middle'>
                     <Image style={{height: 110, width: 110}}
@@ -33,4 +41,11 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(null, mapDispatchToProps)(CartTableItem);
+const mapStateToProps = (state) => {
+    return {
+        loggedIn: state.user.loggedIn,
+        email: state.user.email
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartTableItem);

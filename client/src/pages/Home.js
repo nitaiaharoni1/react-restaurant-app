@@ -16,7 +16,7 @@ class Home extends Component {
                 <CustomContainer/>
                 <CustomParallax title='eat together'
                                 text='Every plate achieves that elusive, cuisine-defining balance of sweet, salty, and sour — even dessert.'
-                                img={home_sitting} buttonText='Button' height='30em'/>
+                                img={home_sitting} height='30em'/>
                 <HomeCards/>
                 <ColumnsContainer/>
                 <CustomParallax title='the kitchen' img={home_kitchen} height='40em'/>

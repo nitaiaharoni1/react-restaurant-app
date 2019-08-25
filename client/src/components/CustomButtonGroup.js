@@ -12,7 +12,7 @@ class CustomButtonGroup extends Component {
                 Add to Cart
             </Button>;
         const plusMinusElement =
-            <ButtonGroup variant="outline-dark">
+            <ButtonGroup className='w-100' variant="outline-dark">
                 <Button variant="outline-dark" onClick={this.handleSub}> - </Button>
                 <Button className='disabled'
                         variant="outline-dark">{this.props.num ? this.props.num : 0}</Button>

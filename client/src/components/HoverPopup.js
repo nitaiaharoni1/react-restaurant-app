@@ -52,13 +52,12 @@ class HoverPopup extends Component {
                 container: this,
                 target: () => ReactDOM.findDOMNode(this.refs.target)
             }} placement="bottom">
-                <Popover className='text-dark' style={{width: 300}} onMouseOver={this._show} onMouseOut={this._toggle}
-                         title="Some title text">
+                <Popover className='text-dark' onMouseOver={this._show} onMouseOut={this._toggle}>
                     <Popover.Title as="h2" className='text-center'>
                         My Cart
                     </Popover.Title>
                     <Popover.Content>
-                        <ScrollArea speed={0.3} className="area" style={{maxHeight: 400}} contentClassName="content" horizontal={false}>
+                        <ScrollArea speed={0.3} style={{maxHeight: 400}} horizontal={false}>
                             {Object.values(this.props.items).map(item =>
                                 (item.num > 0) ? this.HoverPopupItemRender(item) : null
                             )}

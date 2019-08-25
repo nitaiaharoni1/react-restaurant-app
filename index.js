@@ -1,8 +1,14 @@
 const express = require('express'),
     path = require('path'),
     bodyParser = require('body-parser'),
-    fs = require('fs').promises,
-    uniqid = require('uniqid');
+    {promisify} = require('util'),
+    fs = require('fs'),
+    uniqid = require('uniqid'),
+    readdirAsync = promisify(fs.readdir),
+    readFileAsync = promisify(fs.readFile),
+    writeFileAsync = promisify(fs.writeFile);
+;
+
 
 const app = express();
 const port = process.env.PORT || 3005;
@@ -14,9 +20,9 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 //Simulates database access
 app.get('/api/gallery', async (req, res) => {
     try {
-        let images = await fs.readdir('./server_assets');
+        let images = await readdirAsync('./server_assets');
         for (i in images) {
-            let buffer = await fs.readFile('./server_assets/' + images[i], {encoding: 'base64'});
+            let buffer = await readFileAsync('./server_assets/' + images[i], {encoding: 'base64'});
             images[i] = {img: buffer, title: images[i], key: i};
         }
         res.status(200).send({images: images});
@@ -41,12 +47,18 @@ app.post('/api/items/:email/:title/:action', async (req, res) => {
             title = req.params.title,
             action = req.params.action;
         let data = require('./data');
-        if (action === 'ADD') {
-            data[email].currentItems[title]++;
-        } else if (action === 'SUB') {
-            data[email].currentItems[title]--;
+        switch (action) {
+            case 'ADD':
+                data[email].currentItems[title]++;
+                break;
+            case 'ADD':
+                data[email].currentItems[title]++;
+                break;
+            case 'ZERO':
+                data[email].currentItems[title] = 0;
+                break;
         }
-        await fs.writeFile('./data.json', JSON.stringify(data));
+        await writeFileAsync('./data.json', JSON.stringify(data));
         res.status(200).send({msg: 'Items we\'re updated'});
     } catch (e) {
         res.status(500).send({msg: e.message});
@@ -97,7 +109,7 @@ app.post('/api/user/signup', async (req, res) => {
                 "orders": {},
                 "currentItems": {}
             };
-            await fs.writeFile('./data.json', JSON.stringify(obj));
+            await writeFileAsync('./data.json', JSON.stringify(obj));
             res.status(200).send({msg: 'Login successful'});
         } else {
             res.status(500).send({msg: `The user ${email}, is already signed up...`});
@@ -127,7 +139,7 @@ app.post('/api/order/new/:email', async (req, res) => {
                 date: date
             };
             data = resetItemsNum(data, email);
-            await fs.writeFile('./data.json', JSON.stringify(data));
+            await writeFileAsync('./data.json', JSON.stringify(data));
             res.status(200).send({msg: 'Order successfully placed', data: data[email], orderId: orderId, date: date});
         } else {
             res.status(500).send({msg: `Error placing order`});

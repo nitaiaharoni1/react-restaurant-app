@@ -19,7 +19,7 @@ class Header extends Component {
         const login = (this.props.loggedIn === false) ?
             (<Navbar.Text className='my-auto py-0'>
                 <Link to='login' className='mr-md-3'>
-                    Login/Register
+                    Login/Signup
                 </Link>
             </Navbar.Text>)
             :
@@ -46,13 +46,13 @@ class Header extends Component {
                             </Link>
                         </Nav.Link>
                         <NavDropdown className='my-auto text-dark' title='MENU' id="collasible-nav-dropdown">
-                            <Link to='menu.lunch' className='text-secondary ml-3'>
+                            <Link to='menu.lunch' className='text-secondary ml-3 mr-4'>
                                 lunch
                             </Link>
 
                             <NavDropdown.Divider/>
 
-                            <Link to='menu.evening' className='text-secondary ml-3'>
+                            <Link to='menu.evening' className='text-secondary ml-3 mr-4'>
                                 evening
                             </Link>
 

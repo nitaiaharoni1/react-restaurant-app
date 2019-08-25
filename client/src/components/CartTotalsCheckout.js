@@ -9,8 +9,8 @@ class CartTotalsCheckout extends Component {
             <div>
                 <h4 className='text-uppercase my-auto'>Cart Totals</h4>
                 <Card className='mt-3'>
-                    <Card.Header>
-                        {this.props.total} ITEMS
+                    <Card.Header className='pl-2 font-weight-bold'>
+                        {this.props.total} Products
                     </Card.Header>
                     <Card.Body className='d-flex justify-content-between p-2 mt-3'>
                         <Card.Text>
@@ -42,9 +42,10 @@ class CartTotalsCheckout extends Component {
                         <Button onClick={this.props.handleNewOrder} variant='warning' block disabled={this.props.disabled}>
                             {this.props.buttonText}
                         </Button>
+                        <hr/>
                         <h6 className='mt-3'>
                             WE ACCEPT:
-                            <Image className="img-thumbnail" src="https://assets.asosservices.com/asos-finance/images/marketing/single.png"
+                            <Image className="img-thumbnail mt-1" src="https://assets.asosservices.com/asos-finance/images/marketing/single.png"
                                    alt="payment options"/>
                         </h6>
                         <p style={{fontSize: '0.8em'}}>
