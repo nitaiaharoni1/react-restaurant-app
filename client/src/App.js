@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Header, Home, Delivery, Error, Gallery, MenuLunch, MenuEvening, Cart, Login, Signup, Checkout, Terms } from './utils'
+import { Header, Home, Delivery, Error, Gallery, MenuLunch, MenuEvening, Cart, Login, Signup, Checkout, Terms, Readme } from './utils'
 import Footer from "./components/Footer";
 import './App.css';
 import { connect } from "react-redux";
@@ -44,6 +44,7 @@ class App extends Component {
                         <Route exact path="/signup" component={Signup}/>
                         <Route exact path="/checkout" component={Checkout}/>
                         <Route exact path="/terms" component={Terms}/>
+                        <Route exact path="/readme" component={Readme}/>
                         <Route exact path="/" component={Home}/>
                         <Route component={Error}/>
                     </Switch>
