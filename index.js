@@ -4,15 +4,18 @@ const express = require('express'),
     {promisify} = require('util'),
     fs = require('fs'),
     uniqid = require('uniqid'),
+    cookieParser = require('cookie-parser'),
+    jwt = require('jsonwebtoken'),
     readdirAsync = promisify(fs.readdir),
     readFileAsync = promisify(fs.readFile),
     writeFileAsync = promisify(fs.writeFile);
-;
 
+const SECRET = 'secret';
 
 const app = express();
 const port = process.env.PORT || 3005;
 
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'client/build')));
@@ -65,16 +68,47 @@ app.post('/api/items/:email/:title/:action', async (req, res) => {
     }
 });
 
-app.get('/api/user/login/:email/:password', async (req, res) => {
+app.get('/api/user/auth', async (req, res) => {
+    try {
+        const data = require('./data')
+        if (req.cookies && req.cookies.token_mama) {
+            const token = req.cookies.token_mama,
+                decoded = jwt.verify(token, SECRET);
+            if (data[decoded.email]) {
+                res.status(200).send({msg: 'Auth successful', data: data[decoded.email]});
+            } else {
+                res.status(500).send({msg: 'Auth failed... there is no user with this token'});
+            }
+        } else {
+            res.status(500).send({msg: 'Auth failed... there is no cookie'});
+        }
+    } catch (e) {
+        res.status(500).send({msg: e.message});
+    }
+});
+
+app.get('/api/user/login/:email/:password/:remember', async (req, res) => {
     try {
         const data = require('./data'),
             email = req.params.email,
-            password = req.params.password;
+            password = req.params.password,
+            maxAge = req.params.remember === "true" ? (10 * 365 * 24 * 60 * 60) : (60 * 5 * 1000);
         if (data[email] && data[email].password === password) {
+            const token = jwt.sign({email}, SECRET);
+            res.cookie('token_mama', token, {maxAge: maxAge});
             res.status(200).send({msg: 'Login successful', data: data[email]});
         } else {
             res.status(500).send({msg: 'Login failed... Either email or password are incorrect'});
         }
+    } catch (e) {
+        res.status(500).send({msg: e.message});
+    }
+});
+
+app.get('/api/user/logout', async (req, res) => {
+    try {
+        res.clearCookie('token_mama');
+        res.status(200).send({msg: 'Logout successful'});
     } catch (e) {
         res.status(500).send({msg: e.message});
     }

@@ -61,7 +61,6 @@ const initialState = {
         },
         'Nuur Kra Prow': {
             num: 0,
-
             img: 'https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/EA260A79-7F93-4F6E-B587-A6C9AE1F4FDB/Derivates/8f2988c1-bc54-4806-b4a8-62d2dbfc8db8.jpg',
             title: 'Nuur Kra Prow',
             price: '8.50',

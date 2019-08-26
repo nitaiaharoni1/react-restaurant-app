@@ -12,20 +12,27 @@ export async function fetchUpdateItems(email, title, action) {
     }
 }
 
-export async function fetchUserData(email) {
-    const res = await fetch(`/api/items/${email}`);
+export async function fetchUserAuth() {
+    const res = await fetch(`/api/user/auth`);
     if (res.status === 200) {
-        return (await res.json()).items;
+        return (await res.json());
     } else {
         alert(res.msg)
     }
 }
 
-export async function fetchLogin(email, password) {
-    let res = await fetch(`/api/user/login/${email}/${password}`);
+export async function fetchLogin(email, password, remember) {
+    let res = await fetch(`/api/user/login/${email}/${password}/${remember}`);
     if (res.status === 200) {
         return (await res.json());
     } else {
+        alert(res.msg)
+    }
+}
+
+export async function fetchLogout() {
+    let res = await fetch(`/api/user/logout`);
+    if (res.status !== 200) {
         alert(res.msg)
     }
 }

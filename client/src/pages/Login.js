@@ -35,9 +35,9 @@ class Login extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault();
-        let res = await fetchLogin(this.state.email, this.state.password);
-        this.props.userLogin(res.data.user);
+        let res = await fetchLogin(this.state.email, this.state.password, this.state.remember);
         this.props.history.push('');
+        this.props.userLogin(res.data.user);
         this.props.Reset();
         this.setItemsNum(res.data.currentItems);
     };
@@ -103,8 +103,8 @@ class Login extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        userLogin: (email, password, remember) => {
-            dispatch(userLogin(email, password, remember))
+        userLogin: (data) => {
+            dispatch(userLogin(data))
         },
         Set: (title, num) => {
             dispatch(Set(title, num))

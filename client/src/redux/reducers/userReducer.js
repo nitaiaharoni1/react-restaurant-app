@@ -7,7 +7,6 @@ const initialState = {
     country: '',
     houseNum: '',
     email: '',
-    remember: false,
     loggedIn: false
 };
 
