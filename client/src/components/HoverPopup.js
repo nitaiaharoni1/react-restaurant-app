@@ -83,7 +83,8 @@ class HoverPopup extends Component {
         return (
             <React.Fragment>
                 <Link to='/cart'>
-                    <Button variant="dark" style={{position: 'relative'}} ref="target" onClick={this._hide} onMouseOver={this._show}
+                    <Button className='mr-sm-5' variant="dark" style={{position: 'relative'}} ref="target" onClick={this._hide}
+                            onMouseOver={this._show}
                             onMouseOut={this._hide}>
                         <FaShoppingCart className='mr-1' size='1.5em'/>
                         <Badge style={{position: 'absolute', top: -8, right: -8}} pill variant="warning">{this.props.total} </Badge>

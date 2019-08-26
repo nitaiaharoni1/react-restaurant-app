@@ -67,7 +67,7 @@ class Header extends Component {
                     </Nav>
                     <Nav className="ml-auto mr-sm-5 pr-sm-5">
                         {login}
-                        <Nav.Link className='my-auto text-dark'>
+                        <Nav.Link className='my-auto text-dark mr-sm-5 pr-sm-5'>
                             <HoverPopup/>
                         </Nav.Link>
 
