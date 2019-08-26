@@ -1,39 +1,82 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import DeliveryCard from "./DeliveryCard";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
+import { Button, Form, FormControl, Nav } from "react-bootstrap";
+import { FaSearch } from "react-icons/fa";
+import InputGroup from "react-bootstrap/InputGroup";
+import { Link } from "react-router-dom";
 
 class DeliveryMenu extends Component {
+    state = {
+        search: ''
+    }
+
+    handleChange = (e) => {
+        this.setState({search: e.target.value.toUpperCase()})
+    }
+
     cardRender = (item) => <DeliveryCard img={item.img} title={item.title} price={item.price} description={item.description} num={item.num}/>;
 
+    itemsIterate = (meal) => {
+        return Object.values(this.props.items)
+            .filter(item =>
+                item.meal === meal && (item.title.toUpperCase().includes(this.state.search) || item.description.toUpperCase().includes(this.state.search) || item.price.toUpperCase().includes(this.state.search))
+            ).map(item => this.cardRender(item));
+    }
+
     render() {
+        const appetizer = this.itemsIterate('appetizer'),
+            main = this.itemsIterate('main'),
+            desert = this.itemsIterate('desert');
+
         return (
             <Container>
-                <h1 className='pt-4'>Appetizers</h1>
-                <Row className='pb-3'>
-                    {Object.values(this.props.items).map(item =>
-                        (item.meal === 'appetizer') ? this.cardRender(item) : null
-                    )}
-                </Row>
+                <Form className='justify-content-center pt-4' inline>
+                    <InputGroup style={{width: "50%"}}>
+                        <FormControl onChange={this.handleChange} type="text" placeholder='Search'/>
+                        <InputGroup.Append>
+                            <InputGroup.Text id="inputGroupPrepend">
+                                <FaSearch/>
+                            </InputGroup.Text>
+                        </InputGroup.Append>
+                    </InputGroup>
+                </Form>
 
-                <Row/>
+                {appetizer.length > 0 &&
+                <>
+                    <h1 className='pt-5 mx-auto'>Appetizers</h1>
+                    <Row className='pb-3'>
+                        {appetizer}
+                    </Row>
+                </>}
 
-                <h1 className='pt-5'>Main Course</h1>
-                <Row className='pb-3'>
-                    {Object.values(this.props.items).map(item =>
-                        (item.meal === 'main') ? this.cardRender(item) : null
-                    )}
-                </Row>
+                {main.length > 0 &&
+                <>
+                    <h1 className='pt-5 mx-auto'>Main Course</h1>
+                    <Row className='pb-3'>
+                        {main}
+                    </Row>
+                </>}
 
-                <Row/>
 
-                <h1 className='pt-5'>deserts</h1>
-                <Row className='pb-5'>
-                    {Object.values(this.props.items).map(item =>
-                        (item.meal === 'desert') ? this.cardRender(item) : null
-                    )}
-                </Row>
+                {desert.length > 0 &&
+                <>
+                    <h1 className='pt-5 mx-auto'>Main Course</h1>
+                    <Row className='pb-3'>
+                        {desert}
+                    </Row>
+                </>}
+
+                {(desert.length === 0 && main.length === 0 && appetizer.length === 0) &&
+                <div className='text-center mt-5'>
+                    <h4>
+                        Your search didn't match any item
+                    </h4>
+                </div>
+                }
+
             </Container>
         );
     }
