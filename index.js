@@ -186,7 +186,7 @@ app.post('/api/order/new/:email', async (req, res) => {
 //Serves react client static files
 app.get('*', (req, res) => {
     try {
-        res.sendFile(path.join(__dirname = 'client/build/index.html'));
+        res.sendFile(path.join(__dirname, 'client/build/index.html'));
     } catch (e) {
         res.status(500).send({msg: e.message});
     }
