@@ -18,23 +18,23 @@ class HoverPopupItem extends Component {
 
     render() {
         return (
-            <Row className='py-3 border-bottom border-top'>
-                <Col xs={7} className='ml-3 px-0 '>
+            <Row className='py-2 border-bottom border-top'>
+                <Col xs={7} className='ml-3 px-0'>
                     <Row>
-                        <Col xs={2} className='mt-0 m-2 pr-0 p-2'>
-                            <FiTrash2 style={{position: 'absolute', top: 0, right:'1em'}} className='shadow-sm' size='1.2em' onClick={this.handleZero}/>
+                        <Col className='my-auto pl-0 pr-1 text-right' xs={2}>
+                            <FiTrash2 className='shadow-sm my-auto' size='1.2em' onClick={this.handleZero}/>
                         </Col>
-                        <Col xs={9} className='my-auto ml-0 pl-0'>
+                        <Col className='my-auto pl-1' xs={9}>
                             <h6 className='my-auto text-left'>{this.props.title}</h6>
                         </Col>
                     </Row>
 
 
                     <Row className='mt-2 mx-0'>
-                        <Col className='px-0' xs={6}>
+                        <Col className='px-0' xs={7}>
                             <CustomButtonGroup title={this.props.title} num={this.props.num}/>
                         </Col>
-                        <Col xs={4} className='my-auto ml-2 pr-0'>
+                        <Col xs={5} className='my-auto pr-0'>
                             <h6 className='text-left my-auto'>${this.props.round(this.props.price * this.props.num)}</h6>
                         </Col>
                     </Row>

@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {Navbar, Nav, FormControl, Button, Form, NavDropdown} from 'react-bootstrap'
+import React, { Component } from 'react';
+import { Navbar, Nav, FormControl, Button, Form, NavDropdown } from 'react-bootstrap'
 import HoverPopup from './HoverPopup';
-import {connect} from "react-redux";
-import {Link} from "react-router-dom";
-import {FaSearch} from "react-icons/fa";
-import {userLogout} from "../redux/actions/userActions";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
+import { userLogout } from "../redux/actions/userActions";
 import { postLogout } from "../utils/api";
 
 class Header extends Component {
@@ -13,66 +13,86 @@ class Header extends Component {
     }
 
     handleLogout = () => {
+        this.handleCollapse();
         this.props.userLogout();
         postLogout();
     };
 
+    handleCollapse = async (e) => {
+        try {
+            if (window.innerWidth < 1200) {
+                let toggle = await document.getElementsByClassName('navbar-toggler')[0]
+                toggle.click()
+            }
+        } catch (e) {
+
+        }
+    };
+
     render() {
         const login = (this.props.loggedIn === false) ?
-            (<Navbar.Text className='my-auto py-0'>
-                <Link to='login' className='mr-md-3'>
+            (<Navbar.Text>
+                <Link onClick={this.handleCollapse} to='login' className='mr-md-3'>
                     Login/Signup
                 </Link>
             </Navbar.Text>)
             :
-            (<Navbar.Text className='my-auto py-0 text-muted my-auto mr-md-3 text-capitalize'>
+            (<Navbar.Text>
                 Hey, {this.props.firstName}
-                <Link onClick={this.handleLogout} className='ml-2 ml-md-5 py-0'>
+                <Link onClick={this.handleLogout} className='ml-2 ml-md-5'>
                     Logout
                 </Link>
             </Navbar.Text>);
 
         return (
-            <Navbar inline collapseOnSelect className='my-auto py-2 text-uppercase shadow' expand="lg" bg="white" sticky='top'>
-                <Navbar.Brand className='nav-link pl-0 ml-sm-5 pl-sm-5 font-weight-bold'>
+            <Navbar inline collapseOnSelect className='my-auto text-uppercase shadow py-1 my-md-2' expand="lg" bg="white" sticky='top'>
+                <Navbar.Brand className='nav-link pl-0 ml-md-5 pl-md-5 font-weight-bold'>
                     <Link to='' className='text-dark'>
                         Mama's Restaurant
                     </Link>
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="h6 mr-5 text-dark">
+                    <Nav className="h6 text-dark w-100">
                         <Nav.Link className='my-auto'>
-                            <Link to='delivery' className='text-secondary'>
+                            <Link to='delivery' onClick={this.handleCollapse} className='text-secondary'>
                                 Deliveries
                             </Link>
                         </Nav.Link>
-                        <NavDropdown className='my-auto text-dark' title='MENU' id="collasible-nav-dropdown">
-                            <Link to='menu.lunch' className='text-secondary ml-3 mr-4'>
+                        <NavDropdown className='my-auto text-dark' title='MENU' id="collapsible-nav-dropdown">
+                            <Link to='menu.lunch' onClick={this.handleCollapse} className='text-secondary ml-3 mr-4'>
                                 lunch
                             </Link>
 
                             <NavDropdown.Divider/>
 
-                            <Link to='menu.evening' className='text-secondary ml-3 mr-4'>
+                            <Link to='menu.evening' onClick={this.handleCollapse} className='text-secondary ml-3 mr-4'>
                                 evening
                             </Link>
 
                         </NavDropdown>
                         <Nav.Link className='my-auto'>
-                            <Link to='gallery' className='text-secondary'>
+                            <Link to='gallery' onClick={this.handleCollapse} className='text-secondary'>
                                 gallery
                             </Link>
                         </Nav.Link>
-                    </Nav>
-                    <Nav className="ml-auto mr-sm-5 pr-sm-5">
-                        {login}
-                        <Nav.Link className='my-auto text-dark mr-sm-5 pr-sm-5'>
-                            <HoverPopup/>
-                        </Nav.Link>
-
+                        {window.innerWidth < 1200 ?
+                            <div className='position-absolute sticky-top align-self-end navbar-text text-capitalize text-muted py-2 my-1'>
+                                {login}
+                            </div>
+                            :
+                            <div className='ml-md-auto mr-md-3 my-auto navbar-text text-capitalize text-muted '>
+                                {login}
+                            </div>
+                        }
                     </Nav>
                 </Navbar.Collapse>
+                <Nav className="ml-auto mr-sm-5 pr-sm-5 my-0">
+                    <Nav.Link className='my-auto text-dark mr-sm-5 pr-sm-5 py-1'>
+                        <HoverPopup/>
+                    </Nav.Link>
+                </Nav>
+
+                <Navbar.Toggle className='ml-2'/>
             </Navbar>
         );
     }

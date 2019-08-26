@@ -23,8 +23,20 @@
     }
 
     .popover {
-        max-width: 20em!important;
-        width: 20em!important;
+        max-width: 25em !important;
+        width: 25em !important;
+    }
+
+    .popover-body {
+        padding: 0.3em !important;
+    }
+
+    .navbar-brand {
+        font-size: medium;
+    }
+
+    .navbar-text {
+        padding: 0;
     }
 }
 
