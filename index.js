@@ -20,30 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-//Simulates database access
-app.get('/api/gallery', async (req, res) => {
-    try {
-        let images = await readdirAsync('./server_assets');
-        for (i in images) {
-            let buffer = await readFileAsync('./server_assets/' + images[i], {encoding: 'base64'});
-            images[i] = {img: buffer, title: images[i], key: i};
-        }
-        res.status(200).send({images: images});
-    } catch (e) {
-        res.status(500).send({msg: e.message});
-    }
-});
-
-//Simulates database access
-app.get('/api/items/:email', async (req, res) => {
-    try {
-        let data = require('./data');
-        res.status(200).send({items: data[req.params.email].currentItems});
-    } catch (e) {
-        res.status(500).send({msg: e.message});
-    }
-});
-
+//Update items in db
 app.post('/api/items/:email/:title/:action', async (req, res) => {
     try {
         const email = req.params.email,
@@ -68,9 +45,10 @@ app.post('/api/items/:email/:title/:action', async (req, res) => {
     }
 });
 
+//Authenticate user with cookie
 app.get('/api/user/auth', async (req, res) => {
     try {
-        const data = require('./data')
+        const data = require('./data');
         if (req.cookies && req.cookies.token_mama) {
             const token = req.cookies.token_mama,
                 decoded = jwt.verify(token, SECRET);
@@ -87,6 +65,7 @@ app.get('/api/user/auth', async (req, res) => {
     }
 });
 
+//Login user
 app.get('/api/user/login/:email/:password/:remember', async (req, res) => {
     try {
         const data = require('./data'),
@@ -105,6 +84,7 @@ app.get('/api/user/login/:email/:password/:remember', async (req, res) => {
     }
 });
 
+//Logout user
 app.post('/api/user/logout', async (req, res) => {
     try {
         res.clearCookie('token_mama');
@@ -114,6 +94,7 @@ app.post('/api/user/logout', async (req, res) => {
     }
 });
 
+//Signup new user
 app.post('/api/user/signup', async (req, res) => {
     try {
         const email = req.body.email,
@@ -154,6 +135,7 @@ app.post('/api/user/signup', async (req, res) => {
     }
 });
 
+//Post a new order
 app.post('/api/order/new/:email', async (req, res) => {
     try {
         const email = req.params.email,
@@ -183,6 +165,21 @@ app.post('/api/order/new/:email', async (req, res) => {
     }
 });
 
+//Get gallery images
+//Simulates database access
+app.get('/api/gallery', async (req, res) => {
+    try {
+        let images = await readdirAsync('./server_assets');
+        for (i in images) {
+            let buffer = await readFileAsync('./server_assets/' + images[i], {encoding: 'base64'});
+            images[i] = {img: buffer, title: images[i], key: i};
+        }
+        res.status(200).send({images: images});
+    } catch (e) {
+        res.status(500).send({msg: e.message});
+    }
+});
+
 //Serves react client static files
 app.get('*', (req, res) => {
     try {
@@ -192,6 +189,7 @@ app.get('*', (req, res) => {
     }
 });
 
+//Private functions
 function resetItemsNum(data, email) {
     Object.keys(data[email].currentItems).map(item => {
         data[email].currentItems[item] = 0
