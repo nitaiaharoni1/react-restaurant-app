@@ -5,7 +5,7 @@ import { Header, Home, Delivery, Error, Gallery, MenuLunch, MenuEvening, Cart, L
 import Footer from "./components/Footer";
 import './App.css';
 import { connect } from "react-redux";
-import { fetchUserAuth } from "./utils/api";
+import { getUserAuth } from "./utils/api";
 import { userLogin } from "./redux/actions/userActions";
 import { Reset, Set } from "./redux/actions/cartActions";
 
@@ -13,10 +13,12 @@ class App extends Component {
     async componentDidMount() {
         const isToken = document.cookie.includes('token_mama');
         if (isToken) {
-            let res = await fetchUserAuth()
-            this.props.userLogin(res.data.user);
-            this.props.Reset();
-            this.setItemsNum(res.data.currentItems);
+            let res = await getUserAuth()
+            if (res) {
+                this.props.userLogin(res.data.user);
+                this.props.Reset();
+                this.setItemsNum(res.data.currentItems);
+            }
         }
     }
 

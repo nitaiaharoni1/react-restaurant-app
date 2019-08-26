@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import {userLogin} from "../redux/actions/userActions";
-import { fetchLogin } from "../utils/api";
+import { getLogin } from "../utils/api";
 import {connect} from "react-redux";
 import { Set, Reset } from "../redux/actions/cartActions";
 
@@ -35,11 +35,18 @@ class Login extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault();
-        let res = await fetchLogin(this.state.email, this.state.password, this.state.remember);
-        this.props.history.push('');
-        this.props.userLogin(res.data.user);
-        this.props.Reset();
-        this.setItemsNum(res.data.currentItems);
+        let res = await getLogin(this.state.email, this.state.password, this.state.remember);
+        if (res) {
+            this.props.history.push('');
+            this.props.userLogin(res.data.user);
+            this.props.Reset();
+            this.setItemsNum(res.data.currentItems);
+        } else {
+            this.setState({
+                password: '',
+                remember: false
+            });
+        }
     };
 
     setItemsNum(items) {

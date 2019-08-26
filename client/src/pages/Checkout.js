@@ -10,7 +10,7 @@ import { connect } from "react-redux";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { fetchNewOrder } from "../utils/api";
+import { postNewOrder } from "../utils/api";
 import { Set, Reset } from "../redux/actions/cartActions";
 
 class Checkout extends Component {
@@ -42,9 +42,11 @@ class Checkout extends Component {
 
     handleNewOrder = async (event) => {
         event.preventDefault();
-        let res = await fetchNewOrder(this.props.email, this.state, this.props.items, this.props.total, this.props.totalPrice + 3.5);
-        this.props.Reset();
-        this.props.history.push('');
+        let res = await postNewOrder(this.props.email, this.state, this.props.items, this.props.total, this.props.totalPrice + 3.5);
+        if (res) {
+            this.props.Reset();
+            this.props.history.push('');
+        }
     };
 
     render() {
@@ -65,8 +67,6 @@ class Checkout extends Component {
                 <Card className='mt-3'>
                     <Card.Header>DELIVERY ADDRESS</Card.Header>
                     <Card.Body>
-                        {/*<Row>*/}
-                        {/*    <Col xs={8}>*/}
                         <Card.Text>
                             {this.props.firstName} {this.props.lastName}
                         </Card.Text>
@@ -82,11 +82,6 @@ class Checkout extends Component {
                         <Card.Text>
                             {this.props.zip}
                         </Card.Text>
-                        {/*</Col>*/}
-                        {/*<Col xs={4}>*/}
-                        {/*    <Button variant="dark">Change</Button>*/}
-                        {/*</Col>*/}
-                        {/*</Row>*/}
                     </Card.Body>
                 </Card>
 

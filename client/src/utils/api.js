@@ -1,43 +1,52 @@
-export async function fetchUpdateItems(email, title, action) {
+export async function postItemsUpdate(email, title, action) {
     const res = await fetch(`/api/items/${email}/${title}/${action}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         }
     });
+    const json = await res.json();
     if (res.status === 200) {
         return;
     } else {
-        alert(res.msg)
+        alert(json.msg)
     }
 }
 
-export async function fetchUserAuth() {
+export async function getUserAuth() {
     const res = await fetch(`/api/user/auth`);
+    const json = await res.json();
     if (res.status === 200) {
-        return (await res.json());
+        return json;
     } else {
-        alert(res.msg)
+        alert(json.msg)
     }
 }
 
-export async function fetchLogin(email, password, remember) {
+export async function getLogin(email, password, remember) {
     let res = await fetch(`/api/user/login/${email}/${password}/${remember}`);
+    const json = await res.json();
     if (res.status === 200) {
-        return (await res.json());
+        return json;
     } else {
-        alert(res.msg)
+        alert(json.msg)
     }
 }
 
-export async function fetchLogout() {
-    let res = await fetch(`/api/user/logout`);
+export async function postLogout() {
+    let res = await fetch(`/api/user/logout`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    const json = await res.json();
     if (res.status !== 200) {
-        alert(res.msg)
+        alert(json.msg)
     }
 }
 
-export async function fetchSignup(data) {
+export async function postSignup(data) {
     let res = await fetch('/api/user/signup', {
         method: 'POST',
         body: JSON.stringify(data),
@@ -45,14 +54,15 @@ export async function fetchSignup(data) {
             'Content-Type': 'application/json'
         }
     });
+    const json = await res.json();
     if (res.status === 200) {
-        return (await res.json());
+        return json;
     } else {
         alert(res.msg)
     }
 }
 
-export async function fetchNewOrder(email, payment, items, total, totalPrice) {
+export async function postNewOrder(email, payment, items, total, totalPrice) {
     let payload = {payment, total, totalPrice, items: {}};
     Object.values(items)
         .filter(item => item.num > 0)
@@ -66,9 +76,10 @@ export async function fetchNewOrder(email, payment, items, total, totalPrice) {
             'Content-Type': 'application/json'
         }
     });
+    const json = await res.json();
     if (res.status === 200) {
-        return (await res.json());
+        return json;
     } else {
-        alert(res.msg)
+        alert(json.msg)
     }
 }

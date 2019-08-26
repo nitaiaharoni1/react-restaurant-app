@@ -105,7 +105,7 @@ app.get('/api/user/login/:email/:password/:remember', async (req, res) => {
     }
 });
 
-app.get('/api/user/logout', async (req, res) => {
+app.post('/api/user/logout', async (req, res) => {
     try {
         res.clearCookie('token_mama');
         res.status(200).send({msg: 'Logout successful'});

@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {FaSearch} from "react-icons/fa";
 import {userLogout} from "../redux/actions/userActions";
-import { fetchLogout } from "../utils/api";
+import { postLogout } from "../utils/api";
 
 class Header extends Component {
     constructor(props, context) {
@@ -14,7 +14,7 @@ class Header extends Component {
 
     handleLogout = () => {
         this.props.userLogout();
-        fetchLogout();
+        postLogout();
     };
 
     render() {

@@ -3,7 +3,7 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 import { connect } from "react-redux";
 import { Add, Sub } from "../redux/actions/cartActions";
-import { fetchUpdateItems } from "../utils/api";
+import { postItemsUpdate } from "../utils/api";
 
 class CustomButtonGroup extends Component {
     render() {
@@ -25,7 +25,7 @@ class CustomButtonGroup extends Component {
     handleAdd = async () => {
         this.props.Add(this.props.title, 1);
         if (this.props.loggedIn) {
-            await fetchUpdateItems(this.props.email, this.props.title, 'ADD')
+            await postItemsUpdate(this.props.email, this.props.title, 'ADD')
         }
 
     };
@@ -33,7 +33,7 @@ class CustomButtonGroup extends Component {
     handleSub = async () => {
         this.props.Sub(this.props.title, 1);
         if (this.props.loggedIn) {
-            await fetchUpdateItems(this.props.email, this.props.title, 'SUB')
+            await postItemsUpdate(this.props.email, this.props.title, 'SUB')
         }
     }
 

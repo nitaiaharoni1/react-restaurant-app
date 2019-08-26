@@ -10,7 +10,7 @@ import ScrollArea from "react-scrollbar";
 import HoverPopupItem from './HoverPopupItem'
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
-import { fetchUpdateItems } from "../utils/api";
+import { postItemsUpdate } from "../utils/api";
 
 class HoverPopup extends Component {
     constructor(props) {

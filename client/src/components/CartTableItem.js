@@ -4,13 +4,13 @@ import CustomButtonGroup from "./CustomButtonGroup";
 import {connect} from "react-redux";
 import {FiTrash2} from "react-icons/fi";
 import {Zero} from "../redux/actions/cartActions";
-import {fetchUpdateItems} from "../utils/api";
+import { postItemsUpdate } from "../utils/api";
 
 class CartTableItem extends Component {
     handleZero = async () => {
         this.props.Zero(this.props.title);
         if (this.props.loggedIn) {
-            await fetchUpdateItems(this.props.email, this.props.title, 'ZERO')
+            await postItemsUpdate(this.props.email, this.props.title, 'ZERO')
         }
     };
 
