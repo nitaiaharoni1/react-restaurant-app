@@ -15,6 +15,6 @@ A demo for the Website App is available [here](https://mamas-restaurant-app.hero
 3. A fork/clone of this repo
 
 #### Running locally
-1. In react-restaurant-website directory run in terminal: `npm start`
+1. In react-restaurant-website directory run in terminal: `npm run app`
 2. Open http://localhost:3000
 
