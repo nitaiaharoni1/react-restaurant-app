@@ -174,7 +174,7 @@ app.post('/api/order/new/:email', async (req, res) => {
                 items: items,
                 date: date
             };
-            data = resetItemsNum(data, email);
+            data[email].currentItems = {}
             await writeFileAsync('./data.json', JSON.stringify(data));
             res.status(200).send({msg: 'Order successfully placed', data: data[email], orderId: orderId, date: date});
         } else {
@@ -210,13 +210,6 @@ app.get('*', (req, res) => {
 });
 
 //Private functions
-function resetItemsNum(data, email) {
-    Object.keys(data[email].currentItems).map(item => {
-        data[email].currentItems[item] = 0
-    });
-    return data;
-}
-
 function capitalize(str) {
     return str.replace(/\w\S*/g, function (txt) {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();

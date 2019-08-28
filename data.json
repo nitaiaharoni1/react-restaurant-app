@@ -47,9 +47,25 @@
             "zip": "1234567"
         },
         "password": "admin",
-        "orders": {},
+        "orders": {
+            "csvg8d8cjzvbrit6": {
+                "total": 8,
+                "totalPrice": 41.50000000000006,
+                "payment": {
+                    "expYear": "09",
+                    "expMonth": "09",
+                    "cardName": "admin admin",
+                    "cardNum": "123123",
+                    "cvv": "123"
+                },
+                "items": {
+                    "Tofu Tod": 8
+                },
+                "date": 1567000710905
+            }
+        },
         "currentItems": {
-            "Fried Spring Rolls": 1
+            "Tofu Tod": 0
         }
     }
 }
