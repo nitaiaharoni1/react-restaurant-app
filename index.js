@@ -183,7 +183,11 @@ app.get('/api/gallery', async (req, res) => {
 //Serves react client static files
 app.get('*', (req, res) => {
     try {
-        res.sendFile(path.join(__dirname, 'client/build/index.html'));
+        if (process.env.MODE === 'production') {
+            res.sendFile(path.join(__dirname, 'client/build/index.html'));
+        } else {
+            res.sendFile(path.join(__dirname, 'client/src/public/index.html'));
+        }
     } catch (e) {
         res.status(500).send({msg: e.message});
     }
