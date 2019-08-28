@@ -6,9 +6,7 @@ export async function postItemsUpdate(email, title, action) {
         }
     });
     const json = await res.json();
-    if (res.status === 200) {
-        return;
-    } else {
+    if (res.status !== 200) {
         alert(json.msg)
     }
 }
@@ -92,6 +90,7 @@ export async function postNewOrder(email, payment, items, total, totalPrice) {
     });
     const json = await res.json();
     if (res.status === 200) {
+        alert(`Your order has been received by the system.\n Order ID: ${json.orderId}`);
         return json;
     } else {
         alert(json.msg)

@@ -154,7 +154,7 @@ class Checkout extends Component {
                 </Card>
             </Col>
 
-            <Col className='ml-lg-5 pl-lg-2 mt-4 mt-lg-0 p-0 m-0' xs={12} lg={3}>
+            <Col className='ml-lg-5 pl-lg-2 mt-4 mt-lg-0' xs={12} lg={3}>
                 <CartTotalsCheckout handleNewOrder={this.handleNewOrder} disabled={this.validateForm()} buttonText='Place Order'
                                     total={this.props.total}
                                     totalPrice={this._round(this.props.totalPrice)}/>
@@ -176,7 +176,7 @@ class Checkout extends Component {
         return (
             <React.Fragment>
                 <CustomParallax title='Checkout' img={home_top} height={300}/>
-                <Container className='my-auto py-5'>
+                <Container className='my-auto'>
                     {this.props.loggedIn ? checkout : needToLogin}
                 </Container>
             </React.Fragment>

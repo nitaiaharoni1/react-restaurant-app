@@ -23,7 +23,7 @@ class Admin extends Component {
             <>
                 <CustomParallax title='Admin Page' img={home_top} height='20em'/>
                 <Container>
-                    <h2 className='my-3'>Database JSON</h2>
+                    <h2>Database JSON</h2>
                     <ReactJson src={this.state.json} theme="rjv-default" displayDataTypes={false} enableClipboard={false}
                                collapseStringsAfterLength={20}/>
                 </Container>

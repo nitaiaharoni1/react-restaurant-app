@@ -34,7 +34,7 @@ class Gallery extends Component {
     render() {
         const col = this.state.width > 700 ? 3 : 2;
         const gallery = this.state.loading ?
-            <Container style={{height: 400}} className='text-center align-middle my-5 py-5'>
+            <Container style={{height: 400}} className='text-center align-middle my-5'>
                 <Spinner animation="border" role="status"/>
             </Container>
             :

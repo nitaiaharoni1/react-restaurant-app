@@ -13,7 +13,7 @@ class CustomParallax extends Component {
 
 
         return (
-            <Parallax className='jumbotron jumbotron-fluid text-white shadow text-center bg-dark' bgImage={this.props.img} strength={400}>
+            <Parallax className='jumbotron jumbotron-fluid text-white shadow text-center bg-dark mb-5' bgImage={this.props.img} strength={400}>
                 <Container style={{height: this.props.height}}>
                     <Row className='h-100'>
                         <Col className="m-auto">

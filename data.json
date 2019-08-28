@@ -1,40 +1,4 @@
 {
-    "g@g.com": {
-        "user": {
-            "firstName": "gfirst",
-            "lastName": "glast",
-            "address": "gaddress",
-            "city": "gcity",
-            "country": "Israel",
-            "houseNum": "ghouseNum",
-            "zip": "1234567",
-            "email": "g@g.com"
-        },
-        "password": "g",
-        "currentItems": {
-            "Gai Of Nuur Satay": 20
-        },
-        "orders": {
-            "1a7yo4a8jzr6ej0l": {
-                "total": 4,
-                "totalPrice": 20.1,
-                "payment": {
-                    "expYear": "10",
-                    "expMonth": "11",
-                    "cardName": "123",
-                    "cardNum": "123",
-                    "cvv": "123"
-                },
-                "items": {
-                    "Fried Spring Rolls": 1,
-                    "Gai Of Nuur Satay": 1,
-                    "Tofu Tod": 1,
-                    "Fresh Thai Summer Roll": 1
-                },
-                "date": 1566749841860
-            }
-        }
-    },
     "admin": {
         "user": {
             "firstName": "Admin",
@@ -64,8 +28,42 @@
                 "date": 1567000710905
             }
         },
+        "currentItems": {}
+    },
+    "g@g.com": {
+        "user": {
+            "firstName": "gfirst",
+            "lastName": "glast",
+            "address": "gaddress",
+            "city": "gcity",
+            "country": "Israel",
+            "houseNum": "ghouseNum",
+            "zip": "1234567",
+            "email": "g@g.com"
+        },
+        "password": "g",
         "currentItems": {
-            "Tofu Tod": 0
+            "Gai Of Nuur Satay": 12
+        },
+        "orders": {
+            "1a7yo4a8jzr6ej0l": {
+                "total": 4,
+                "totalPrice": 20.1,
+                "payment": {
+                    "expYear": "10",
+                    "expMonth": "11",
+                    "cardName": "123",
+                    "cardNum": "123",
+                    "cvv": "123"
+                },
+                "items": {
+                    "Fried Spring Rolls": 1,
+                    "Gai Of Nuur Satay": 1,
+                    "Tofu Tod": 1,
+                    "Fresh Thai Summer Roll": 1
+                },
+                "date": 1566749841860
+            }
         }
     }
 }

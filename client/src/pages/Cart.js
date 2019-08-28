@@ -20,52 +20,51 @@ class Cart extends Component {
     };
 
     render() {
-        const cart = (this.props.total > 0) ? (<Row>
-                <Col xs={12} lg={8}>
-                    <div className='d-flex'>
-                        <h4 className='text-uppercase mr-2 my-auto'>My Cart</h4>
-                        <p className='my-auto'>({this.props.total} Products)</p>
-                    </div>
-                    <Table className='mt-3' responsive>
-                        <thead>
-                        <tr className='text-center'>
-                            <th/>
-                            <th>Image</th>
-                            <th>Product</th>
-                            <th>Unit Price</th>
-                            <th>Quantity</th>
-                            <th>Total Price</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {Object.keys(this.props.items).map(title =>
-                            (this.props.items[title].num > 0) ? this.cartTableItemRender(title) : null
-                        )}
-                        </tbody>
-                    </Table>
-                </Col>
+        const full = <Row>
+            <Col xs={12} lg={8}>
+                <div className='d-flex'>
+                    <h4 className='text-uppercase mr-2 my-auto'>My Cart</h4>
+                    <p className='my-auto'>({this.props.total} Products)</p>
+                </div>
+                <Table className='mt-3' responsive>
+                    <thead>
+                    <tr className='text-center'>
+                        <th/>
+                        <th>Image</th>
+                        <th>Product</th>
+                        <th>Unit Price</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {Object.keys(this.props.items).map(title =>
+                        (this.props.items[title].num > 0) ? this.cartTableItemRender(title) : null
+                    )}
+                    </tbody>
+                </Table>
+            </Col>
 
-                <Col className='ml-lg-5 pl-lg-2 mt-4 mt-lg-0 p-0 m-0' xs={12} lg={3}>
-                    <CartTotalsCart disabled={false} buttonText='Checkout' total={this.props.total} totalPrice={this._round(this.props.totalPrice)}/>
-                </Col>
-            </Row>)
-            :
-            (<div className='text-center'>
-                <h2>
-                    Your cart is currently empty...
-                </h2>
-                <Link to='delivery'>
-                    <Button variant='warning' className='mt-4'>
-                        Back to Deliveries
-                    </Button>
-                </Link>
-            </div>);
+            <Col className='ml-lg-5 pl-lg-2 mt-4 mt-lg-0' xs={12} lg={3}>
+                <CartTotalsCart disabled={false} buttonText='Checkout' total={this.props.total} totalPrice={this._round(this.props.totalPrice)}/>
+            </Col>
+        </Row>
+        const empty = <div className='text-center'>
+            <h2>
+                Your cart is currently empty...
+            </h2>
+            <Link to='delivery'>
+                <Button variant='warning' className='mt-4'>
+                    Back to Deliveries
+                </Button>
+            </Link>
+        </div>
 
         return (
             <React.Fragment>
                 <CustomParallax title='Cart' img={home_top} height={300}/>
-                <Container className='my-auto py-5'>
-                    {cart}
+                <Container className='my-auto'>
+                    {this.props.total > 0 ? (full) : (empty)}
                 </Container>
             </React.Fragment>
         );

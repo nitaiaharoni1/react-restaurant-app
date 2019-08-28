@@ -33,7 +33,7 @@ class DeliveryMenu extends Component {
 
         return (
             <Container>
-                <Form className='justify-content-center pt-4' inline>
+                <Form className='justify-content-center' inline>
                     <InputGroup style={{width: "50%"}}>
                         <FormControl onChange={this.handleChange} type="text" placeholder='Search items'/>
                         <InputGroup.Append>

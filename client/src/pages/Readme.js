@@ -14,8 +14,8 @@ class Readme extends Component {
         return (
             <>
                 <CustomParallax title='Readme' text="Nitai Aharoni's Readme" img={home_top} height='20em'/>
-                <Container>
-                    <article className="markdown-body entry-content p-5" itemProp="text">
+                <Container className="p-5">
+                    <article className="markdown-body entry-content" itemProp="text">
                         <div>
                             <h1>Mama's Restaurant - React ecommerce website</h1>
                             <hr/>

@@ -10,7 +10,7 @@ class Menu extends Component {
 
     render() {
         return (
-            <Container className='my-5 pb-4' style={{background: 'dark'}}>
+            <Container className='pb-4' style={{background: 'dark'}}>
                 <h1 className=''>Appetizers</h1>
                 <Row className='my-4'>
                     {Object.values(this.props.items).map(item =>
