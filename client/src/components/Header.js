@@ -75,6 +75,12 @@ class Header extends Component {
                                 gallery
                             </Link>
                         </Nav.Link>
+
+                        {this.props.loggedIn && this.props.email === 'admin' && <Nav.Link className='my-auto'>
+                            <Link to='admin' onClick={this.handleCollapse} className='text-secondary'>
+                                Admin
+                            </Link>
+                        </Nav.Link>}
                         {window.innerWidth < 1200 ?
                             <div className='position-absolute sticky-top align-self-end navbar-text text-capitalize text-muted py-2 my-1'>
                                 {login}
@@ -102,6 +108,7 @@ class Header extends Component {
 const mapStateToProps = (state) => {
     return {
         loggedIn: state.user.loggedIn,
+        email: state.user.email,
         firstName: state.user.firstName,
     }
 };

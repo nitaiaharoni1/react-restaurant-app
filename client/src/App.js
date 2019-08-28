@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Header, Home, Delivery, Error, Gallery, MenuLunch, MenuEvening, Cart, Login, Signup, Checkout, Terms, Readme } from './utils'
+import { Header, Home, Delivery, Error, Gallery, MenuLunch, MenuEvening, Cart, Login, Signup, Checkout, Terms, Readme, Admin } from './utils'
 import Footer from "./components/Footer";
 import './App.css';
 import { connect } from "react-redux";
@@ -45,6 +45,7 @@ class App extends Component {
                         <Route exact path="/checkout" component={Checkout}/>
                         <Route exact path="/terms" component={Terms}/>
                         <Route exact path="/readme" component={Readme}/>
+                        {this.props.loggedIn && this.props.email === 'admin' && <Route exact path="/admin" component={Admin}/>}
                         <Route exact path="/" component={Home}/>
                         <Route component={Error}/>
                     </Switch>
@@ -54,6 +55,13 @@ class App extends Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        loggedIn: state.user.loggedIn,
+        email: state.user.email
+    }
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -68,4 +76,5 @@ const mapDispatchToProps = (dispatch) => {
         }
     }
 };
-export default connect(null, mapDispatchToProps)(App)
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

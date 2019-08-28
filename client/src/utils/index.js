@@ -11,7 +11,8 @@ import Signup from '../pages/Signup'
 import Terms from '../pages/Terms'
 import Checkout from '../pages/Checkout'
 import Readme from '../pages/Readme'
+import Admin from '../pages/Admin'
 
 export {
-    Home, Header, Delivery, Error, Gallery, MenuEvening, MenuLunch, Cart, Login, Signup, Checkout, Terms, Readme
+    Home, Header, Delivery, Error, Gallery, MenuEvening, MenuLunch, Cart, Login, Signup, Checkout, Terms, Readme, Admin
 }

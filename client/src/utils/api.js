@@ -23,6 +23,20 @@ export async function getUserAuth() {
     }
 }
 
+export async function getAdminData(email, loggedIn) {
+    if (loggedIn) {
+        const res = await fetch(`/api/admin/data/${email}`);
+        const json = await res.json();
+        if (res.status === 200) {
+            return json;
+        } else {
+            alert(json.msg)
+        }
+    } else {
+        alert('Admin is not loggedIn')
+    }
+}
+
 export async function getLogin(email, password, remember) {
     let res = await fetch(`/api/user/login/${email}/${password}/${remember}`);
     const json = await res.json();
