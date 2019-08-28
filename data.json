@@ -49,12 +49,7 @@
         "password": "admin",
         "orders": {},
         "currentItems": {
-            "Fresh Thai Summer Roll": 1,
-            "Tofu Tod": 1,
-            "Gai Of Nuur Satay": 10,
-            "Fried Spring Rolls": 1,
-            "Fried Tiger Shrimp Rolls": 1,
-            "Thai Spare Ribs": 6
+            "Fried Spring Rolls": 1
         }
     }
 }
