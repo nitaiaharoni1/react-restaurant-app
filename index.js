@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-//Update items in db
+//Update user's items in db
 app.post('/api/items/:email/:title/:action', async (req, res) => {
     try {
         const email = req.params.email,
@@ -53,7 +53,7 @@ app.post('/api/items/:email/:title/:action', async (req, res) => {
     }
 });
 
-//Authenticate user with cookie
+//Authenticate user with cookie on lunching the app and getting user's data
 app.get('/api/user/auth', async (req, res) => {
     try {
         const data = require('./data');
@@ -73,7 +73,7 @@ app.get('/api/user/auth', async (req, res) => {
     }
 });
 
-//Authenticate user with cookie
+//Admin get all database
 app.get('/api/admin/data/:email', async (req, res) => {
     try {
         if (req.params.email === 'admin') {
@@ -185,8 +185,7 @@ app.post('/api/order/new/:email', async (req, res) => {
     }
 });
 
-//Get gallery images
-//Simulates database access
+//Get gallery images (Simulates database access)
 app.get('/api/gallery', async (req, res) => {
     try {
         let images = await readdirAsync('./server_assets');
