@@ -29,13 +29,21 @@ app.post('/api/items/:email/:title/:action', async (req, res) => {
         let data = require('./data');
         switch (action) {
             case 'ADD':
-                data[email].currentItems[title]++;
+                if (data[email].currentItems[title]) {
+                    data[email].currentItems[title]++;
+                } else {
+                    data[email].currentItems[title] = 1;
+                }
                 break;
-            case 'ADD':
-                data[email].currentItems[title]++;
+            case 'SUB':
+                if (data[email].currentItems[title] > 1) {
+                    data[email].currentItems[title]--;
+                } else {
+                    delete data[email].currentItems[title];
+                }
                 break;
             case 'ZERO':
-                data[email].currentItems[title] = 0;
+                delete data[email].currentItems[title];
                 break;
         }
         await writeFileAsync('./data.json', JSON.stringify(data));
@@ -101,16 +109,15 @@ app.post('/api/user/signup', async (req, res) => {
             password = req.body.password,
             address = req.body.address,
             houseNum = req.body.houseNum,
-            city = req.body.city,
+            city = capitalize(req.body.city),
             zip = req.body.zip,
-            firstName = req.body.firstName,
-            lastName = req.body.lastName,
+            firstName = capitalize(req.body.firstName),
+            lastName = capitalize(req.body.lastName),
             country = req.body.country;
         const data = require('./data');
         if (!data[email]) {
             data[email] = {
                 "user": {
-                    "remember": false,
                     "firstName": firstName,
                     "lastName": lastName,
                     "address": address,
@@ -124,13 +131,12 @@ app.post('/api/user/signup', async (req, res) => {
                 "orders": {},
                 "currentItems": {}
             };
-            await writeFileAsync('./data.json', JSON.stringify(obj));
-            res.status(200).send({msg: 'Login successful'});
+            await writeFileAsync('./data.json', JSON.stringify(data));
+            res.status(200).send({msg: 'Signup successful'});
         } else {
             res.status(500).send({msg: `The user ${email}, is already signed up...`});
         }
-    } catch
-        (e) {
+    } catch (e) {
         res.status(500).send({msg: e.message});
     }
 });
@@ -183,11 +189,7 @@ app.get('/api/gallery', async (req, res) => {
 //Serves react client static files
 app.get('*', (req, res) => {
     try {
-        if (process.env.MODE === 'production') {
-            res.sendFile(path.join(__dirname, 'client/build/index.html'));
-        } else {
-            res.sendFile(path.join(__dirname, 'client/src/public/index.html'));
-        }
+        res.sendFile(path.join(__dirname, 'client/build/index.html'));
     } catch (e) {
         res.status(500).send({msg: e.message});
     }
@@ -199,6 +201,12 @@ function resetItemsNum(data, email) {
         data[email].currentItems[item] = 0
     });
     return data;
+}
+
+function capitalize(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
 }
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

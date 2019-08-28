@@ -88,7 +88,7 @@ class Signup extends Component {
                             <Form.Group as={Col} controlId="country">
                                 <Form.Label>Country</Form.Label>
                                 <Form.Control onChange={this.handleChange} as="select" required>
-                                    <option>Choose...</option>
+                                    <option disabled selected>Choose...</option>
                                     <option>Israel</option>
                                     <option>United States</option>
                                     <option>United Kingdom</option>

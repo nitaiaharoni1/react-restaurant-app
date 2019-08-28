@@ -58,7 +58,7 @@ export async function postSignup(data) {
     if (res.status === 200) {
         return json;
     } else {
-        alert(res.msg)
+        alert(json.msg)
     }
 }
 

@@ -67,8 +67,8 @@ class Login extends Component {
                             </h3>
                             <Form onSubmit={this.handleSubmit} className='mt-4'>
                                 <Form.Group controlId="email">
-                                    <Form.Label>Email address</Form.Label>
-                                    <Form.Control type="email" placeholder="Enter email" autoFocus required value={this.state.email}
+                                    <Form.Label>Email/Username</Form.Label>
+                                    <Form.Control placeholder="Email/Username" autoFocus required value={this.state.email}
                                                   onChange={this.handleChange}/>
                                     <Form.Text className="text-muted">
                                         We'll never share your email with anyone else.
@@ -77,7 +77,7 @@ class Login extends Component {
 
                                 <Form.Group controlId="password">
                                     <Form.Label>Password</Form.Label>
-                                    <Form.Control type="password" placeholder="Enter Password" value={this.state.password}
+                                    <Form.Control type="password" placeholder="Password" value={this.state.password}
                                                   onChange={this.handleChange} required/>
                                 </Form.Group>
                                 <Form.Group controlId="remember">

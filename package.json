@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
     "scripts": {
-        "start": "node index.js",
+        "start": "npm install && cd client && npm install && npm run build && cd .. && node index.js",
+        "server": "cd client && npm run build && cd .. && node index.js",
         "heroku-postbuild": "cd client && npm install && npm run build",
         "test": "echo \"Error: no test specified\" && exit 1"
     },

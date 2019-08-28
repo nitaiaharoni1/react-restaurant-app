@@ -17,6 +17,16 @@ class Readme extends Component {
                 <Container>
                     <article className="markdown-body entry-content p-2" itemProp="text">
                         <h1 lassName="mt-2">PROJECT BLAH BLAH </h1>
+                        <p>Store name
+                            What are you selling?
+                            What additional page(s) did you add?
+                            How to operate them What was hard to do?
+                            Who is your partner? name and id. What did you do?
+                            What did your partner do?
+                            Specify all the different route your app supports
+                            How did you make your store secured?
+                            Did you implement the store using react.js?
+                        </p>
                         <h2> Requirements </h2>
                         <p>For development, you will only need Node.js installed on your environement.
                             And please use the appropriate Editorconfig plugin for your Editor

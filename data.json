@@ -1,44 +1,6 @@
 {
-    "admin@admin.com": {
-        "user": {
-            "remember": false,
-            "firstName": "Admin",
-            "lastName": "Admin",
-            "address": "Admin st",
-            "city": "Admin Town",
-            "country": "Adminia",
-            "houseNum": "1",
-            "zip": "1234567",
-            "email": "admin@admin.com"
-        },
-        "password": "admin",
-        "currentItems": {
-            "Fried Spring Rolls": 0,
-            "Gai Of Nuur Satay": 5,
-            "Tofu Tod": 1,
-            "Fresh Thai Summer Roll": 0,
-            "Fried Tiger Shrimp Rolls": 0,
-            "Thai Spare Ribs": 0,
-            "Gai Pad Khing": 0,
-            "Nuur Kra Prow": 0,
-            "Koong Pad Khing": 0,
-            "Gai Kratiam": 0,
-            "Fried Banana": 0,
-            "Gelato": 0,
-            "Khao Tom Mud": 0
-        },
-        "orders": {
-            "1": {
-                "date": "1/1/2000",
-                "items": {
-                    "Fried Spring Rolls": 5
-                }
-            }
-        }
-    },
     "g@g.com": {
         "user": {
-            "remember": false,
             "firstName": "gfirst",
             "lastName": "glast",
             "address": "gaddress",
@@ -50,19 +12,7 @@
         },
         "password": "g",
         "currentItems": {
-            "Fried Spring Rolls": 0,
-            "Gai Of Nuur Satay": 20,
-            "Tofu Tod": 0,
-            "Fresh Thai Summer Roll": 0,
-            "Fried Tiger Shrimp Rolls": 0,
-            "Thai Spare Ribs": 0,
-            "Gai Pad Khing": 0,
-            "Nuur Kra Prow": 0,
-            "Koong Pad Khing": 0,
-            "Gai Kratiam": 0,
-            "Fried Banana": 0,
-            "Gelato": 0,
-            "Khao Tom Mud": 0
+            "Gai Of Nuur Satay": 20
         },
         "orders": {
             "1a7yo4a8jzr6ej0l": {
@@ -83,6 +33,28 @@
                 },
                 "date": 1566749841860
             }
+        }
+    },
+    "admin": {
+        "user": {
+            "firstName": "Admin",
+            "lastName": "Admin",
+            "address": "Admin st",
+            "city": "Admin City",
+            "country": "Israel",
+            "houseNum": "1",
+            "email": "admin",
+            "zip": "1234567"
+        },
+        "password": "admin",
+        "orders": {},
+        "currentItems": {
+            "Fresh Thai Summer Roll": 1,
+            "Tofu Tod": 1,
+            "Gai Of Nuur Satay": 10,
+            "Fried Spring Rolls": 1,
+            "Fried Tiger Shrimp Rolls": 1,
+            "Thai Spare Ribs": 6
         }
     }
 }
