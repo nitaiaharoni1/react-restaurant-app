@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Header, Home, Delivery, Error, Gallery, MenuLunch, MenuEvening, Cart, Login, Signup, Checkout, Terms, Readme, Admin } from './utils'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {Header, Home, Delivery, Error, Gallery, MenuLunch, MenuEvening, Cart, Login, Signup, Checkout, Terms, Readme, Admin} from './utils'
 import Footer from "./components/Footer";
 import './App.css';
-import { connect } from "react-redux";
-import { getUserAuth } from "./utils/api";
-import { userLogin } from "./redux/actions/userActions";
-import { Reset, Set } from "./redux/actions/cartActions";
+import {connect} from "react-redux";
+import {getUserAuth} from "./utils/api";
+import {userLogin} from "./redux/actions/userActions";
+import {Reset, Set} from "./redux/actions/cartActions";
 
 class App extends Component {
     async componentDidMount() {
@@ -33,7 +33,7 @@ class App extends Component {
         return (
             <Router>
                 <div className="App">
-                    <Header/>
+                    <Header className="Header"/>
                     <Switch>
                         <Route exact path="/delivery" component={Delivery}/>
                         <Route exact path="/gallery" component={Gallery}/>
