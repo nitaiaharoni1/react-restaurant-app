@@ -11,7 +11,7 @@ import ColumnsContainer from "../components/ColumnsContainer";
 class Home extends Component {
     render() {
         return (
-            <React.Fragment>
+            <React.Fragment className='Home'>
                 <CustomParallax title='home cuisine' text="Voted IDC's Best Thai Restaurant" img={home_top} height='40em'/>
                 <CustomContainer/>
                 <CustomParallax title='eat together'

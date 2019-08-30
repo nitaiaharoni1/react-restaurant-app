@@ -11,20 +11,21 @@ import { Link } from "react-router-dom";
 class DeliveryMenu extends Component {
     state = {
         search: ''
-    }
+    };
 
     handleChange = (e) => {
         this.setState({search: e.target.value.toUpperCase()})
-    }
+    };
 
-    cardRender = (item) => <DeliveryCard img={item.img} title={item.title} price={item.price} description={item.description} num={item.num}/>;
 
     itemsIterate = (meal) => {
         return Object.values(this.props.items)
             .filter(item =>
                 item.meal === meal && (item.title.toUpperCase().includes(this.state.search) || item.description.toUpperCase().includes(this.state.search) || item.price.toUpperCase().includes(this.state.search))
             ).map(item => this.cardRender(item));
-    }
+    };
+
+    cardRender = (item) => <DeliveryCard img={item.img} title={item.title} price={item.price} description={item.description} num={item.num}/>;
 
     render() {
         const appetizer = this.itemsIterate('appetizer'),

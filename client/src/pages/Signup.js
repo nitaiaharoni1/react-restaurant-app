@@ -53,7 +53,7 @@ class Signup extends Component {
     render() {
         return (
             <React.Fragment>
-                <Container className="my-5 pb-3">
+                <Container className="my-5 pb-3 Signup">
                     <h2 className='text-uppercase text-center font-weight-bold'>Signup</h2>
                     <Form onSubmit={this.handleSubmit} className='my-4'>
                         <Form.Row>

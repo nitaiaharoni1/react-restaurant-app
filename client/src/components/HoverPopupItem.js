@@ -7,8 +7,10 @@ import CustomButtonGroup from "./CustomButtonGroup";
 import {connect} from "react-redux";
 import { Zero } from "../redux/actions/cartActions";
 import { postItemsUpdate } from "../utils/api";
+import {round} from "../utils/functions";
 
 class HoverPopupItem extends Component {
+
     handleZero = async () => {
         this.props.Zero(this.props.title);
         if (this.props.loggedIn) {
@@ -35,7 +37,7 @@ class HoverPopupItem extends Component {
                             <CustomButtonGroup title={this.props.title} num={this.props.num}/>
                         </Col>
                         <Col xs={5} className='my-auto pr-0'>
-                            <h6 className='text-left my-auto'>${this.props.round(this.props.price * this.props.num)}</h6>
+                            <h6 className='text-left my-auto'>${round(this.props.price * this.props.num)}</h6>
                         </Col>
                     </Row>
                 </Col>

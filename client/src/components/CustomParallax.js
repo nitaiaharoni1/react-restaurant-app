@@ -11,7 +11,6 @@ class CustomParallax extends Component {
         const displayBtn = this.props.buttonText && (
             <Button className='mt-5' size="lg" variant="outline-light">{this.props.buttonText}</Button>);
 
-
         return (
             <Parallax className='jumbotron jumbotron-fluid text-white shadow text-center bg-dark mb-5' bgImage={this.props.img} strength={400}>
                 <Container style={{height: this.props.height}}>

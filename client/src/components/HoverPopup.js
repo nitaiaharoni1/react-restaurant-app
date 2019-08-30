@@ -10,40 +10,34 @@ import ScrollArea from "react-scrollbar";
 import HoverPopupItem from './HoverPopupItem'
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
-import { postItemsUpdate } from "../utils/api";
+import {postItemsUpdate} from "../utils/api";
+import {round} from "../utils/functions";
+
 
 class HoverPopup extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            show: false,
-        }
-    }
+    state = {
+        show: false,
+    };
 
-    _toggle = () => {
+    toggle = () => {
         this.setState({show: !this.state.show});
     };
 
-    _show = () => {
+    show = () => {
         this.setState({show: true});
     };
 
-    _hide = () => {
+    hide = () => {
         this.setState({show: false});
     };
 
-    HoverPopupItemRender = (item) => <HoverPopupItem round={this._round} img={item.img} title={item.title} price={item.price} num={item.num}/>;
-
-    _round = (num) => {
-        return Math.round(num * 100) / 100
-    };
-
+    HoverPopupItemRender = (item) => <HoverPopupItem img={item.img} title={item.title} price={item.price} num={item.num}/>;
 
 
     render() {
         const checkout = (this.props.total > 0) ?
-            (<Button variant='warning' onClick={this._hide}>Checkout</Button>) :
-            (<Button disabled variant='warning' onClick={this._hide}>Checkout</Button>);
+            (<Button variant='warning' onClick={this.hide}>Checkout</Button>) :
+            (<Button disabled variant='warning' onClick={this.hide}>Checkout</Button>);
 
 
         const popup = (this.props.total > 0) ?
@@ -52,7 +46,7 @@ class HoverPopup extends Component {
                 container: this,
                 target: () => ReactDOM.findDOMNode(this.refs.target)
             }} placement="bottom">
-                <Popover className='text-dark' onMouseOver={this._show} onMouseOut={this._toggle}>
+                <Popover className='text-dark' onMouseOver={this.show} onMouseOut={this.toggle}>
                     <Popover.Title as="h2" className='text-center'>
                         My Cart
                     </Popover.Title>
@@ -64,13 +58,13 @@ class HoverPopup extends Component {
                         </ScrollArea>
                     </Popover.Content>
                     <Popover.Title className='text-center text-dark' as="h2">
-                        Subtotal: ${this._round(this.props.totalPrice)}
+                        Subtotal: ${round(this.props.totalPrice)}
                     </Popover.Title>
 
                     <Popover.Title as="h2">
                         <Form className='mx-4 d-flex justify-content-between'>
                             <Link to='/cart'>
-                                <Button variant='dark' onClick={this._hide}>My Cart</Button>
+                                <Button variant='dark' onClick={this.hide}>My Cart</Button>
                             </Link>
                             <Link to='/checkout'>
                                 {checkout}
@@ -83,9 +77,9 @@ class HoverPopup extends Component {
         return (
             <React.Fragment>
                 <Link to='/cart'>
-                    <Button variant="dark" style={{position: 'relative'}} ref="target" onClick={this._toggleC}
-                            onMouseOver={this._show}
-                            onMouseOut={this._hide}>
+                    <Button variant="dark" style={{position: 'relative'}} ref="target" onClick={this.toggleC}
+                            onMouseOver={this.show}
+                            onMouseOut={this.hide}>
                         <FaShoppingCart className='mr-1' size='1.5em'/>
                         <Badge style={{position: 'absolute', top: -8, right: -8}} pill variant="warning">{this.props.total} </Badge>
                     </Button>

@@ -1,11 +1,27 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
-import { connect } from "react-redux";
-import { Add, Sub } from "../redux/actions/cartActions";
-import { postItemsUpdate } from "../utils/api";
+import {connect} from "react-redux";
+import {Add, Sub} from "../redux/actions/cartActions";
+import {postItemsUpdate} from "../utils/api";
 
 class CustomButtonGroup extends Component {
+
+    handleAdd = async () => {
+        this.props.Add(this.props.title, 1);
+        if (this.props.loggedIn) {
+            await postItemsUpdate(this.props.email, this.props.title, 'ADD')
+        }
+
+    };
+
+    handleSub = async () => {
+        this.props.Sub(this.props.title, 1);
+        if (this.props.loggedIn) {
+            await postItemsUpdate(this.props.email, this.props.title, 'SUB')
+        }
+    };
+
     render() {
         const addCartElement =
             <Button className='py-2' variant="outline-dark" onClick={this.handleAdd}>
@@ -21,22 +37,6 @@ class CustomButtonGroup extends Component {
         const num = this.props.num;
         return (!num || num === 0) ? addCartElement : plusMinusElement;
     }
-
-    handleAdd = async () => {
-        this.props.Add(this.props.title, 1);
-        if (this.props.loggedIn) {
-            await postItemsUpdate(this.props.email, this.props.title, 'ADD')
-        }
-
-    };
-
-    handleSub = async () => {
-        this.props.Sub(this.props.title, 1);
-        if (this.props.loggedIn) {
-            await postItemsUpdate(this.props.email, this.props.title, 'SUB')
-        }
-    }
-
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -49,6 +49,7 @@ const mapDispatchToProps = (dispatch) => {
         }
     }
 };
+
 const mapStateToProps = (state) => {
     return {
         email: state.user.email,

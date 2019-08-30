@@ -12,6 +12,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { postNewOrder } from "../utils/api";
 import { Set, Reset } from "../redux/actions/cartActions";
+import {round} from "../utils/functions";
 
 class Checkout extends Component {
     constructor(props) {
@@ -29,10 +30,6 @@ class Checkout extends Component {
     validateForm() {
         return !(this.state.expYear.length > 0 && this.state.expMonth.length > 0 && this.state.cardName.length > 0 && this.state.cardNum.length > 0 && this.state.cvv.length > 0);
     }
-
-    _round = (num) => {
-        return Math.round(num * 100) / 100
-    };
 
     handleChange = e => {
         this.setState({
@@ -157,7 +154,7 @@ class Checkout extends Component {
             <Col className='ml-lg-5 pl-lg-2 mt-4 mt-lg-0' xs={12} lg={3}>
                 <CartTotalsCheckout handleNewOrder={this.handleNewOrder} disabled={this.validateForm()} buttonText='Place Order'
                                     total={this.props.total}
-                                    totalPrice={this._round(this.props.totalPrice)}/>
+                                    totalPrice={round(this.props.totalPrice)}/>
             </Col>
         </Row>;
 

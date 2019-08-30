@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {FiTrash2} from "react-icons/fi";
 import {Zero} from "../redux/actions/cartActions";
 import { postItemsUpdate } from "../utils/api";
+import {round} from "../utils/functions";
 
 class CartTableItem extends Component {
     handleZero = async () => {
@@ -27,7 +28,7 @@ class CartTableItem extends Component {
                 <td className='align-middle'>{this.props.title}</td>
                 <td className='align-middle'>${this.props.price}</td>
                 <td className='align-middle'><CustomButtonGroup title={this.props.title} num={this.props.num}/></td>
-                <td className='align-middle'>${this.props.round(this.props.price * this.props.num)}</td>
+                <td className='align-middle'>${round(this.props.price * this.props.num)}</td>
             </tr>
         );
     }

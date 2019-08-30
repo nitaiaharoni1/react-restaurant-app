@@ -57,7 +57,6 @@ class CartTotalsCart extends Component {
                         </p>
                     </Card.Footer>
                 </Card>
-
             </div>
         );
     }

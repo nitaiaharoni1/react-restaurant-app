@@ -10,14 +10,11 @@ import { connect } from "react-redux";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import CartTotalsCart from "../components/CartTotalsCart";
+import {round} from "../utils/functions";
 
 class Cart extends Component {
-    cartTableItemRender = (title) => <CartTableItem round={this._round} img={this.props.items[title].img} title={this.props.items[title].title}
+    cartTableItemRender = (title) => <CartTableItem img={this.props.items[title].img} title={this.props.items[title].title}
                                                     price={this.props.items[title].price} num={this.props.items[title].num}/>;
-
-    _round = (num) => {
-        return Math.round(num * 100) / 100
-    };
 
     render() {
         const full = <Row>
@@ -46,7 +43,7 @@ class Cart extends Component {
             </Col>
 
             <Col className='ml-lg-5 pl-lg-2 mt-4 mt-lg-0' xs={12} lg={3}>
-                <CartTotalsCart disabled={false} buttonText='Checkout' total={this.props.total} totalPrice={this._round(this.props.totalPrice)}/>
+                <CartTotalsCart disabled={false} buttonText='Checkout' total={this.props.total} totalPrice={round(this.props.totalPrice)}/>
             </Col>
         </Row>
         const empty = <div className='text-center'>

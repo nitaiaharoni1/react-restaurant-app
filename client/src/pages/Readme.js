@@ -132,7 +132,7 @@ class Readme extends Component {
                                         to be
                                         public).
                                     </li>
-                                    <li>In general, coding the project took me around 100 hours (Which in itself is difficult).</li>
+                                    <li>In general, coding the project took me around 120 hours (Which in itself is difficult).</li>
                                 </ul>
                             </div>
 

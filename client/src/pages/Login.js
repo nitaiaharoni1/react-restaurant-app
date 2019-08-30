@@ -59,7 +59,7 @@ class Login extends Component {
     render() {
         return (
             <React.Fragment>
-                <Container className="mt-5 pt-3">
+                <Container className="mt-5 pt-3 Login">
                     <Row>
                         <Col xs={6} className='border-right'>
                             <h3 className='text-center text-uppercase font-weight-bold'>
