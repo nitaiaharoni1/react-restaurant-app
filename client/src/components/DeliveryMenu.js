@@ -33,7 +33,7 @@ class DeliveryMenu extends Component {
             desert = this.itemsIterate('desert');
 
         return (
-            <Container>
+            <Container className='Delivery'>
                 <Form className='justify-content-center' inline>
                     <InputGroup style={{width: "50%"}}>
                         <FormControl onChange={this.handleChange} type="text" placeholder='Search items'/>

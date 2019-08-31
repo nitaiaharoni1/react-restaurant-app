@@ -34,11 +34,11 @@ class Gallery extends Component {
     render() {
         const col = this.state.width > 700 ? 3 : 2;
         const gallery = this.state.loading ?
-            <Container style={{height: 400}} className='text-center align-middle my-5'>
+            <Container style={{height: 400}} className='text-center align-middle my-5 Gallery'>
                 <Spinner animation="border" role="status"/>
             </Container>
             :
-            <div className={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', overflow: 'hidden'}}>
+            <div className='d-flex justify-content-around overflow-hidden Gallery'>
                 <GridList className='m-lg-5 p-lg-3 m-sm-2 p-sm-2 m-2 p-2' cellHeight={Math.floor(this.state.width / col)} cols={col}>
                     {this.state.imgs.map(img => (
                         <GridListTile key={img.key} cols={img.cols || 1}>

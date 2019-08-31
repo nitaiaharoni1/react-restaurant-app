@@ -173,7 +173,7 @@ class Checkout extends Component {
         return (
             <React.Fragment>
                 <CustomParallax title='Checkout' img={home_top} height={300}/>
-                <Container className='my-auto'>
+                <Container className='my-auto Checkout'>
                     {this.props.loggedIn ? checkout : needToLogin}
                 </Container>
             </React.Fragment>

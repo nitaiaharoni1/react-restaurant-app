@@ -8,7 +8,7 @@ class Delivery extends Component {
         return (
             <React.Fragment>
                 <CustomParallax title='Deliveries' img={home_top} height={300}/>
-                <DeliveryMenu/>
+                <DeliveryMenu className='Delivery'/>
             </React.Fragment>
         );
     }

@@ -13,7 +13,7 @@ class App extends Component {
     async componentDidMount() {
         const isToken = document.cookie.includes('token_mama');
         if (isToken) {
-            let res = await getUserAuth()
+            let res = await getUserAuth();
             if (res) {
                 this.props.userLogin(res.data.user);
                 this.props.Reset();

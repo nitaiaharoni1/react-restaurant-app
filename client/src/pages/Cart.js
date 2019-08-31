@@ -60,7 +60,7 @@ class Cart extends Component {
         return (
             <React.Fragment>
                 <CustomParallax title='Cart' img={home_top} height={300}/>
-                <Container className='my-auto'>
+                <Container className='my-auto Cart'>
                     {this.props.total > 0 ? (full) : (empty)}
                 </Container>
             </React.Fragment>
