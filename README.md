@@ -55,12 +55,12 @@ Home page `/home`:
     * This page will display when any route that is not defined is used.
 
 #### What was hard to do?
-* Learn to React from scratch
-* Learn Bootstrap from scratch
-* Learn Redux framework from scratch (Working in a very non-intuitive way I must say)
-* Learn Jest testing framework from scratch
+* Learn to React from scratch.
+* Learn Bootstrap from scratch, which was very hard for me to understand at the beginning.
+* Learn Redux framework from scratch (Working in a very non-intuitive way I must say).
+* Learn Jest and Enzyme testing framework from scratch.
 * Integrate with Node Express and save the data (And deployment to Heroku that I wanted to do to allow my site to be public).
-* In general, coding the project took me around 100 hours (Which in itself is difficult).
+* In general, coding the project took me around 120 hours, which in itself is difficult.
 
 #### Who is your partner name and id?
 * Me: `Nitai Aharoni 203626742`
@@ -89,6 +89,8 @@ Home page `/home`:
 * Validating all forms
 * Validating admin user before showing Admin page
 * Validating requests on the server
+* Working with cookies.
+* Not exposing static files which contain private information.
 
 #### Did you implement the store using react.js? 
 Yes, React and Redux
@@ -102,3 +104,6 @@ Yes, React and Redux
 1. In react-restaurant-website directory run in terminal: `npm run app`
 2. Open http://localhost:3000
 
+## Testing
+1. In react-restaurant-website directory run in terminal: `npm test`
+2. Run all tests `a`

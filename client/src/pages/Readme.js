@@ -117,7 +117,7 @@ export default function Readme() {
                         <div>
                             <h4>What was hard to do?</h4>
                             <ul>
-                                <li>Learn to React from scratch</li>
+                                <li>Learn to React from scratch.</li>
                                 <li>Learn Bootstrap from scratch, which was very hard for me to understand at the beginning.</li>
                                 <li>Learn Redux framework from scratch (Working in a very non-intuitive way I must say).</li>
                                 <li>Learn Jest and Enzyme testing framework from scratch.</li>
@@ -173,11 +173,11 @@ export default function Readme() {
                         <div>
                             <h4>How did you make your store secured?</h4>
                             <ul>
-                                <li>Validating all forms</li>
-                                <li>Validating admin user before showing Admin page</li>
-                                <li>Validating requests on the server</li>
-                                <li>Working with cookies</li>
-                                <li>Not exposing static files which contain private information</li>
+                                <li>Validating all forms.</li>
+                                <li>Validating admin user before showing Admin page.</li>
+                                <li>Validating requests on the server.</li>
+                                <li>Working with cookies.</li>
+                                <li>Not exposing static files which contain private information.</li>
                             </ul>
                         </div>
 
@@ -211,6 +211,7 @@ export default function Readme() {
                         <hr/>
                         <ol>
                             <li>In react-restaurant-website directory run in terminal: <code>npm test</code></li>
+                            <li>Run all tests: <code>a</code></li>
                         </ol>
                     </div>
 
