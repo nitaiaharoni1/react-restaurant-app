@@ -81,6 +81,42 @@
       "zip": "12345667"
     },
     "password": "1234",
+    "orders": {
+      "8a2d508jzzixaxk": {
+        "total": 9,
+        "totalPrice": 34.05,
+        "payment": {
+          "expYear": "09",
+          "expMonth": "10",
+          "cardName": "123132",
+          "cardNum": "123",
+          "cvv": "123"
+        },
+        "items": {
+          "Fried Spring Rolls": 7,
+          "Gai Of Nuur Satay": 2
+        },
+        "date": 1567254602647
+      }
+    },
+    "currentItems": {
+      "Gai Of Nuur Satay": 1,
+      "Tofu Tod": 1,
+      "Fresh Thai Summer Roll": 1
+    }
+  },
+  "test@test.com": {
+    "user": {
+      "firstName": "Test",
+      "lastName": "Test",
+      "address": "TesT",
+      "city": "Test",
+      "country": "Israel",
+      "houseNum": "1",
+      "email": "test@test.com",
+      "zip": "1234"
+    },
+    "password": "1234",
     "orders": {},
     "currentItems": {}
   }

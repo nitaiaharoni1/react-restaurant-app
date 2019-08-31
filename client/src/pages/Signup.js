@@ -26,9 +26,11 @@ class Signup extends Component {
     }
 
     handleChange = e => {
-        this.setState({
-            [e.target.id]: e.target.value
-        });
+        if (e.target.id === 'email') {
+            this.setState({[e.target.id]: e.target.value.toLowerCase()});
+        } else {
+            this.setState({[e.target.id]: e.target.value});
+        }
     };
 
     handleCheckbox = e => {
