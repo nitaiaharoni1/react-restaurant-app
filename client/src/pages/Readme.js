@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 export default function Readme() {
     return (
         <>
-            <CustomParallax title='Readme' text="Nitai Aharoni's Readme" img={home_top} height='20em'/>
+            <CustomParallax title='Readme' text="Nitai Aharoni Readme" img={home_top} height='20em'/>
             <Container className="p-5">
                 <article className="markdown-body entry-content" itemProp="text">
                     <div>
