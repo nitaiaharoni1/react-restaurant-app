@@ -68,5 +68,20 @@
         "date": 1566749841860
       }
     }
+  },
+  "testUser@testUser.com": {
+    "user": {
+      "firstName": "Testuser",
+      "lastName": "Testuser",
+      "address": "testUser",
+      "city": "Testuser",
+      "country": "Israel",
+      "houseNum": "123",
+      "email": "testUser@testUser.com",
+      "zip": "12345667"
+    },
+    "password": "1234",
+    "orders": {},
+    "currentItems": {}
   }
 }

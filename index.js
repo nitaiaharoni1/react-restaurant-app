@@ -91,7 +91,7 @@ app.get('/api/admin/data/:email', async (req, res) => {
 app.get('/api/user/login/:email/:password/:remember', async (req, res) => {
     try {
         const data = require('./data'),
-            email = req.params.email,
+            email = req.params.email.toLowerCase(),
             password = req.params.password,
             maxAge = req.params.remember === "true" ? (10 * 365 * 24 * 60 * 60) : (60 * 5 * 1000);
         if (data[email] && data[email].password === password) {
@@ -119,7 +119,7 @@ app.post('/api/user/logout', async (req, res) => {
 //Signup new user
 app.post('/api/user/signup', async (req, res) => {
     try {
-        const email = req.body.email,
+        const email = req.body.email.toLowerCase(),
             password = req.body.password,
             address = req.body.address,
             houseNum = req.body.houseNum,
