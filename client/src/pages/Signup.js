@@ -97,12 +97,12 @@ class Signup extends Component {
 
                             <Form.Group as={Col} controlId="houseNum">
                                 <Form.Label>House Number</Form.Label>
-                                <Form.Control onChange={this.handleChange} placeholder="House Number" required/>
+                                <Form.Control onChange={this.handleChange} type='number' placeholder="House Number" required/>
                             </Form.Group>
 
                             <Form.Group as={Col} controlId="zip">
                                 <Form.Label>Zip</Form.Label>
-                                <Form.Control onChange={this.handleChange} placeholder="Zip" required/>
+                                <Form.Control onChange={this.handleChange} type='number' placeholder="Zip" required/>
                             </Form.Group>
                         </Form.Row>
 
