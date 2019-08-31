@@ -26,11 +26,7 @@ class Signup extends Component {
     }
 
     handleChange = e => {
-        if (e.target.id === 'email') {
-            this.setState({[e.target.id]: e.target.value.toLowerCase()});
-        } else {
-            this.setState({[e.target.id]: e.target.value});
-        }
+        this.setState({[e.target.id]: e.target.value});
     };
 
     handleCheckbox = e => {
@@ -41,6 +37,7 @@ class Signup extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault();
+        await this.setState({email: this.state.email.toLowerCase()});
         let res = await postSignup(this.state);
         if (res) {
             this.props.userSignup(this.state);

@@ -3,12 +3,12 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import {userLogin} from "../redux/actions/userActions";
-import { getLogin } from "../utils/api";
+import {getLogin} from "../utils/api";
 import {connect} from "react-redux";
-import { Set, Reset } from "../redux/actions/cartActions";
+import {Set, Reset} from "../redux/actions/cartActions";
 
 class Login extends Component {
     state = {
@@ -22,11 +22,7 @@ class Login extends Component {
     }
 
     handleChange = e => {
-        if (e.target.id === 'email') {
-            this.setState({[e.target.id]: e.target.value.toLowerCase()});
-        } else {
-            this.setState({[e.target.id]: e.target.value});
-        }
+        this.setState({[e.target.id]: e.target.value});
     };
 
     handleCheckbox = e => {
@@ -37,7 +33,7 @@ class Login extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault();
-        let res = await getLogin(this.state.email, this.state.password, this.state.remember);
+        let res = await getLogin(this.state.email.toLowerCase(), this.state.password, this.state.remember);
         if (res) {
             this.props.history.push('');
             this.props.userLogin(res.data.user);

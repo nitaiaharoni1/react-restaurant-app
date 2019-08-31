@@ -69,55 +69,42 @@
       }
     }
   },
-  "testUser@testUser.com": {
-    "user": {
-      "firstName": "Testuser",
-      "lastName": "Testuser",
-      "address": "testUser",
-      "city": "Testuser",
-      "country": "Israel",
-      "houseNum": "123",
-      "email": "testUser@testUser.com",
-      "zip": "12345667"
-    },
-    "password": "1234",
-    "orders": {
-      "8a2d508jzzixaxk": {
-        "total": 9,
-        "totalPrice": 34.05,
-        "payment": {
-          "expYear": "09",
-          "expMonth": "10",
-          "cardName": "123132",
-          "cardNum": "123",
-          "cvv": "123"
-        },
-        "items": {
-          "Fried Spring Rolls": 7,
-          "Gai Of Nuur Satay": 2
-        },
-        "date": 1567254602647
-      }
-    },
-    "currentItems": {
-      "Gai Of Nuur Satay": 1,
-      "Tofu Tod": 1,
-      "Fresh Thai Summer Roll": 1
-    }
-  },
   "test@test.com": {
     "user": {
       "firstName": "Test",
       "lastName": "Test",
-      "address": "TesT",
+      "address": "TEST",
       "city": "Test",
       "country": "Israel",
-      "houseNum": "1",
+      "houseNum": "TEST",
       "email": "test@test.com",
-      "zip": "1234"
+      "zip": "TEST"
     },
     "password": "1234",
-    "orders": {},
-    "currentItems": {}
+    "orders": {
+      "8a2dorsjzzkf337": {
+        "total": 8,
+        "totalPrice": 34.50000000000001,
+        "payment": {
+          "expYear": "05",
+          "expMonth": "03",
+          "cardName": "12321",
+          "cardNum": "12312",
+          "cvv": "123123"
+        },
+        "items": {
+          "Fried Spring Rolls": 3,
+          "Tofu Tod": 3,
+          "Fresh Thai Summer Roll": 2
+        },
+        "date": 1567257111906
+      }
+    },
+    "currentItems": {
+      "Fried Spring Rolls": 1,
+      "Gai Of Nuur Satay": 1,
+      "Tofu Tod": 1,
+      "Fresh Thai Summer Roll": 5
+    }
   }
 }
