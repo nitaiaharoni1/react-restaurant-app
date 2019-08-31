@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CustomParallax from "../components/CustomParallax";
 import menu_top from "../assets/menu_top.jpg";
 import Container from "@material-ui/core/Container";
 
-class Terms extends Component {
-    render() {
-        return (
-            <div>
-                <CustomParallax title='Terms of Service' img={menu_top} height={300}/>
-                <Container>
-                    <div className="cell-wrapper layout-widget-wrapper">
+export default function Terms() {
+    return (
+        <div>
+            <CustomParallax title='Terms of Service' img={menu_top} height={300}/>
+            <Container>
+                <div className="cell-wrapper layout-widget-wrapper">
                     <span id="hs_cos_wrapper_left_column" className="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" style={{}}
                           data-hs-cos-general-type="widget" data-hs-cos-type="rich_text">
                     <h3 className='text-center' style={{textAlign: 'left', fontWeight: 'normal', fontFamily: 'Roboto'}}>TERMS OF USE</h3>
@@ -160,11 +159,8 @@ class Terms extends Component {
                     <p style={{textAlign: 'left'}}><strong>Waiver</strong>. Any waiver or failure to enforce any provision of the Services Agreement on one occasion will not be deemed a waiver of any other provision or of such provision on any other occasion.</p>
                     <p style={{textAlign: 'left'}}><strong>Execution and Delivery; Binding Effect</strong>. The parties will evidence execution and delivery of the Services Agreement with the intention of becoming legally bound, by using Frontline Payroll Services provided by the Application.</p>
                     </span>
-                    </div>
-                </Container>
-            </div>
-        );
-    }
+                </div>
+            </Container>
+        </div>
+    );
 }
-
-export default Terms;

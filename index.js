@@ -174,7 +174,7 @@ app.post('/api/order/new/:email', async (req, res) => {
                 items: items,
                 date: date
             };
-            data[email].currentItems = {}
+            data[email].currentItems = {};
             await writeFileAsync('./data.json', JSON.stringify(data));
             res.status(200).send({msg: 'Order successfully placed', data: data[email], orderId: orderId, date: date});
         } else {
@@ -189,7 +189,7 @@ app.post('/api/order/new/:email', async (req, res) => {
 app.get('/api/gallery', async (req, res) => {
     try {
         let images = await readdirAsync('./server_assets');
-        for (i in images) {
+        for (let i in images) {
             let buffer = await readFileAsync('./server_assets/' + images[i], {encoding: 'base64'});
             images[i] = {img: buffer, title: images[i], key: i};
         }

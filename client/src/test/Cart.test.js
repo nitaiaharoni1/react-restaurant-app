@@ -5,7 +5,6 @@ import reduxStore from "../redux/store";
 
 it('Should render without errors', () => {
     const component = shallow(<Cart store={reduxStore}/>).dive().dive();
-    // console.log(component.debug());
     const cart = component.find('.Cart');
     expect(cart.length).toBe(1);
 });

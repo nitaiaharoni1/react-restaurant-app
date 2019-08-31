@@ -10,7 +10,6 @@ import ScrollArea from "react-scrollbar";
 import HoverPopupItem from './HoverPopupItem'
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
-import {postItemsUpdate} from "../utils/api";
 import {round} from "../utils/functions";
 
 
@@ -77,7 +76,7 @@ class HoverPopup extends Component {
         return (
             <React.Fragment>
                 <Link to='/cart'>
-                    <Button variant="dark" style={{position: 'relative'}} ref="target" onClick={this.toggleC}
+                    <Button variant="dark" style={{position: 'relative'}} ref="target" onClick={this.toggle}
                             onMouseOver={this.show}
                             onMouseOut={this.hide}>
                         <FaShoppingCart className='mr-1' size='1.5em'/>

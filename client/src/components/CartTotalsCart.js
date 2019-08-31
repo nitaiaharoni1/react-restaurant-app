@@ -1,24 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
-class CartTotalsCart extends Component {
-    render() {
+export default function CartTotalsCart(props) {
         return (
             <div>
                 <h4 className='text-uppercase my-auto'>Cart Totals</h4>
                 <Card className='mt-3'>
                     <Card.Header className='pl-2 font-weight-bold'>
-                        {this.props.total} Products
+                        {props.total} Products
                     </Card.Header>
                     <Card.Body className='d-flex justify-content-between p-2 mt-3'>
                         <Card.Text>
                             Products Price
                         </Card.Text>
                         <Card.Text>
-                            ${this.props.totalPrice}
+                            ${props.totalPrice}
                         </Card.Text>
                     </Card.Body>
 
@@ -36,13 +35,13 @@ class CartTotalsCart extends Component {
                             Total
                         </Card.Text>
                         <Card.Text>
-                            ${this.props.totalPrice + 3.50}
+                            ${props.totalPrice + 3.50}
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
                         <Link to='checkout'>
-                            <Button variant='warning' block disabled={this.props.disabled}>
-                                {this.props.buttonText}
+                            <Button variant='warning' block disabled={props.disabled}>
+                                {props.buttonText}
                             </Button>
                         </Link>
                         <hr/>
@@ -59,7 +58,4 @@ class CartTotalsCart extends Component {
                 </Card>
             </div>
         );
-    }
 }
-
-export default CartTotalsCart;

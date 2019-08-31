@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, FormControl, Button, Form, NavDropdown } from 'react-bootstrap'
+import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
 import HoverPopup from './HoverPopup';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
 import { userLogout } from "../redux/actions/userActions";
 import { postLogout } from "../utils/api";
 

@@ -1,23 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 
-class CartTotalsCheckout extends Component {
-    render() {
+export default function CartTotalsCheckout(props) {
         return (
             <div>
                 <h4 className='text-uppercase my-auto'>Cart Totals</h4>
                 <Card className='mt-3'>
                     <Card.Header className='pl-2 font-weight-bold'>
-                        {this.props.total} Products
+                        {props.total} Products
                     </Card.Header>
                     <Card.Body className='d-flex justify-content-between p-2 mt-3'>
                         <Card.Text>
                             Products Price
                         </Card.Text>
                         <Card.Text>
-                            ${this.props.totalPrice}
+                            ${props.totalPrice}
                         </Card.Text>
                     </Card.Body>
 
@@ -35,12 +34,12 @@ class CartTotalsCheckout extends Component {
                             Total
                         </Card.Text>
                         <Card.Text>
-                            ${this.props.totalPrice + 3.50}
+                            ${props.totalPrice + 3.50}
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        <Button onClick={this.props.handleNewOrder} variant='warning' block disabled={this.props.disabled}>
-                            {this.props.buttonText}
+                        <Button onClick={props.handleNewOrder} variant='warning' block disabled={props.disabled}>
+                            {props.buttonText}
                         </Button>
                         <hr/>
                         <h6 className='mt-3'>
@@ -56,7 +55,4 @@ class CartTotalsCheckout extends Component {
 
             </div>
         );
-    }
 }
-
-export default CartTotalsCheckout;

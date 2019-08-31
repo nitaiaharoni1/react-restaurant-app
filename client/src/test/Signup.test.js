@@ -5,7 +5,6 @@ import reduxStore from "../redux/store";
 
 it('Should render without errors', () => {
     const component = shallow(<Signup store={reduxStore}/>).dive();
-    console.log(component.debug())
     const signup = component.find('.Signup');
     expect(signup.length).toBe(1);
 });

@@ -3,10 +3,9 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import DeliveryCard from "./DeliveryCard";
 import { connect } from "react-redux";
-import { Button, Form, FormControl, Nav } from "react-bootstrap";
+import {Form, FormControl} from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
 import InputGroup from "react-bootstrap/InputGroup";
-import { Link } from "react-router-dom";
 
 class DeliveryMenu extends Component {
     state = {

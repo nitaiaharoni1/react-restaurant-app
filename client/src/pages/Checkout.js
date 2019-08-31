@@ -1,31 +1,27 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import CustomParallax from "../components/CustomParallax";
 import home_top from "../assets/home_top.jpg";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CartTotalsCheckout from "../components/CartTotalsCheckout";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { postNewOrder } from "../utils/api";
-import { Set, Reset } from "../redux/actions/cartActions";
+import {postNewOrder} from "../utils/api";
+import {Set, Reset} from "../redux/actions/cartActions";
 import {round} from "../utils/functions";
 
 class Checkout extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            expYear: '',
-            expMonth: '',
-            cardName: '',
-            cardNum: '',
-            cvv: ''
-        };
-    }
+    state = {
+        expYear: '',
+        expMonth: '',
+        cardName: '',
+        cardNum: '',
+        cvv: ''
+    };
 
     validateForm() {
         return !(this.state.expYear.length > 0 && this.state.expMonth.length > 0 && this.state.cardName.length > 0 && this.state.cardNum.length > 0 && this.state.cvv.length > 0);

@@ -1,29 +1,25 @@
-import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
-import { userSignup } from "../redux/actions/userActions";
-import { connect } from "react-redux";
-import { postSignup } from "../utils/api";
+import {userSignup} from "../redux/actions/userActions";
+import {connect} from "react-redux";
+import {postSignup} from "../utils/api";
 
 class Signup extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            agree: false,
-            firstName: '',
-            lastName: '',
-            address: '',
-            city: '',
-            country: '',
-            houseNum: '',
-            email: '',
-            password: '',
-        };
-    }
+    state = {
+        agree: false,
+        firstName: '',
+        lastName: '',
+        address: '',
+        city: '',
+        country: '',
+        houseNum: '',
+        email: '',
+        password: '',
+    };
 
     validateForm() {
         return !(this.state.agree && this.state.firstName.length > 0 && this.state.lastName.length > 0 && this.state.address.length > 0 && this.state.city.length > 0 && this.state.country.length > 0 && this.state.houseNum.length > 0 && this.state.email.length > 0 && this.state.password.length > 0);

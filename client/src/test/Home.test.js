@@ -4,7 +4,6 @@ import {shallow} from 'enzyme'
 
 it('Should render without errors', () => {
     const component = shallow(<Home/>);
-    //console.log(component.debug())
     const home = component.find('.Home');
     expect(home.length).toBe(1);
 });

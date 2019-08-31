@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import CustomParallax from '../components/CustomParallax'
 import home_top from "../assets/home_top.jpg";
 import GridList from "@material-ui/core/GridList";
@@ -8,20 +8,17 @@ import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 
 class Gallery extends Component {
+    state = {
+        imgs: [],
+        loading: true,
+        width: window.innerWidth
+    };
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            imgs: [],
-            loading: true,
-            width: window.innerWidth
-        };
+    async componentDidMount() {
         window.addEventListener("resize", () => {
             this.setState({width: window.innerWidth});
         });
-    }
 
-    async componentDidMount() {
         const res = await fetch('/api/gallery');
         const images = (await res.json()).images;
         await images.forEach((obj) => {
@@ -46,8 +43,7 @@ class Gallery extends Component {
                         </GridListTile>
                     ))}
                 </GridList>
-            </div>
-        ;
+            </div>;
 
         return (
             <React.Fragment>
