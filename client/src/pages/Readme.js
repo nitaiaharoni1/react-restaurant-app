@@ -206,6 +206,14 @@ export default function Readme() {
                         </ol>
                     </div>
 
+                    <div>
+                        <h2>Testing</h2>
+                        <hr/>
+                        <ol>
+                            <li>In react-restaurant-website directory run in terminal: <code>npm test</code></li>
+                        </ol>
+                    </div>
+
                 </article>
             </Container>
         </>
