@@ -118,14 +118,13 @@ export default function Readme() {
                             <h4>What was hard to do?</h4>
                             <ul>
                                 <li>Learn to React from scratch</li>
-                                <li>Learn Bootstrap from scratch</li>
-                                <li>Learn Redux framework from scratch (Working in a very non-intuitive way I must say)</li>
-                                <li>Learn Jest testing framework from scratch</li>
+                                <li>Learn Bootstrap from scratch, which was very hard for me to understand at the beginning.</li>
+                                <li>Learn Redux framework from scratch (Working in a very non-intuitive way I must say).</li>
+                                <li>Learn Jest and Enzyme testing framework from scratch.</li>
                                 <li>Integrate with Node Express and save the data (And deployment to Heroku that I wanted to do to allow my site
-                                    to be
-                                    public).
+                                    to be public).
                                 </li>
-                                <li>In general, coding the project took me around 120 hours (Which in itself is difficult).</li>
+                                <li>In general, coding the project took me around 140 hours, which in itself is difficult.</li>
                             </ul>
                         </div>
 
@@ -177,6 +176,8 @@ export default function Readme() {
                                 <li>Validating all forms</li>
                                 <li>Validating admin user before showing Admin page</li>
                                 <li>Validating requests on the server</li>
+                                <li>Working with cookies</li>
+                                <li>Not exposing static files which contain private information</li>
                             </ul>
                         </div>
 
