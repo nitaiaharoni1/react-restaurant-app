@@ -124,7 +124,7 @@ export default function Readme() {
                                 <li>Integrate with Node Express and save the data (And deployment to Heroku that I wanted to do to allow my site
                                     to be public).
                                 </li>
-                                <li>In general, coding the project took me around 140 hours, which in itself is difficult.</li>
+                                <li>In general, coding the project took me around 120 hours, which in itself is difficult.</li>
                             </ul>
                         </div>
 
