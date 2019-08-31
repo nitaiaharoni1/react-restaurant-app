@@ -106,5 +106,24 @@
       "Tofu Tod": 1,
       "Fresh Thai Summer Roll": 5
     }
+  },
+  "new@new.com": {
+    "user": {
+      "firstName": "New",
+      "lastName": "New",
+      "address": "NEW",
+      "city": "New",
+      "country": "Israel",
+      "houseNum": "NEW",
+      "email": "new@new.com",
+      "zip": "NEW"
+    },
+    "password": "1234",
+    "orders": {},
+    "currentItems": {
+      "Gai Of Nuur Satay": 1,
+      "Tofu Tod": 1,
+      "Fresh Thai Summer Roll": 1
+    }
   }
 }

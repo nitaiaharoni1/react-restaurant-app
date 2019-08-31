@@ -146,6 +146,8 @@ app.post('/api/user/signup', async (req, res) => {
                 "currentItems": {}
             };
             await writeFileAsync('./data.json', JSON.stringify(data));
+            const token = jwt.sign({email}, SECRET);
+            res.cookie('token_mama', token, {maxAge: 60 * 5 * 1000});
             res.status(200).send({msg: 'Signup successful'});
         } else {
             res.status(500).send({msg: `The user ${email}, is already signed up...`});
