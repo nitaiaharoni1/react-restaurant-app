@@ -6,15 +6,22 @@ const express = require('express'),
     uniqid = require('uniqid'),
     cookieParser = require('cookie-parser'),
     jwt = require('jsonwebtoken'),
+    rateLimit = require("express-rate-limit"),
     readdirAsync = promisify(fs.readdir),
     readFileAsync = promisify(fs.readFile),
     writeFileAsync = promisify(fs.writeFile);
 
-const SECRET = 'secret';
+const SECRET = 'secret',
+    app = express(),
+    port = process.env.PORT || 3005,
+    limiter = rateLimit({
+        windowMs: 15 * 60 * 1000, // 15 minutes
+        max: 100, // limit each IP to 100 requests per windowMs
+        message: "Too many requests from this IP, please try again later"
+    });
 
-const app = express();
-const port = process.env.PORT || 3005;
-
+app.set('trust proxy', 1);
+app.use(limiter);
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));

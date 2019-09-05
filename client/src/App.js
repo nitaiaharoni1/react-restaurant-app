@@ -42,7 +42,7 @@ class App extends Component {
                         <Route exact path="/cart" component={Cart}/>
                         <Route exact path="/login" component={Login}/>
                         <Route exact path="/signup" component={Signup}/>
-                        {this.props.loggedIn && <Route exact path="/checkout" component={Checkout}/>}
+                        <Route exact path="/checkout" component={Checkout}/>
                         <Route exact path="/terms" component={Terms}/>
                         <Route exact path="/readme" component={Readme}/>
                         {this.props.loggedIn && this.props.email === 'admin' && <Route exact path="/admin" component={Admin}/>}
