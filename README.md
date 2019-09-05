@@ -92,6 +92,7 @@ Home page `/home`:
 * Validating requests on the server
 * Working with cookies.
 * Not exposing static files which contain private information.
+* Preventing repeated requests (DDOS) to the API with express-rate-limit
 
 #### Did you implement the store using react.js? 
 Yes, React and Redux
