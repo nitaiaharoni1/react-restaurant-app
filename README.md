@@ -104,7 +104,7 @@ Yes, React and Redux
 
 ## Running locally
 1. In react-restaurant-website directory run in terminal: `npm run app`
-2. Open http://localhost:3000
+2. Open http://localhost:3005
 
 ## Testing
 1. In react-restaurant-website directory run in terminal: `npm test`
