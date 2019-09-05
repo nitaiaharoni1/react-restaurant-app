@@ -3,6 +3,7 @@ Mama's Restaurant is an ecommerce website built using React, Redux integrated wi
 
 A demo for the Website App is available [here](https://mamas-restaurant-app.herokuapp.com/).
 
+The app is responsive (suitable for different screen sizes - phone, tablet, etc.)
 ![mamas restaurant](website.gif "mamas restaurant")
 
 ## Project Questions
