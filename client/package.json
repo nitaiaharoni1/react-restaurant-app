@@ -6,8 +6,6 @@
   "dependencies": {
     "@material-ui/core": "^4.2.1",
     "bootstrap": "^4.3.1",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.6",
@@ -21,6 +19,10 @@
     "react-test-renderer": "^16.9.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0"
   },
   "scripts": {
     "start": "react-scripts start",
