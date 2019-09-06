@@ -6,13 +6,13 @@
         "start": "node index.js",
         "app": "npm install && cd client && npm install && npm run build && cd .. && node index.js",
         "heroku-postbuild": "cd client && npm install && npm run build",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "cd test && npm test && a"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/nitaiaharoni1/react-restaurant-website.git"
     },
-    "author": "",
+    "author": "Nitai Aharoni",
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/nitaiaharoni1/react-restaurant-website/issues"
@@ -23,6 +23,7 @@
         "cookie-parser": "^1.4.4",
         "express": "^4.17.1",
         "express-rate-limit": "^5.0.0",
+        "jest": "^24.9.0",
         "jsonwebtoken": "^8.5.1",
         "path": "^0.12.7",
         "promisify-node": "^0.5.0",
