@@ -6,7 +6,7 @@
         "start": "node index.js",
         "app": "npm install && cd client && npm install && npm run build && cd .. && node index.js",
         "heroku-postbuild": "cd client && npm install && npm run build",
-        "test": "jest"
+        "test": "mocha"
     },
     "repository": {
         "type": "git",

@@ -79,6 +79,8 @@ Home page `/home`:
 * Logout user - POST `/api/user/logout`
 
 * Signup new user - POST `/api/user/signup`
+
+* Delete a user - DELETE `/api/user/:email/:password`
    
 * Post a new order - POST `/api/order/new/:email`
       
@@ -107,5 +109,4 @@ Yes, React and Redux
 2. Open http://localhost:3005
 
 ## Testing
-1. In react-restaurant-website directory run in terminal: `npm test`
-2. Run all tests `a`
+1. In project directory run in terminal: `npm test`

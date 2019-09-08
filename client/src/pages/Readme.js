@@ -157,6 +157,8 @@ export default function Readme() {
                                 </li>
                                 <li>
                                     <p>Signup new user - POST <code>/api/user/signup</code></p>
+                                </li>                                <li>
+                                    <p>Delete a user - DELETE <code>/api/user/:email/:password</code></p>
                                 </li>
                                 <li>
                                     <p>Post a new order - POST <code>/api/order/new/:email</code></p>
@@ -178,6 +180,7 @@ export default function Readme() {
                                 <li>Validating requests on the server.</li>
                                 <li>Working with cookies.</li>
                                 <li>Not exposing static files which contain private information.</li>
+                                <li>Preventing repeated requests (DDOS) to the API with express-rate-limit.</li>
                             </ul>
                         </div>
 
