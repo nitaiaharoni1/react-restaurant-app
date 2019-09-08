@@ -164,6 +164,24 @@ app.post('/api/user/signup', async (req, res) => {
     }
 });
 
+//Delete a user
+app.delete('/api/user/:email/:password', async (req, res) => {
+    try {
+        const data = require('./data'),
+            email = req.params.email,
+            password = req.params.password;
+        if (data[email] && data[email].password === password) {
+            delete data[email];
+            await writeFileAsync('./data.json', JSON.stringify(data));
+            res.status(200).send({msg: 'User was deleted successfully', data: data[email]});
+        } else {
+            res.status(500).send({msg: 'User deletion failed'});
+        }
+    } catch (e) {
+        res.status(500).send({msg: e.message});
+    }
+});
+
 //Post a new order
 app.post('/api/order/new/:email', async (req, res) => {
     try {
