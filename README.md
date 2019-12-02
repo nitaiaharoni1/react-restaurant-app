@@ -6,11 +6,7 @@ A demo for the Website App is available [here](https://mamas-restaurant-app.hero
 The app is responsive (suitable for different screen sizes - phone, tablet, etc.)
 ![mamas restaurant](website.gif "mamas restaurant")
 
-## Project Questions
-
-#### What are you selling?
-* Our store is basically a restaurant and we sell food through delivery to the customer's house.
-#### What additional page did you add? How to operate them?
+## Pages
 Home page `/home`:
     * Welcome home page.
     * You can scroll and see pictures with effect, and get information about the restaurant.
@@ -55,19 +51,7 @@ Home page `/home`:
 * Page not found page `/any other`:
     * This page will display when any route that is not defined is used.
 
-#### What was hard to do?
-* Learn to React from scratch.
-* Learn Bootstrap from scratch, which was very hard for me to understand at the beginning.
-* Learn Redux framework from scratch (Working in a very non-intuitive way I must say).
-* Learn Jest and Enzyme testing framework from scratch.
-* Integrate with Node Express and save the data (And deployment to Heroku that I wanted to do to allow my site to be public).
-* In general, coding the project took me around 120 hours, which in itself is difficult.
-
-#### Who is your partner name and id?
-* Me: `Nitai Aharoni 203626742`
-* Partner: `Nadav Lotan 312346406`
-
-#### Specify all the different route your app supports
+## Backend routes
 * Update user's items in db - POST `/api/items/:email/:title/:action`
     
 * Authenticate user with cookie on lunching the app and getting user's data - GET `/api/items/:email/:title/:action`
@@ -87,24 +71,13 @@ Home page `/home`:
 * Get gallery images (Simulates database access) - GET `/api/gallery`
    
 * Serves react client static files - GET `*`
-    
-#### How did you make your store secured?
-* Validating all forms
-* Validating admin user before showing Admin page
-* Validating requests on the server
-* Working with cookies.
-* Not exposing static files which contain private information.
-* Preventing repeated requests (DDOS) to the API with express-rate-limit
-
-#### Did you implement the store using react.js? 
-Yes, React and Redux
 
 ## Prerequisites
 1. Git
 2. Node v10.16.1
 3. A fork/clone of this repo
 
-## Running locally
+## Installation
 1. In react-restaurant-website directory run in terminal: `npm run app`
 2. Open http://localhost:3005
 
