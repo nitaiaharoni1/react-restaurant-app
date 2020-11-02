@@ -13,7 +13,7 @@ export default function Footer() {
                         <Row className='text-capitalize'>
                             <Col lg={3}>
                                 <p>Brooklyn
-                                    376 Fake Street
+                                    376 BlaBla Street
                                     Brooklyn, NY — 11231
                                     (718) 555-1234
                                 </p>
@@ -22,13 +22,15 @@ export default function Footer() {
                                 <p>Queens
                                     47-33 Fake Street
                                     Long Island City, NY — 11101
-                                    (347) 555-1234</p>
+                                    (347) 555-1234
+                                </p>
                             </Col>
                             <Col lg={3}>
                                 <p>Food Truck
                                     25 Fake Street
                                     New York, NY — 10003
-                                    (917) 555-1234</p>
+                                    (917) 555-1234
+                                </p>
                             </Col>
                         </Row>
 
@@ -37,7 +39,7 @@ export default function Footer() {
                         <Col>
                             <p className='text-uppercase'>Hours</p>
                             <p>Monday — Thursday
-                                <p>8am — 11pm </p>
+                                <p>8am — 11pm</p>
                             </p>
 
                             <p>
