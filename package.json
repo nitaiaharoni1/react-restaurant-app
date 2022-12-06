@@ -19,9 +19,9 @@
     },
     "homepage": "https://github.com/nitaiaharoni1/react-restaurant-website#readme",
     "dependencies": {
-        "body-parser": "^1.19.0",
+        "body-parser": "^1.20.1",
         "cookie-parser": "^1.4.4",
-        "express": "^4.17.1",
+        "express": "^4.18.2",
         "express-rate-limit": "^5.0.0",
         "jsonwebtoken": "^8.5.1",
         "path": "^0.12.7",
