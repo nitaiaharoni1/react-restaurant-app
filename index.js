@@ -30,6 +30,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'client/build')));
 
+
+
+
+//testing purposese
+
+
 //Update user's items in db
 app.post('/api/items/:email/:title/:action', async (req, res) => {
     try {
@@ -102,7 +108,7 @@ app.get('/api/user/login/:email/:password/:remember', async (req, res) => {
     try {
         const data = require('./data'),
             email = req.params.email,
-            password = req.params.password,
+            password = req.params.password, //password test
             maxAge = req.params.remember === "true" ? (10 * 365 * 24 * 60 * 60) : (60 * 5 * 1000);
         if (data[email] && data[email].password === password) {
             const token = jwt.sign({email}, SECRET);
